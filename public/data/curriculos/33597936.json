@@ -1,7 +1,1195 @@
 {
   "curso_id": "33597936",
-  "quantidade_estruturas": 2,
+  "quantidade_estruturas": 3,
   "estruturas": [
+    {
+      "id": "36642272",
+      "codigo": "APGS02",
+      "ano_criacao": 2027,
+      "status": "Ativa",
+      "quantidade_componentes": 63,
+      "quantidade_obrigatorias": 36,
+      "quantidade_optativas": 27,
+      "componentes": [
+        {
+          "codigo": "GPS0003",
+          "nome": "FUNDAMENTOS DE ECONOMIA",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 1,
+          "id": "1244",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( ADM0321 )",
+          "equivalencias_codigos": [
+            "ADM0321"
+          ]
+        },
+        {
+          "codigo": "GPS0060",
+          "nome": "FUNDAMENTOS DE CIÊNCIAS SOCIAIS",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 1,
+          "id": "1759",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0001 OU CCB0002 )",
+          "equivalencias_codigos": [
+            "GPS0001",
+            "CCB0002"
+          ]
+        },
+        {
+          "codigo": "GPS0062",
+          "nome": "PRODUÇÃO TEXTUAL",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 1,
+          "id": "1761",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0104",
+          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO PÚBLICA E À GESTÃO SOCIAL",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 1,
+          "id": "5622",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0061 )",
+          "equivalencias_codigos": [
+            "GPS0061"
+          ]
+        },
+        {
+          "codigo": "GPS0105",
+          "nome": "OFICINA TEMÁTICA 1: ÉTICA, SOCIEDADE E UNIVERSIDADE",
+          "carga_horaria": 96,
+          "tipo": "obrigatoria",
+          "nivel": 1,
+          "id": "5623",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0063 )",
+          "equivalencias_codigos": [
+            "GPS0063"
+          ]
+        },
+        {
+          "codigo": "GPS0007",
+          "nome": "ECONOMIA BRASILEIRA",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 2,
+          "id": "1286",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0066",
+          "nome": "METODOLOGIA DO TRABALHO CIENTÍFICO",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 2,
+          "id": "1765",
+          "pre_requisitos_expressao": "( GPS0062 )",
+          "pre_requisitos_codigos": [
+            "GPS0062"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0062"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0006 OU ADM0311 OU CCB0010 )",
+          "equivalencias_codigos": [
+            "GPS0006",
+            "ADM0311",
+            "CCB0010"
+          ]
+        },
+        {
+          "codigo": "GPS0070",
+          "nome": "GESTÃO SOCIAL E TERRITÓRIO",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 2,
+          "id": "1769",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0009 OU GPS0012 )",
+          "equivalencias_codigos": [
+            "GPS0009",
+            "GPS0012"
+          ]
+        },
+        {
+          "codigo": "GPS0106",
+          "nome": "ESTADO, GOVERNO E ADMINISTRAÇÃO PÚBLICA",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 2,
+          "id": "5624",
+          "pre_requisitos_expressao": "( GPS0104 )",
+          "pre_requisitos_codigos": [
+            "GPS0104"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0104"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0074 )",
+          "equivalencias_codigos": [
+            "GPS0074"
+          ]
+        },
+        {
+          "codigo": "GPS0107",
+          "nome": "OFICINA TEMÁTICA 2: SUSTENTABILIDADE: DEBATES E CONTEXTO ATUAL",
+          "carga_horaria": 96,
+          "tipo": "obrigatoria",
+          "nivel": 2,
+          "id": "5625",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0002 )",
+          "equivalencias_codigos": [
+            "GPS0002"
+          ]
+        },
+        {
+          "codigo": "GPS0108",
+          "nome": "TEORIAS DA DEMOCRACIA E SOCIEDADE",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 3,
+          "id": "5626",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0073 )",
+          "equivalencias_codigos": [
+            "GPS0073"
+          ]
+        },
+        {
+          "codigo": "GPS0109",
+          "nome": "FUNDAMENTOS DE POLÍTICAS PÚBLICAS",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 3,
+          "id": "5627",
+          "pre_requisitos_expressao": "( GPS0104 )",
+          "pre_requisitos_codigos": [
+            "GPS0104"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0104"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0008 )",
+          "equivalencias_codigos": [
+            "GPS0008"
+          ]
+        },
+        {
+          "codigo": "GPS0110",
+          "nome": "INTRODUÇÃO AO ESTUDO DO DIREITO",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 3,
+          "id": "5628",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0071 OU ADM0307 OU ADM0008 OU CCB0004 OU ADM0352 )",
+          "equivalencias_codigos": [
+            "GPS0071",
+            "ADM0307",
+            "ADM0008",
+            "CCB0004",
+            "ADM0352"
+          ]
+        },
+        {
+          "codigo": "GPS0111",
+          "nome": "ESTATÍSTICA",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 3,
+          "id": "5629",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0020 OU ADM0301 OU GPS0076 )",
+          "equivalencias_codigos": [
+            "GPS0020",
+            "ADM0301",
+            "GPS0076"
+          ]
+        },
+        {
+          "codigo": "GPS0112",
+          "nome": "OFICINA TEMÁTICA 3: TECNOLOGIA DA INFORMAÇÃO E DA COMUNICAÇÃO APLICADA À GESTÃO PÚBLICA",
+          "carga_horaria": 96,
+          "tipo": "obrigatoria",
+          "nivel": 3,
+          "id": "5630",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0083 )",
+          "equivalencias_codigos": [
+            "GPS0083"
+          ]
+        },
+        {
+          "codigo": "GPS0035",
+          "nome": "GESTÃO DE PESSOAS NAS ORGANIZAÇÕES PÚBLICAS E SOCIAIS",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 4,
+          "id": "1378",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0113",
+          "nome": "PLANEJAMENTO, IMPLEMENTAÇÃO E GESTÃO DE POLÍTICAS PÚBLICAS",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 4,
+          "id": "5631",
+          "pre_requisitos_expressao": "( GPS0109 )",
+          "pre_requisitos_codigos": [
+            "GPS0109"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0109"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0078 )",
+          "equivalencias_codigos": [
+            "GPS0078"
+          ]
+        },
+        {
+          "codigo": "GPS0114",
+          "nome": "DIREITO CONSTITUCIONAL",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 4,
+          "id": "5632",
+          "pre_requisitos_expressao": "( GPS0110 )",
+          "pre_requisitos_codigos": [
+            "GPS0110"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0110"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0068 )",
+          "equivalencias_codigos": [
+            "GPS0068"
+          ]
+        },
+        {
+          "codigo": "GPS0115",
+          "nome": "MÉTODOS E TÉCNICAS DE PESQUISA",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 4,
+          "id": "5633",
+          "pre_requisitos_expressao": "( GPS0066 E GPS0111 )",
+          "pre_requisitos_codigos": [
+            "GPS0066",
+            "GPS0111"
+          ],
+          "pre_requisitos_regra": {
+            "operador": "E",
+            "esquerda": {
+              "codigo": "GPS0066"
+            },
+            "direita": {
+              "codigo": "GPS0111"
+            }
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0084 )",
+          "equivalencias_codigos": [
+            "GPS0084"
+          ]
+        },
+        {
+          "codigo": "GPS0116",
+          "nome": "OFICINA TEMÁTICA 4: PARTICIPAÇÃO, MOBILIZAÇÃO SOCIAL E TRABALHO COM COMUNIDADES",
+          "carga_horaria": 96,
+          "tipo": "obrigatoria",
+          "nivel": 4,
+          "id": "5634",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0085 )",
+          "equivalencias_codigos": [
+            "GPS0085"
+          ]
+        },
+        {
+          "codigo": "GPS0031",
+          "nome": "DIREITO ADMINISTRATIVO",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 5,
+          "id": "1374",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0117",
+          "nome": "ANÁLISE E AVALIAÇÃO DE POLÍTICAS PÚBLICAS",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 5,
+          "id": "5635",
+          "pre_requisitos_expressao": "( GPS0113 )",
+          "pre_requisitos_codigos": [
+            "GPS0113"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0113"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0080 )",
+          "equivalencias_codigos": [
+            "GPS0080"
+          ]
+        },
+        {
+          "codigo": "GPS0118",
+          "nome": "SOCIOECONOMIA E ECONOMIA SOLIDÁRIA",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 5,
+          "id": "5636",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0021 )",
+          "equivalencias_codigos": [
+            "GPS0021"
+          ]
+        },
+        {
+          "codigo": "GPS0119",
+          "nome": "METODOLOGIAS INTEGRATIVAS E RESIDÊNCIA SOCIAL",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 5,
+          "id": "5637",
+          "pre_requisitos_expressao": "( GPS0115 )",
+          "pre_requisitos_codigos": [
+            "GPS0115"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0115"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0086 )",
+          "equivalencias_codigos": [
+            "GPS0086"
+          ]
+        },
+        {
+          "codigo": "GPS0077",
+          "nome": "FUNDAMENTOS DA CONTABILIDADE",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 6,
+          "id": "1776",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0017 ) OU ( ADM0317 ) OU ( CCB0001 ) OU ( ADM0408 )",
+          "equivalencias_codigos": [
+            "GPS0017",
+            "ADM0317",
+            "CCB0001",
+            "ADM0408"
+          ]
+        },
+        {
+          "codigo": "GPS0120",
+          "nome": "GESTÃO POR PROCESSOS",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 6,
+          "id": "5638",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( ADM0470 OU PG0025 )",
+          "equivalencias_codigos": [
+            "ADM0470",
+            "PG0025"
+          ]
+        },
+        {
+          "codigo": "GPS0121",
+          "nome": "GESTÃO DAS ORGANIZAÇÕES DA SOCIEDADE CIVIL",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 6,
+          "id": "5639",
+          "pre_requisitos_expressao": "( GPS0070 )",
+          "pre_requisitos_codigos": [
+            "GPS0070"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0070"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0051 )",
+          "equivalencias_codigos": [
+            "GPS0051"
+          ]
+        },
+        {
+          "codigo": "GPS0122",
+          "nome": "PESQUISA E INTERVENÇÃO",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 6,
+          "id": "5640",
+          "pre_requisitos_expressao": "( GPS0115 )",
+          "pre_requisitos_codigos": [
+            "GPS0115"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0115"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0088 )",
+          "equivalencias_codigos": [
+            "GPS0088"
+          ]
+        },
+        {
+          "codigo": "GPS0123",
+          "nome": "RESIDÊNCIA SOCIAL I",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 6,
+          "id": "5641",
+          "pre_requisitos_expressao": "( GPS0119 )",
+          "pre_requisitos_codigos": [
+            "GPS0119"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0119"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0089 )",
+          "equivalencias_codigos": [
+            "GPS0089"
+          ]
+        },
+        {
+          "codigo": "GPS0124",
+          "nome": "GESTÃO DE SERVIÇOS PÚBLICOS",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 7,
+          "id": "5642",
+          "pre_requisitos_expressao": "( GPS0031 E GPS0106 E GPS0113 )",
+          "pre_requisitos_codigos": [
+            "GPS0031",
+            "GPS0106",
+            "GPS0113"
+          ],
+          "pre_requisitos_regra": {
+            "operador": "E",
+            "esquerda": {
+              "operador": "E",
+              "esquerda": {
+                "codigo": "GPS0031"
+              },
+              "direita": {
+                "codigo": "GPS0106"
+              }
+            },
+            "direita": {
+              "codigo": "GPS0113"
+            }
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0087 )",
+          "equivalencias_codigos": [
+            "GPS0087"
+          ]
+        },
+        {
+          "codigo": "GPS0125",
+          "nome": "FINANÇAS E ORÇAMENTO PÚBLICO",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 7,
+          "id": "5643",
+          "pre_requisitos_expressao": "( GPS0077 E GPS0109 )",
+          "pre_requisitos_codigos": [
+            "GPS0077",
+            "GPS0109"
+          ],
+          "pre_requisitos_regra": {
+            "operador": "E",
+            "esquerda": {
+              "codigo": "GPS0077"
+            },
+            "direita": {
+              "codigo": "GPS0109"
+            }
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( ADM0346 OU ADM0463 OU CCB0055 OU GPS0039 )",
+          "equivalencias_codigos": [
+            "ADM0346",
+            "ADM0463",
+            "CCB0055",
+            "GPS0039"
+          ]
+        },
+        {
+          "codigo": "GPS0126",
+          "nome": "GESTÃO GOVERNAMENTAL",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 7,
+          "id": "5644",
+          "pre_requisitos_expressao": "( GPS0106 E GPS0113 )",
+          "pre_requisitos_codigos": [
+            "GPS0106",
+            "GPS0113"
+          ],
+          "pre_requisitos_regra": {
+            "operador": "E",
+            "esquerda": {
+              "codigo": "GPS0106"
+            },
+            "direita": {
+              "codigo": "GPS0113"
+            }
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0127",
+          "nome": "RESIDÊNCIA SOCIAL II",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 7,
+          "id": "5645",
+          "pre_requisitos_expressao": "( GPS0119 )",
+          "pre_requisitos_codigos": [
+            "GPS0119"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0119"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0089 )",
+          "equivalencias_codigos": [
+            "GPS0089"
+          ]
+        },
+        {
+          "codigo": "GPS0128",
+          "nome": "ELABORAÇÃO E AVALIAÇÃO DE PROJETOS",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 8,
+          "id": "5646",
+          "pre_requisitos_expressao": "( GPS0115 )",
+          "pre_requisitos_codigos": [
+            "GPS0115"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0115"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0046 )",
+          "equivalencias_codigos": [
+            "GPS0046"
+          ]
+        },
+        {
+          "codigo": "GPS0129",
+          "nome": "COMPRAS, CONTRATOS E LICITAÇÕES",
+          "carga_horaria": 64,
+          "tipo": "obrigatoria",
+          "nivel": 8,
+          "id": "5647",
+          "pre_requisitos_expressao": "( GPS0125 )",
+          "pre_requisitos_codigos": [
+            "GPS0125"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0125"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0044 )",
+          "equivalencias_codigos": [
+            "GPS0044"
+          ]
+        },
+        {
+          "codigo": "GPS0130",
+          "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
+          "carga_horaria": 96,
+          "tipo": "obrigatoria",
+          "nivel": 8,
+          "id": "5648",
+          "pre_requisitos_expressao": "( GPS0122 )",
+          "pre_requisitos_codigos": [
+            "GPS0122"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0122"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0058 )",
+          "equivalencias_codigos": [
+            "GPS0058"
+          ]
+        },
+        {
+          "codigo": "CAR0010",
+          "nome": "LÍNGUA BRASILEIRA DE SINAIS: LIBRAS",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "1357",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0024",
+          "nome": "GOVERNO ELETRÔNICO",
+          "carga_horaria": 32,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "1361",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0033",
+          "nome": "ECONOMIA DO SETOR PÚBLICO",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "1376",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0037",
+          "nome": "TEORIA DAS ORGANIZAÇÕES",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "1380",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( ADM0353 )",
+          "equivalencias_codigos": [
+            "ADM0353"
+          ]
+        },
+        {
+          "codigo": "GPS0045",
+          "nome": "COMUNICAÇÃO INSTITUCIONAL E MARKETING PÚBLICO",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "1445",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0049",
+          "nome": "EMPREENDEDORISMO E INOVAÇÃO NA GESTÃO PÚBLICA E NA GESTÃO SOCIAL",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "1449",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0057",
+          "nome": "SOCIEDADES COMPLEXAS, MULTICULTURALISMO E DIREITOS",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "1457",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0081",
+          "nome": "GESTÃO TRIBUTÁRIA",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "1780",
+          "pre_requisitos_expressao": "( GPS0077 )",
+          "pre_requisitos_codigos": [
+            "GPS0077"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0077"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0027 OU GPS0029 )",
+          "equivalencias_codigos": [
+            "GPS0027",
+            "GPS0029"
+          ]
+        },
+        {
+          "codigo": "GPS0091",
+          "nome": "FORMAÇÃO POLÍTICA E ECONÔMICA DO NORDESTE",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "1792",
+          "pre_requisitos_expressao": "( GPS0003 )",
+          "pre_requisitos_codigos": [
+            "GPS0003"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0003"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0050 )",
+          "equivalencias_codigos": [
+            "GPS0050"
+          ]
+        },
+        {
+          "codigo": "GPS0093",
+          "nome": "CULTURA E GESTÃO DA MEMÓRIA SOCIAL",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "1800",
+          "pre_requisitos_expressao": "( GPS0060 )",
+          "pre_requisitos_codigos": [
+            "GPS0060"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0060"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0026 )",
+          "equivalencias_codigos": [
+            "GPS0026"
+          ]
+        },
+        {
+          "codigo": "GPS0094",
+          "nome": "CULTURA, CRIATIVIDADE E GESTÃO.",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "1801",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0095",
+          "nome": "TECNOLOGIAS SOCIOAMBIENTAIS E PERMACULTURA",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "1802",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0055 )",
+          "equivalencias_codigos": [
+            "GPS0055"
+          ]
+        },
+        {
+          "codigo": "GPS0099",
+          "nome": "ELEIÇÕES E CULTURA POLÍTICA NO BRASIL",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "1794",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0100",
+          "nome": "SOCIOLOGIA DO PODER",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "1795",
+          "pre_requisitos_expressao": "( GPS0060 )",
+          "pre_requisitos_codigos": [
+            "GPS0060"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0060"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0103",
+          "nome": "PSICOLOGIA ORGANIZACIONAL E ORGANIZAÇÕES PÚBLICAS",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "1799",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0131",
+          "nome": "LEI DE RESPONSABILIDADE FISCAL",
+          "carga_horaria": 32,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "5610",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0132",
+          "nome": "PLANEJAMENTO DE CIDADES E TERRITÓRIOS",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "5611",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0133",
+          "nome": "MOVIMENTOS SOCIAIS, PODER LOCAL E PARTICIPAÇÃO",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "5612",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0134",
+          "nome": "ORGANIZAÇÕES, GÊNERO E RAÇA",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "5613",
+          "pre_requisitos_expressao": "( GPS0060 )",
+          "pre_requisitos_codigos": [
+            "GPS0060"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0060"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0054 )",
+          "equivalencias_codigos": [
+            "GPS0054"
+          ]
+        },
+        {
+          "codigo": "GPS0135",
+          "nome": "GESTÃO AMBIENTAL E ORGANIZAÇÕES",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "5614",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0136",
+          "nome": "EPISTEMOLOGIA DAS CIÊNCIAS SOCIAIS",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "5615",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0137",
+          "nome": "ELABORAÇÃO DE ARTIGOS CIENTÍFICOS",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "5616",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0138",
+          "nome": "GESTÃO EM SAÚDE",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "5617",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0139",
+          "nome": "OFICINA TEMÁTICA 6: ANÁLISE DE INDICADORES",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "5618",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": null,
+          "equivalencias_codigos": []
+        },
+        {
+          "codigo": "GPS0140",
+          "nome": "ORGANIZAÇÕES, INTERORGANIZAÇÕES E REDES",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "5649",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0072 )",
+          "equivalencias_codigos": [
+            "GPS0072"
+          ]
+        },
+        {
+          "codigo": "GPS0141",
+          "nome": "DIREITOS HUMANOS E DIFUSOS",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "5650",
+          "pre_requisitos_expressao": null,
+          "pre_requisitos_codigos": [],
+          "pre_requisitos_regra": null,
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0030 OU GPS0032 OU GPS0097 )",
+          "equivalencias_codigos": [
+            "GPS0030",
+            "GPS0032",
+            "GPS0097"
+          ]
+        },
+        {
+          "codigo": "GPS0142",
+          "nome": "GESTÃO E INCUBAÇÃO DE EMPREENDIMENTOS ASSOCIATIVOS E COOPERATIVOS",
+          "carga_horaria": 64,
+          "tipo": "optativa",
+          "nivel": null,
+          "id": "5651",
+          "pre_requisitos_expressao": "( GPS0118 )",
+          "pre_requisitos_codigos": [
+            "GPS0118"
+          ],
+          "pre_requisitos_regra": {
+            "codigo": "GPS0118"
+          },
+          "co_requisitos_expressao": null,
+          "co_requisitos_codigos": [],
+          "equivalencias_expressao": "( GPS0098 OU GPS0052 )",
+          "equivalencias_codigos": [
+            "GPS0098",
+            "GPS0052"
+          ]
+        }
+      ]
+    },
     {
       "id": "33598633",
       "codigo": "APGS001",
@@ -2079,5 +3267,5 @@
       ]
     }
   ],
-  "atualizado_em": "2026-09-06T22:30:30.649809+00:00"
+  "atualizado_em": "2026-11-01T16:50:17.558106+00:00"
 }
