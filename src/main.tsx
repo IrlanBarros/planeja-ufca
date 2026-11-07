@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
+import AppLayout from './components/AppLayout'
+import ThemeProvider from './theme/ThemeProvider'
 import CurriculoPage
   from './pages/CurriculoPage.tsx'
 
@@ -14,18 +16,15 @@ createRoot(
   document.getElementById('root')!,
 ).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={<App />}
-        />
-
-        <Route
-          path="/curriculo"
-          element={<CurriculoPage />}
-        />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route path="/" element={<App />} />
+            <Route path="/curriculo" element={<CurriculoPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   </StrictMode>,
 )

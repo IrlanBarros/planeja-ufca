@@ -145,12 +145,11 @@ function App() {
             turmasSalvas,
           )
         } catch {
-          localStorage.removeItem(
-            gerarStorageKey(
-            json.periodo,
-            cursoPadrao.id,
-          ),
-          )
+          try {
+            localStorage.removeItem(
+              gerarStorageKey(json.periodo, cursoPadrao.id),
+            )
+          } catch { /* O navegador pode bloquear o armazenamento. */ }
         }
       } catch (error) {
         console.error(error)
@@ -286,10 +285,12 @@ function App() {
         cursoSelecionadoId,
       )
 
-    localStorage.setItem(
-      storageKey,
-      JSON.stringify(ids),
-    )
+    try {
+      localStorage.setItem(
+        storageKey,
+        JSON.stringify(ids),
+      )
+    } catch { /* A seleção continua disponível em memória. */ }
   }, [
     selecionadas,
     dados,
@@ -395,7 +396,9 @@ function App() {
 
       setSelecionadas(turmasSalvas)
     } catch {
-      localStorage.removeItem(storageKey)
+      try {
+        localStorage.removeItem(storageKey)
+      } catch { /* O navegador pode bloquear o armazenamento. */ }
       setSelecionadas([])
     }
 
@@ -704,6 +707,7 @@ function App() {
           <button
             type="button"
             className={filtro === 'todas' ? 'filtro-ativo' : ''}
+            aria-pressed={filtro === 'todas'}
             onClick={() => setFiltro('todas')}
           >
             Todas
@@ -712,6 +716,7 @@ function App() {
           <button
             type="button"
             className={filtro === 'disponiveis' ? 'filtro-ativo' : ''}
+            aria-pressed={filtro === 'disponiveis'}
             onClick={() => setFiltro('disponiveis')}
           >
             Disponíveis
@@ -720,6 +725,7 @@ function App() {
           <button
             type="button"
             className={filtro === 'conflito' ? 'filtro-ativo' : ''}
+            aria-pressed={filtro === 'conflito'}
             onClick={() => setFiltro('conflito')}
           >
             Com conflito
@@ -728,6 +734,7 @@ function App() {
           <button
             type="button"
             className={filtro === 'selecionadas' ? 'filtro-ativo' : ''}
+            aria-pressed={filtro === 'selecionadas'}
             onClick={() => setFiltro('selecionadas')}
           >
             Selecionadas

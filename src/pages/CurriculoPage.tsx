@@ -498,7 +498,7 @@ if (!cursoId) {
                 {optativas.map(
                   (componente) => (
                     <div
-                      className="componente-curricular"
+                      className="componente-curricular componente-curricular-optativa"
                       key={[
                         componente.codigo,
                         'optativa',
