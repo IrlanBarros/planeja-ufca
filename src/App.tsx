@@ -12,8 +12,10 @@ import {
 } from './utils/conflitos'
 import './App.css'
 import GradeSemanal from './components/GradeSemanal'
+import SalasTurma from './components/SalasTurma'
 import { exportarHorarioCsv } from './utils/exportarCsv'
 import { exportarHorarioPdf } from './utils/exportarPdf'
+import { possuiSalasPorEncontro } from './utils/salas'
 import { Link } from 'react-router-dom'
 
 type FiltroTurmas =
@@ -654,6 +656,7 @@ function App() {
                   <span>
                     {turma.horario_sigaa}
                   </span>
+                  <SalasTurma turma={turma} />
                 </div>
 
                 <button
@@ -818,21 +821,25 @@ function App() {
                     {turma.horario_sigaa || 'Não informado'}
                   </p>
 
-                  <div className="horarios">
-                    {turma.horarios.map((horario) => (
-                      <span
-                        className="horario"
-                        key={[
-                          horario.dia,
-                          horario.inicio,
-                          horario.fim,
-                        ].join('|')}
-                      >
-                        {horario.dia_nome}:{' '}
-                        {horario.inicio}–{horario.fim}
-                      </span>
-                    ))}
-                  </div>
+                  {!possuiSalasPorEncontro(turma) && (
+                    <div className="horarios">
+                      {turma.horarios.map((horario) => (
+                        <span
+                          className="horario"
+                          key={[
+                            horario.dia,
+                            horario.inicio,
+                            horario.fim,
+                          ].join('|')}
+                        >
+                          {horario.dia_nome}:{' '}
+                          {horario.inicio}–{horario.fim}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  <SalasTurma turma={turma} />
 
                   {possuiConflito && (
                     <div className="conflito-card-aviso">

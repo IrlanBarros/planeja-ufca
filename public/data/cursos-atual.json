@@ -31,7 +31,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M04-s"
         },
         {
           "codigo": "ADM0413",
@@ -54,7 +55,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K04-s"
         },
         {
           "codigo": "ADM0427",
@@ -77,7 +79,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M04"
         },
         {
           "codigo": "ADM0425",
@@ -100,7 +103,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M04"
         },
         {
           "codigo": "ADM0466",
@@ -123,7 +127,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K106"
         },
         {
           "codigo": "ADM0315",
@@ -146,7 +151,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M01"
         },
         {
           "codigo": "ADM0322",
@@ -169,7 +175,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M04-s"
         },
         {
           "codigo": "ADM0356",
@@ -192,7 +199,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M01"
         },
         {
           "codigo": "ADM0421",
@@ -215,7 +223,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M01"
         },
         {
           "codigo": "ADM0461",
@@ -238,7 +247,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M104"
         },
         {
           "codigo": "ADM0343",
@@ -261,7 +271,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M105"
         },
         {
           "codigo": "ADM0424",
@@ -284,7 +295,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M04"
         },
         {
           "codigo": "ADM0312",
@@ -307,7 +319,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K04-s"
         },
         {
           "codigo": "ADM0316",
@@ -330,7 +343,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M03-s"
         },
         {
           "codigo": "ADM0404",
@@ -347,7 +361,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M105"
         },
         {
           "codigo": "ADM0414",
@@ -370,7 +385,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ADM0414",
@@ -393,7 +409,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M101"
         },
         {
           "codigo": "ADM0414",
@@ -416,7 +433,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ADM0416",
@@ -439,7 +457,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M03"
         },
         {
           "codigo": "ADM0405",
@@ -462,7 +481,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ADM0408",
@@ -485,7 +505,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ADM0412",
@@ -508,7 +529,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M03"
         },
         {
           "codigo": "ADM0409",
@@ -531,7 +553,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M05-s"
         },
         {
           "codigo": "ADM0415",
@@ -554,7 +577,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M101"
         },
         {
           "codigo": "ADM0422",
@@ -577,7 +601,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K04-s"
         },
         {
           "codigo": "ADM0469",
@@ -600,7 +625,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K04-s"
         },
         {
           "codigo": "ADM0410",
@@ -623,7 +649,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M03"
         },
         {
           "codigo": "ADM0418",
@@ -646,7 +673,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M04-s"
         },
         {
           "codigo": "ADM0470",
@@ -669,7 +697,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M04"
         },
         {
           "codigo": "ADM0352",
@@ -692,7 +721,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M101"
         },
         {
           "codigo": "ADM0423",
@@ -715,7 +745,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M01"
         },
         {
           "codigo": "ADM0426",
@@ -738,7 +769,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M04"
         },
         {
           "codigo": "ADM0411",
@@ -761,7 +793,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M03"
         },
         {
           "codigo": "ADM0419",
@@ -784,7 +817,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M05-s"
         },
         {
           "codigo": "ADM0313",
@@ -807,7 +841,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M03"
         },
         {
           "codigo": "ADM0402",
@@ -830,7 +865,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M105"
         },
         {
           "codigo": "ADM0402",
@@ -853,7 +889,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M104"
         },
         {
           "codigo": "ADM0340",
@@ -876,7 +913,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M104"
         },
         {
           "codigo": "ADM0311",
@@ -899,7 +937,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K02-s"
         },
         {
           "codigo": "ADM0319",
@@ -922,7 +961,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ADM0464",
@@ -945,7 +985,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M104"
         },
         {
           "codigo": "ADM0407",
@@ -968,7 +1009,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M04-s"
         },
         {
           "codigo": "ADM0489",
@@ -991,7 +1033,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M01"
         },
         {
           "codigo": "ADM0403",
@@ -1008,7 +1051,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M105"
         },
         {
           "codigo": "ADM0401",
@@ -1031,7 +1075,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M105"
         },
         {
           "codigo": "ADM0406",
@@ -1054,7 +1099,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ADM0457",
@@ -1077,7 +1123,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M102"
         },
         {
           "codigo": "ADM0492",
@@ -1100,7 +1147,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K106"
         }
       ]
     },
@@ -1140,7 +1188,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M02"
         },
         {
           "codigo": "GPS0044",
@@ -1163,7 +1212,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M02"
         },
         {
           "codigo": "GPS0019",
@@ -1186,7 +1236,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K105"
         },
         {
           "codigo": "GPS0073",
@@ -1209,7 +1260,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M02-s"
         },
         {
           "codigo": "GPS0002",
@@ -1232,7 +1284,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M04-s"
         },
         {
           "codigo": "GPS0031",
@@ -1255,7 +1308,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M02-s"
         },
         {
           "codigo": "GPS0097",
@@ -1272,7 +1326,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "GPS0097",
@@ -1295,7 +1350,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M102"
         },
         {
           "codigo": "GPS0046",
@@ -1318,7 +1374,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K105"
         },
         {
           "codigo": "GPS0064",
@@ -1341,7 +1398,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M03-s"
         },
         {
           "codigo": "GPS0074",
@@ -1364,7 +1422,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M02-s"
         },
         {
           "codigo": "GPS0065",
@@ -1387,7 +1446,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M03-s"
         },
         {
           "codigo": "GPS0039",
@@ -1410,7 +1470,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M02"
         },
         {
           "codigo": "GPS0087",
@@ -1433,7 +1494,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K105"
         },
         {
           "codigo": "GPS0081",
@@ -1456,7 +1518,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M02"
         },
         {
           "codigo": "GPS0042",
@@ -1473,7 +1536,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M101"
         },
         {
           "codigo": "GPS0066",
@@ -1496,7 +1560,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M03-s"
         },
         {
           "codigo": "GPS0067",
@@ -1513,7 +1578,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M03-s"
         },
         {
           "codigo": "GPS0075",
@@ -1530,7 +1596,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M02-s"
         },
         {
           "codigo": "GPS0082",
@@ -1547,7 +1614,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M02"
         },
         {
           "codigo": "GPS0088",
@@ -1570,7 +1638,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K105"
         },
         {
           "codigo": "GPS0021",
@@ -1593,7 +1662,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M02-s"
         }
       ]
     },
@@ -1619,7 +1689,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M104"
         },
         {
           "codigo": "ARQ0007",
@@ -1636,7 +1707,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M104"
         },
         {
           "codigo": "ARQ0015",
@@ -1653,7 +1725,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K02-s"
         },
         {
           "codigo": "ARQ0018",
@@ -1670,7 +1743,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K103"
         },
         {
           "codigo": "ARQ0038",
@@ -1687,7 +1761,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M01"
         },
         {
           "codigo": "ARQ0045",
@@ -1704,7 +1779,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M104"
         },
         {
           "codigo": "CIN0006",
@@ -1721,7 +1797,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M104"
         },
         {
           "codigo": "CIN0008",
@@ -1738,7 +1815,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K02-s"
         },
         {
           "codigo": "CIN0005",
@@ -1755,7 +1833,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M104"
         },
         {
           "codigo": "ARQ0009",
@@ -1772,7 +1851,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K02-s"
         },
         {
           "codigo": "ARQ0050",
@@ -1789,7 +1869,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ARQ0016",
@@ -1806,7 +1887,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K02-s"
         }
       ]
     },
@@ -1832,7 +1914,8 @@
               "fim": "11:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. C02"
         },
         {
           "codigo": "BIB0030",
@@ -1849,7 +1932,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M104"
         },
         {
           "codigo": "BIB0021",
@@ -1872,7 +1956,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K05s"
         },
         {
           "codigo": "BIB0022",
@@ -1889,7 +1974,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M04"
         },
         {
           "codigo": "BIB0008",
@@ -1906,7 +1992,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M01"
         },
         {
           "codigo": "BIB0032",
@@ -1923,7 +2010,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. C02"
         },
         {
           "codigo": "BIB0054",
@@ -1940,7 +2028,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M01"
         },
         {
           "codigo": "BIB0029",
@@ -1957,7 +2046,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. E02"
         },
         {
           "codigo": "BIB0055",
@@ -1974,7 +2064,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M01"
         },
         {
           "codigo": "BIB0031",
@@ -1991,7 +2082,8 @@
               "fim": "11:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K02-s"
         },
         {
           "codigo": "BIB0058",
@@ -2008,7 +2100,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K04-s"
         },
         {
           "codigo": "BIB0033",
@@ -2025,7 +2118,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. C02"
         },
         {
           "codigo": "BIB0019",
@@ -2042,7 +2136,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M02"
         },
         {
           "codigo": "BIB0020",
@@ -2065,7 +2160,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M04"
         },
         {
           "codigo": "BIB0044",
@@ -2082,7 +2178,8 @@
               "fim": "11:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "BIB0011",
@@ -2099,7 +2196,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. C02"
         },
         {
           "codigo": "BIB0009",
@@ -2116,7 +2214,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M01"
         },
         {
           "codigo": "BIB0012",
@@ -2133,7 +2232,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M01"
         }
       ]
     },
@@ -2156,16 +2256,19 @@
               "dia": 2,
               "dia_nome": "segunda-feira",
               "inicio": "18:00",
-              "fim": "20:00"
+              "fim": "20:00",
+              "sala": "Lab. K02-s /"
             },
             {
               "dia": 6,
               "dia_nome": "sexta-feira",
               "inicio": "20:00",
-              "fim": "22:00"
+              "fim": "22:00",
+              "sala": "Sala M102"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SEG - Lab. K02-s / SEX - Sala M102"
         },
         {
           "codigo": "CCB0044",
@@ -2188,7 +2291,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K05"
         },
         {
           "codigo": "CCB0028",
@@ -2205,7 +2309,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M103"
         },
         {
           "codigo": "CCB0047",
@@ -2228,7 +2333,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K05"
         },
         {
           "codigo": "CCB0029",
@@ -2251,7 +2357,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M103"
         },
         {
           "codigo": "CCB0048",
@@ -2274,7 +2381,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K05"
         },
         {
           "codigo": "CCB0065",
@@ -2297,7 +2405,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M102"
         },
         {
           "codigo": "CCB0024",
@@ -2320,7 +2429,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K03"
         },
         {
           "codigo": "CCB0011",
@@ -2343,7 +2453,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K04"
         },
         {
           "codigo": "CCB0001",
@@ -2366,7 +2477,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K06"
         },
         {
           "codigo": "CCB0006",
@@ -2389,7 +2501,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K03"
         },
         {
           "codigo": "CCB0050",
@@ -2412,7 +2525,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K05"
         },
         {
           "codigo": "CCB0068",
@@ -2435,7 +2549,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M103"
         },
         {
           "codigo": "CCB0007",
@@ -2458,7 +2573,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K03"
         },
         {
           "codigo": "CCB0012",
@@ -2481,7 +2597,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K04"
         },
         {
           "codigo": "CCB0018",
@@ -2504,7 +2621,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SEG - Sala M104 / QUA - K07s"
         },
         {
           "codigo": "CCB0002",
@@ -2527,7 +2645,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K06"
         },
         {
           "codigo": "CCB0026",
@@ -2550,7 +2669,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M103"
         },
         {
           "codigo": "CCB0064",
@@ -2573,7 +2693,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K03"
         },
         {
           "codigo": "CCB0004",
@@ -2596,7 +2717,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K06"
         },
         {
           "codigo": "CCB0013",
@@ -2619,7 +2741,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K04"
         },
         {
           "codigo": "CCB0009",
@@ -2642,7 +2765,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K04"
         },
         {
           "codigo": "CCB0003",
@@ -2665,7 +2789,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K06"
         },
         {
           "codigo": "CCB0010",
@@ -2688,7 +2813,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K03"
         },
         {
           "codigo": "CCB0069",
@@ -2711,7 +2837,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K02-s"
         },
         {
           "codigo": "CCB0069",
@@ -2734,7 +2861,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K07-s"
         },
         {
           "codigo": "CCB0020",
@@ -2757,7 +2885,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M102"
         },
         {
           "codigo": "CCB0066",
@@ -2771,16 +2900,19 @@
               "dia": 3,
               "dia_nome": "terça-feira",
               "inicio": "18:00",
-              "fim": "20:00"
+              "fim": "20:00",
+              "sala": "Sala M103 /"
             },
             {
               "dia": 5,
               "dia_nome": "quinta-feira",
               "inicio": "20:00",
-              "fim": "22:00"
+              "fim": "22:00",
+              "sala": "Lab. K05-s"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "TER - Sala M103 / QUI - Lab. K05-s"
         },
         {
           "codigo": "CCB0015",
@@ -2803,7 +2935,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K04"
         },
         {
           "codigo": "CCB0005",
@@ -2826,7 +2959,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K06"
         }
       ]
     },
@@ -2852,7 +2986,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K102"
         },
         {
           "codigo": "CIN0012",
@@ -2869,7 +3004,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K102"
         },
         {
           "codigo": "MU0043",
@@ -2886,7 +3022,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K102"
         },
         {
           "codigo": "CIN0004",
@@ -2903,7 +3040,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K103"
         },
         {
           "codigo": "MU0006",
@@ -2920,7 +3058,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K103"
         },
         {
           "codigo": "CIN0008",
@@ -2937,7 +3076,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K102"
         },
         {
           "codigo": "MU0009",
@@ -2954,7 +3094,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K103"
         },
         {
           "codigo": "CIN0005",
@@ -2971,7 +3112,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K103"
         },
         {
           "codigo": "MU0018",
@@ -2988,7 +3130,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K102"
         },
         {
           "codigo": "MU0066",
@@ -3005,7 +3148,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala M302"
         },
         {
           "codigo": "MU0007",
@@ -3022,7 +3166,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala K103"
         }
       ]
     },
@@ -3054,7 +3199,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA A23-S"
         },
         {
           "codigo": "CC0061",
@@ -3083,7 +3229,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA C01"
         },
         {
           "codigo": "CC0076",
@@ -3097,16 +3244,19 @@
               "dia": 3,
               "dia_nome": "terça-feira",
               "inicio": "14:00",
-              "fim": "16:00"
+              "fim": "16:00",
+              "sala": "SALA K 102"
             },
             {
               "dia": 5,
               "dia_nome": "quinta-feira",
               "inicio": "14:00",
-              "fim": "16:00"
+              "fim": "16:00",
+              "sala": "LAB.K04S"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "TER SALA K 102 QUIN.LAB.K04S"
         },
         {
           "codigo": "CC0020",
@@ -3120,16 +3270,19 @@
               "dia": 3,
               "dia_nome": "terça-feira",
               "inicio": "08:00",
-              "fim": "10:00"
+              "fim": "10:00",
+              "sala": "SALA K04"
             },
             {
               "dia": 5,
               "dia_nome": "quinta-feira",
               "inicio": "08:00",
-              "fim": "10:00"
+              "fim": "10:00",
+              "sala": "LAB. K02S"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "TER SALA K04 E QUI.LAB. K02S"
         },
         {
           "codigo": "CC0025",
@@ -3143,16 +3296,19 @@
               "dia": 3,
               "dia_nome": "terça-feira",
               "inicio": "10:00",
-              "fim": "12:00"
+              "fim": "12:00",
+              "sala": "SALA A22 S"
             },
             {
               "dia": 5,
               "dia_nome": "quinta-feira",
               "inicio": "10:00",
-              "fim": "12:00"
+              "fim": "12:00",
+              "sala": "LAB K07S"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "TER SALA A22 S E QUIN LAB K07S"
         },
         {
           "codigo": "CC0007",
@@ -3175,7 +3331,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala A23-S"
         },
         {
           "codigo": "CC0112",
@@ -3198,7 +3355,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "sala E03"
         },
         {
           "codigo": "CC0032",
@@ -3221,7 +3379,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "LAB. A02"
         },
         {
           "codigo": "CC0068",
@@ -3238,7 +3397,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA i104"
         },
         {
           "codigo": "CC0065",
@@ -3261,7 +3421,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K03"
         },
         {
           "codigo": "CC0022",
@@ -3284,7 +3445,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K03"
         },
         {
           "codigo": "CC0005",
@@ -3307,7 +3469,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K03"
         },
         {
           "codigo": "CC0027",
@@ -3330,7 +3493,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA i103"
         },
         {
           "codigo": "CC0052",
@@ -3344,16 +3508,19 @@
               "dia": 3,
               "dia_nome": "terça-feira",
               "inicio": "08:00",
-              "fim": "10:00"
+              "fim": "10:00",
+              "sala": "LAB K02S"
             },
             {
               "dia": 5,
               "dia_nome": "quinta-feira",
               "inicio": "08:00",
-              "fim": "10:00"
+              "fim": "10:00",
+              "sala": "SALA I103"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "TER. LAB K02S QUINT. SALA I103"
         },
         {
           "codigo": "CC0062",
@@ -3376,7 +3543,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K04s"
         },
         {
           "codigo": "CC0062",
@@ -3399,7 +3567,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "CC0010",
@@ -3422,7 +3591,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA i105"
         },
         {
           "codigo": "CC0021",
@@ -3445,7 +3615,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "LAB.K07s"
         },
         {
           "codigo": "CC0098",
@@ -3468,7 +3639,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K05"
         },
         {
           "codigo": "CC0024",
@@ -3491,7 +3663,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K03"
         },
         {
           "codigo": "CC0049",
@@ -3514,7 +3687,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "LAB K05-S"
         },
         {
           "codigo": "CC0042",
@@ -3528,16 +3702,19 @@
               "dia": 3,
               "dia_nome": "terça-feira",
               "inicio": "08:00",
-              "fim": "10:00"
+              "fim": "10:00",
+              "sala": "SALA K05"
             },
             {
               "dia": 5,
               "dia_nome": "quinta-feira",
               "inicio": "08:00",
-              "fim": "10:00"
+              "fim": "10:00",
+              "sala": "LAB. K07s"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "TER SALA K05- QUIN LAB. K07s"
         },
         {
           "codigo": "CC0067",
@@ -3560,7 +3737,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K06"
         },
         {
           "codigo": "CC0058",
@@ -3583,7 +3761,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "CC0095",
@@ -3606,7 +3785,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K05"
         }
       ]
     },
@@ -3638,7 +3818,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K06"
         },
         {
           "codigo": "CAR0033",
@@ -3655,7 +3836,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K06"
         },
         {
           "codigo": "ECI0138",
@@ -3678,7 +3860,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA I101"
         },
         {
           "codigo": "ECI0114",
@@ -3695,7 +3878,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA I101"
         },
         {
           "codigo": "ECI0106",
@@ -3718,7 +3902,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K05"
         },
         {
           "codigo": "ECI0158",
@@ -3735,7 +3920,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA I101"
         },
         {
           "codigo": "ECI0122",
@@ -3758,7 +3944,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "CAR0008",
@@ -3787,7 +3974,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala A22-S"
         },
         {
           "codigo": "CAR0011",
@@ -3810,7 +3998,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA A22-S"
         },
         {
           "codigo": "CAR0012",
@@ -3833,7 +4022,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA A23-S"
         },
         {
           "codigo": "ECI0080",
@@ -3856,7 +4046,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ECI0080",
@@ -3879,7 +4070,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "LAB A02"
         },
         {
           "codigo": "ECI0009",
@@ -3902,7 +4094,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "LAB. A02"
         },
         {
           "codigo": "ECI0009",
@@ -3925,7 +4118,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "LAB. A02"
         },
         {
           "codigo": "ECI0127",
@@ -3942,7 +4136,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. Rec. Hídricos"
         },
         {
           "codigo": "ECI0011",
@@ -3965,7 +4160,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ECI0011",
@@ -3988,7 +4184,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K101"
         },
         {
           "codigo": "ECI0094",
@@ -4005,7 +4202,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K107"
         },
         {
           "codigo": "CAR0034",
@@ -4022,7 +4220,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K03"
         },
         {
           "codigo": "ECI0118",
@@ -4045,7 +4244,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA I105"
         },
         {
           "codigo": "ECI0113",
@@ -4068,7 +4268,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA I105"
         },
         {
           "codigo": "ECI0117",
@@ -4091,7 +4292,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA I105"
         },
         {
           "codigo": "ECI0129",
@@ -4114,7 +4316,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA E20-S"
         },
         {
           "codigo": "ECI0078",
@@ -4131,7 +4334,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "LAB. FÍSICA BLOCO B"
         },
         {
           "codigo": "ECI0078",
@@ -4148,7 +4352,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "LAB. FÍSICA BLOCO B"
         },
         {
           "codigo": "CAR0002",
@@ -4171,7 +4376,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K06"
         },
         {
           "codigo": "ECI0025",
@@ -4194,7 +4400,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K04"
         },
         {
           "codigo": "ECI0137",
@@ -4211,7 +4418,8 @@
               "fim": "17:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA M03"
         },
         {
           "codigo": "ECI0016",
@@ -4228,7 +4436,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA i104"
         },
         {
           "codigo": "ECI0021",
@@ -4245,7 +4454,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA M02"
         },
         {
           "codigo": "ECI0134",
@@ -4262,7 +4472,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA I101"
         },
         {
           "codigo": "ECI0157",
@@ -4279,7 +4490,8 @@
               "fim": "17:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA i101"
         },
         {
           "codigo": "ECI0041",
@@ -4296,7 +4508,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA i104"
         },
         {
           "codigo": "ECI0135",
@@ -4319,7 +4532,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. Rec. Hídricos"
         },
         {
           "codigo": "ECI0044",
@@ -4342,7 +4556,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA A23 S"
         },
         {
           "codigo": "ECI0045",
@@ -4359,7 +4574,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA I101"
         },
         {
           "codigo": "ECI0140",
@@ -4376,7 +4592,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA I102"
         },
         {
           "codigo": "ECI0141",
@@ -4393,7 +4610,8 @@
               "fim": "11:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ECI0116",
@@ -4410,7 +4628,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "K103"
         },
         {
           "codigo": "ECI0079",
@@ -4427,7 +4646,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ECI0079",
@@ -4444,7 +4664,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E03"
         },
         {
           "codigo": "ECI0139",
@@ -4461,7 +4682,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K05"
         },
         {
           "codigo": "ECI0099",
@@ -4484,7 +4706,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K05s"
         },
         {
           "codigo": "ECI0099",
@@ -4507,7 +4730,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "LAB.K07s"
         },
         {
           "codigo": "ECI0089",
@@ -4524,7 +4748,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA A22-S E LAB. QUÍMICA-BLOCO B"
         },
         {
           "codigo": "ECI0089",
@@ -4541,7 +4766,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA A22-S E LAB. QUÍMICA-BLOCO B"
         },
         {
           "codigo": "ECI0104",
@@ -4564,7 +4790,8 @@
               "fim": "11:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ECI0104",
@@ -4587,7 +4814,8 @@
               "fim": "11:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ECI0104",
@@ -4604,7 +4832,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA E01"
         },
         {
           "codigo": "ECI0105",
@@ -4627,7 +4856,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ECI0105",
@@ -4650,7 +4880,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E04"
         },
         {
           "codigo": "ECI0103",
@@ -4673,7 +4904,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA A23 S"
         },
         {
           "codigo": "ECI0023",
@@ -4696,7 +4928,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. Rec. Hídricos"
         },
         {
           "codigo": "ECI0023",
@@ -4719,7 +4952,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. Rec. Hídricos"
         },
         {
           "codigo": "ECI0031",
@@ -4742,7 +4976,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ECI0037",
@@ -4765,7 +5000,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K103"
         },
         {
           "codigo": "ECI0098",
@@ -4788,7 +5024,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K05"
         },
         {
           "codigo": "ECI0050",
@@ -4805,7 +5042,8 @@
               "fim": "17:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ECI0050",
@@ -4822,7 +5060,8 @@
               "fim": "11:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA E03"
         },
         {
           "codigo": "ECI0120",
@@ -4845,7 +5084,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA E20-S"
         },
         {
           "codigo": "CAR0003",
@@ -4868,7 +5108,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala A22-S"
         },
         {
           "codigo": "ECI0036",
@@ -4891,7 +5132,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA I102"
         },
         {
           "codigo": "ECI0136",
@@ -4914,7 +5156,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K03"
         },
         {
           "codigo": "ECI0107",
@@ -4937,7 +5180,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA i104"
         },
         {
           "codigo": "ECI0109",
@@ -4960,7 +5204,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA i104"
         },
         {
           "codigo": "ECI0088",
@@ -4983,7 +5228,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ECI0088",
@@ -5006,7 +5252,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "A24s"
         },
         {
           "codigo": "ECI0028",
@@ -5029,7 +5276,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA I105"
         },
         {
           "codigo": "ECI0034",
@@ -5052,7 +5300,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA i104"
         },
         {
           "codigo": "ECI0090",
@@ -5075,7 +5324,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA i103"
         },
         {
           "codigo": "ECI0091",
@@ -5098,7 +5348,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA I105"
         },
         {
           "codigo": "ECI0092",
@@ -5115,7 +5366,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA i104"
         },
         {
           "codigo": "ECI0100",
@@ -5138,7 +5390,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "ECI0100",
@@ -5161,7 +5414,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         }
       ]
     },
@@ -5193,7 +5447,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "EM0114",
@@ -5216,7 +5471,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Laboratório de Polímeros- bloco N"
         },
         {
           "codigo": "EM0010",
@@ -5239,7 +5495,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K04"
         },
         {
           "codigo": "EM0004",
@@ -5262,7 +5519,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K03"
         },
         {
           "codigo": "EM0046",
@@ -5285,7 +5543,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA N03 - Bloco N"
         },
         {
           "codigo": "CAR0001",
@@ -5308,7 +5567,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA C01"
         },
         {
           "codigo": "CAR0004",
@@ -5331,7 +5591,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K04"
         },
         {
           "codigo": "EM0014",
@@ -5345,16 +5606,19 @@
               "dia": 2,
               "dia_nome": "segunda-feira",
               "inicio": "10:00",
-              "fim": "12:00"
+              "fim": "12:00",
+              "sala": "SALA I102"
             },
             {
               "dia": 3,
               "dia_nome": "terça-feira",
               "inicio": "10:00",
-              "fim": "12:00"
+              "fim": "12:00",
+              "sala": "LAB. K07S"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SEG. SALA I102 TER LAB. K07S"
         },
         {
           "codigo": "CAR0005",
@@ -5377,7 +5641,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K103"
         },
         {
           "codigo": "EM0033",
@@ -5400,7 +5665,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA N03 - Bloco N"
         },
         {
           "codigo": "EM0045",
@@ -5423,7 +5689,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K106"
         },
         {
           "codigo": "EM0080",
@@ -5446,7 +5713,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA M02-S"
         },
         {
           "codigo": "EM0024",
@@ -5469,7 +5737,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA N03 - Bloco N"
         },
         {
           "codigo": "EM0093",
@@ -5492,7 +5761,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K105"
         },
         {
           "codigo": "EM0051",
@@ -5515,7 +5785,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K102"
         },
         {
           "codigo": "EM0002",
@@ -5538,7 +5809,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "LAB. A02"
         },
         {
           "codigo": "EM0020",
@@ -5561,7 +5833,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K101"
         },
         {
           "codigo": "EM0100",
@@ -5578,7 +5851,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K103"
         },
         {
           "codigo": "EM0092",
@@ -5595,7 +5869,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K101"
         },
         {
           "codigo": "EM0096",
@@ -5618,7 +5893,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K101"
         },
         {
           "codigo": "EM0102",
@@ -5635,7 +5911,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K105"
         },
         {
           "codigo": "EM0042",
@@ -5658,7 +5935,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K102"
         },
         {
           "codigo": "EM0038",
@@ -5675,7 +5953,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K102"
         },
         {
           "codigo": "EM0030",
@@ -5698,7 +5977,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K101"
         },
         {
           "codigo": "EM0083",
@@ -5715,7 +5995,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. de Física - Bloco B"
         },
         {
           "codigo": "EM0078",
@@ -5738,7 +6019,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K105"
         },
         {
           "codigo": "EM0015",
@@ -5761,7 +6043,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA I101"
         },
         {
           "codigo": "EM0060",
@@ -5778,7 +6061,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA M01"
         },
         {
           "codigo": "EM0101",
@@ -5795,7 +6079,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA M01"
         },
         {
           "codigo": "EM0099",
@@ -5812,7 +6097,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA M01"
         },
         {
           "codigo": "EM0079",
@@ -5829,7 +6115,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "laboratório de polímeros - Bloco L"
         },
         {
           "codigo": "CAR0010",
@@ -5846,7 +6133,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 01"
         },
         {
           "codigo": "EM0019",
@@ -5869,7 +6157,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K04"
         },
         {
           "codigo": "EM0086",
@@ -5892,7 +6181,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA N03 - Bloco N"
         },
         {
           "codigo": "EM0097",
@@ -5915,7 +6205,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K106"
         },
         {
           "codigo": "EM0088",
@@ -5938,7 +6229,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "laboratório de metais - Bloco N"
         },
         {
           "codigo": "EM0087",
@@ -5961,7 +6253,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K107"
         },
         {
           "codigo": "EM0017",
@@ -5984,7 +6277,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K04"
         },
         {
           "codigo": "EM0098",
@@ -6001,7 +6295,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K102"
         },
         {
           "codigo": "CAR0003",
@@ -6024,7 +6319,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K06"
         },
         {
           "codigo": "EM0090",
@@ -6047,7 +6343,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA N03 - Bloco N"
         },
         {
           "codigo": "EM0095",
@@ -6070,7 +6367,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "M04-s"
         },
         {
           "codigo": "EM0050",
@@ -6093,7 +6391,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "laboratório de polímeros - Bloco L"
         },
         {
           "codigo": "EM0084",
@@ -6116,7 +6415,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. K04s"
         },
         {
           "codigo": "EM0052",
@@ -6139,7 +6439,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA N03 - Bloco N"
         },
         {
           "codigo": "EM0077",
@@ -6156,7 +6457,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA A22 S E LAB. QUÍMICA"
         },
         {
           "codigo": "EM0077",
@@ -6173,7 +6475,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA A22S E LAB.QUÍMICA"
         },
         {
           "codigo": "EM0076",
@@ -6196,7 +6499,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA A24S"
         },
         {
           "codigo": "EM0082",
@@ -6210,16 +6514,19 @@
               "dia": 3,
               "dia_nome": "terça-feira",
               "inicio": "14:00",
-              "fim": "16:00"
+              "fim": "16:00",
+              "sala": "LAB. QUÍMICA"
             },
             {
               "dia": 4,
               "dia_nome": "quarta-feira",
               "inicio": "10:00",
-              "fim": "12:00"
+              "fim": "12:00",
+              "sala": "SALA E03"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "TER. LAB. QUÍMICA QUA-SALA E03"
         },
         {
           "codigo": "EM0085",
@@ -6236,7 +6543,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA A23S"
         },
         {
           "codigo": "EM0081",
@@ -6259,7 +6567,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "TER MANHÃ SALA A24S TARDE LAB. QUÍMICA"
         },
         {
           "codigo": "EM0089",
@@ -6282,7 +6591,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA A23S"
         },
         {
           "codigo": "EM0089",
@@ -6305,7 +6615,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "laboratório de metais - BLOCO N"
         },
         {
           "codigo": "EM0022",
@@ -6328,7 +6639,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA E01"
         },
         {
           "codigo": "EM0121",
@@ -6351,7 +6663,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "EM0121",
@@ -6374,7 +6687,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "EM0121",
@@ -6391,7 +6705,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "EM0116",
@@ -6414,7 +6729,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA C01"
         },
         {
           "codigo": "EM0105",
@@ -6437,7 +6753,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA M101"
         },
         {
           "codigo": "EM0091",
@@ -6460,7 +6777,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA M101"
         },
         {
           "codigo": "EM0043",
@@ -6483,7 +6801,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "laboratório de metais - Bloco N"
         }
       ]
     },
@@ -6515,7 +6834,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala A22-S"
         },
         {
           "codigo": "ES0009",
@@ -6538,7 +6858,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "LABORATÓRIO A02"
         },
         {
           "codigo": "ES0017",
@@ -6561,7 +6882,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "LABORATÓRIO A02"
         },
         {
           "codigo": "ES0007",
@@ -6584,7 +6906,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala A22-S"
         },
         {
           "codigo": "ES0018",
@@ -6598,16 +6921,19 @@
               "dia": 3,
               "dia_nome": "terça-feira",
               "inicio": "20:00",
-              "fim": "22:00"
+              "fim": "22:00",
+              "sala": "SALA A22-S"
             },
             {
               "dia": 6,
               "dia_nome": "sexta-feira",
               "inicio": "18:00",
-              "fim": "20:00"
+              "fim": "20:00",
+              "sala": "LAB.A02"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "TER. SALA A22-S SEX. LAB.A02"
         },
         {
           "codigo": "ES0010",
@@ -6624,7 +6950,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala A22-S"
         },
         {
           "codigo": "ES0008",
@@ -6641,7 +6968,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "LABORATÓRIO A02"
         },
         {
           "codigo": "ES0016",
@@ -6664,7 +6992,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Sala A22-S"
         },
         {
           "codigo": "ES0019",
@@ -6678,16 +7007,19 @@
               "dia": 4,
               "dia_nome": "quarta-feira",
               "inicio": "20:00",
-              "fim": "22:00"
+              "fim": "22:00",
+              "sala": "SALA A23-S"
             },
             {
               "dia": 5,
               "dia_nome": "quinta-feira",
               "inicio": "18:00",
-              "fim": "20:00"
+              "fim": "20:00",
+              "sala": "LAB A02"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "QUA. SALA A23-S QUIN.LAB A02"
         },
         {
           "codigo": "ES0020",
@@ -6701,16 +7033,19 @@
               "dia": 3,
               "dia_nome": "terça-feira",
               "inicio": "18:00",
-              "fim": "20:00"
+              "fim": "20:00",
+              "sala": "SALA A22-S"
             },
             {
               "dia": 6,
               "dia_nome": "sexta-feira",
               "inicio": "20:00",
-              "fim": "22:00"
+              "fim": "22:00",
+              "sala": "LAB.A02"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "TER. SALA A22-S SEX. LAB.A02"
         }
       ]
     },
@@ -6750,7 +7085,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K105"
         },
         {
           "codigo": "MC0044",
@@ -6779,7 +7115,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K105"
         },
         {
           "codigo": "MC0016",
@@ -6802,7 +7139,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K102"
         },
         {
           "codigo": "MC0023",
@@ -6831,7 +7169,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K102"
         },
         {
           "codigo": "MC0001",
@@ -6860,7 +7199,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K06"
         },
         {
           "codigo": "MC0005",
@@ -6883,7 +7223,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K101"
         },
         {
           "codigo": "MC0014",
@@ -6897,16 +7238,19 @@
               "dia": 3,
               "dia_nome": "terça-feira",
               "inicio": "08:00",
-              "fim": "10:00"
+              "fim": "10:00",
+              "sala": "SALA K102"
             },
             {
               "dia": 5,
               "dia_nome": "quinta-feira",
               "inicio": "08:00",
-              "fim": "10:00"
+              "fim": "10:00",
+              "sala": "LAB K05 S"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "TER SALA K102 QUIN LAB K05 S"
         },
         {
           "codigo": "MC0036",
@@ -6929,7 +7273,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K103"
         },
         {
           "codigo": "MC0009",
@@ -6952,7 +7297,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K101"
         },
         {
           "codigo": "MC0028",
@@ -6975,7 +7321,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K106"
         },
         {
           "codigo": "MC0047",
@@ -6998,7 +7345,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "MC0047",
@@ -7021,7 +7369,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K105"
         },
         {
           "codigo": "MC0024",
@@ -7044,7 +7393,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "MC0024",
@@ -7067,7 +7417,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K106"
         },
         {
           "codigo": "MC0017",
@@ -7090,7 +7441,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K03"
         },
         {
           "codigo": "MC0007",
@@ -7113,7 +7465,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K04"
         },
         {
           "codigo": "MC0018",
@@ -7136,7 +7489,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "LAB. K04S"
         },
         {
           "codigo": "MC0045",
@@ -7159,7 +7513,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K107"
         },
         {
           "codigo": "MC0026",
@@ -7182,7 +7537,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "SALA K103"
         }
       ]
     },
@@ -7224,7 +7580,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 23"
         },
         {
           "codigo": "DES0055",
@@ -7241,7 +7598,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 22"
         },
         {
           "codigo": "DES0055",
@@ -7258,7 +7616,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 22"
         },
         {
           "codigo": "DES0076",
@@ -7275,7 +7634,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 24"
         },
         {
           "codigo": "DES0075",
@@ -7292,7 +7652,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 01"
         },
         {
           "codigo": "DES0122",
@@ -7309,7 +7670,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 01"
         },
         {
           "codigo": "DES0074",
@@ -7326,7 +7688,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 03"
         },
         {
           "codigo": "DES0067",
@@ -7343,7 +7706,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 24"
         },
         {
           "codigo": "DES0066",
@@ -7360,7 +7724,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 20"
         },
         {
           "codigo": "DES0060",
@@ -7377,7 +7742,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 04"
         },
         {
           "codigo": "DES0109",
@@ -7394,7 +7760,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 04"
         },
         {
           "codigo": "DES0024",
@@ -7411,7 +7778,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 01"
         },
         {
           "codigo": "DES0056",
@@ -7428,7 +7796,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 22"
         },
         {
           "codigo": "DES0050",
@@ -7445,7 +7814,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E20-s"
         },
         {
           "codigo": "DES0077",
@@ -7462,7 +7832,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 23"
         },
         {
           "codigo": "DES0092",
@@ -7479,7 +7850,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "L 02"
         },
         {
           "codigo": "DES0084",
@@ -7496,7 +7868,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 29"
         },
         {
           "codigo": "DES0049",
@@ -7513,7 +7886,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 24"
         },
         {
           "codigo": "DES0096",
@@ -7530,7 +7904,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "F 01"
         },
         {
           "codigo": "DES0091",
@@ -7547,7 +7922,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "F 01"
         },
         {
           "codigo": "DES0057",
@@ -7564,7 +7940,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G22"
         },
         {
           "codigo": "DES0057",
@@ -7581,7 +7958,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G22"
         },
         {
           "codigo": "DES0059",
@@ -7598,7 +7976,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 22"
         },
         {
           "codigo": "DES0098",
@@ -7615,7 +7994,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 28"
         },
         {
           "codigo": "DES0085",
@@ -7632,7 +8012,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 28"
         },
         {
           "codigo": "DES0043",
@@ -7649,7 +8030,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 22"
         },
         {
           "codigo": "DES0086",
@@ -7666,7 +8048,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 28"
         },
         {
           "codigo": "DES0093",
@@ -7683,7 +8066,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 28"
         },
         {
           "codigo": "DES0058",
@@ -7700,7 +8084,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 23"
         },
         {
           "codigo": "DES0058",
@@ -7717,7 +8102,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 23"
         },
         {
           "codigo": "DES0042",
@@ -7734,7 +8120,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 24"
         }
       ]
     },
@@ -7768,7 +8155,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 01"
         },
         {
           "codigo": "FIL0117",
@@ -7785,7 +8173,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 22"
         },
         {
           "codigo": "FIL0105",
@@ -7802,7 +8191,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E19"
         },
         {
           "codigo": "FIL0125",
@@ -7819,7 +8209,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "A 23"
         },
         {
           "codigo": "FIL0126",
@@ -7836,7 +8227,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 03"
         },
         {
           "codigo": "FIL0210",
@@ -7853,7 +8245,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 19"
         },
         {
           "codigo": "FIL0155",
@@ -7870,7 +8263,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 04"
         }
       ]
     },
@@ -7902,7 +8296,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "FIL0095",
@@ -7925,7 +8320,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "K106/E11"
         },
         {
           "codigo": "FIL0087",
@@ -7942,7 +8338,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 22"
         },
         {
           "codigo": "FIL0124",
@@ -7959,7 +8356,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 01"
         },
         {
           "codigo": "FIL0217",
@@ -7976,7 +8374,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 04"
         },
         {
           "codigo": "FIL0144",
@@ -7993,7 +8392,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 23"
         },
         {
           "codigo": "FIL0204",
@@ -8010,7 +8410,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 01"
         },
         {
           "codigo": "FIL0132",
@@ -8027,7 +8428,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 01"
         },
         {
           "codigo": "FIL0123",
@@ -8044,7 +8446,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 01"
         },
         {
           "codigo": "FIL0215",
@@ -8061,7 +8464,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 22"
         },
         {
           "codigo": "FIL0221",
@@ -8078,7 +8482,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 22"
         },
         {
           "codigo": "FIL0122",
@@ -8095,7 +8500,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 19"
         },
         {
           "codigo": "FIL0131",
@@ -8112,7 +8518,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 03"
         },
         {
           "codigo": "FIL0105",
@@ -8129,7 +8536,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E19"
         },
         {
           "codigo": "FIL0134",
@@ -8146,7 +8554,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 01"
         },
         {
           "codigo": "FIL0177",
@@ -8163,7 +8572,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "A 23"
         },
         {
           "codigo": "FIL0185",
@@ -8180,7 +8590,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 11"
         },
         {
           "codigo": "FIL0207",
@@ -8197,7 +8608,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 23"
         },
         {
           "codigo": "FIL0163",
@@ -8214,7 +8626,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 11"
         },
         {
           "codigo": "FIL0199",
@@ -8231,7 +8644,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 23"
         },
         {
           "codigo": "FIL0149",
@@ -8248,7 +8662,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 20"
         },
         {
           "codigo": "FIL0152",
@@ -8265,7 +8680,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 105"
         },
         {
           "codigo": "FIL0137",
@@ -8282,7 +8698,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 20"
         },
         {
           "codigo": "FIL0140",
@@ -8299,7 +8716,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 01"
         }
       ]
     },
@@ -8325,7 +8743,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 105"
         },
         {
           "codigo": "CSJ0076",
@@ -8342,7 +8761,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 20"
         },
         {
           "codigo": "CSJ0076",
@@ -8359,7 +8779,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 03"
         },
         {
           "codigo": "CSJ0037",
@@ -8376,7 +8797,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 01"
         },
         {
           "codigo": "CSJ0016",
@@ -8393,7 +8815,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 20"
         },
         {
           "codigo": "CSJ0077",
@@ -8410,7 +8833,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 01"
         },
         {
           "codigo": "CSJ0009",
@@ -8427,7 +8851,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 01"
         },
         {
           "codigo": "CSJ0049",
@@ -8444,7 +8869,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 03"
         },
         {
           "codigo": "CSJ0022",
@@ -8461,7 +8887,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 105"
         },
         {
           "codigo": "CSJ0022",
@@ -8478,7 +8905,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "M 01"
         },
         {
           "codigo": "CSJ0012",
@@ -8495,7 +8923,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E01; E02"
         },
         {
           "codigo": "CSJ0079",
@@ -8512,7 +8941,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 19"
         },
         {
           "codigo": "CSJ0079",
@@ -8529,7 +8959,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 20"
         },
         {
           "codigo": "CSJ0033",
@@ -8546,7 +8977,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "A 23"
         },
         {
           "codigo": "CSJ0090",
@@ -8563,7 +8995,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 02"
         },
         {
           "codigo": "CSJ0090",
@@ -8580,7 +9013,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 11"
         },
         {
           "codigo": "CSJ0019",
@@ -8597,7 +9031,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 19"
         },
         {
           "codigo": "CSJ0019",
@@ -8614,7 +9049,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "CSJ0108",
@@ -8637,7 +9073,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 02"
         },
         {
           "codigo": "CSJ0109",
@@ -8660,7 +9097,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 11"
         },
         {
           "codigo": "CSJ0052",
@@ -8683,7 +9121,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "sala do LEG"
         },
         {
           "codigo": "CSJ0052",
@@ -8706,7 +9145,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "sala do LEG"
         },
         {
           "codigo": "CSJ0050",
@@ -8729,7 +9169,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab. de Rádio"
         },
         {
           "codigo": "CSJ0051",
@@ -8752,7 +9193,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "CSJ0099",
@@ -8769,7 +9211,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 04"
         },
         {
           "codigo": "CSJ0129",
@@ -8786,7 +9229,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E02"
         },
         {
           "codigo": "CSJ0007",
@@ -8803,7 +9247,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 03"
         },
         {
           "codigo": "CSJ0041",
@@ -8820,7 +9265,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "Lab de Rádiojornalismo"
         },
         {
           "codigo": "CSJ0041",
@@ -8837,7 +9283,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "ONLINE"
         },
         {
           "codigo": "CSJ0018",
@@ -8854,7 +9301,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "K07-s"
         },
         {
           "codigo": "CSJ0018",
@@ -8871,7 +9319,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "A 23, online"
         },
         {
           "codigo": "CSJ0011",
@@ -8888,7 +9337,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 19"
         }
       ]
     },
@@ -8914,7 +9364,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 101"
         },
         {
           "codigo": "LIB0022",
@@ -8931,7 +9382,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 101"
         },
         {
           "codigo": "LIB0014",
@@ -8948,7 +9400,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 101"
         },
         {
           "codigo": "LIB0063",
@@ -8965,7 +9418,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 103"
         },
         {
           "codigo": "LIB0017",
@@ -8982,7 +9436,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 102"
         },
         {
           "codigo": "LIB0046",
@@ -8999,7 +9454,8 @@
               "fim": "17:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 103"
         },
         {
           "codigo": "LIB0103",
@@ -9016,7 +9472,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 102"
         },
         {
           "codigo": "LIB0104",
@@ -9033,7 +9490,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 103"
         },
         {
           "codigo": "LIB0105",
@@ -9050,7 +9508,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 101"
         },
         {
           "codigo": "LIB0007",
@@ -9067,7 +9526,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 103"
         },
         {
           "codigo": "LIB0069",
@@ -9084,7 +9544,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 104"
         },
         {
           "codigo": "LIB0067",
@@ -9107,7 +9568,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 102"
         },
         {
           "codigo": "LIB0061",
@@ -9130,7 +9592,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 103/I 102"
         },
         {
           "codigo": "LIB0068",
@@ -9147,7 +9610,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 101"
         },
         {
           "codigo": "LIB0024",
@@ -9164,7 +9628,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 104"
         },
         {
           "codigo": "LIB0074",
@@ -9187,7 +9652,8 @@
               "fim": "20:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 104"
         },
         {
           "codigo": "LIB0034",
@@ -9204,7 +9670,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "C 02"
         },
         {
           "codigo": "LIB0025",
@@ -9221,7 +9688,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 104"
         },
         {
           "codigo": "LIB0057",
@@ -9238,7 +9706,8 @@
               "fim": "15:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "UFCA"
         },
         {
           "codigo": "LIB0082",
@@ -9255,7 +9724,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 105"
         },
         {
           "codigo": "LIB0081",
@@ -9272,7 +9742,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 102"
         },
         {
           "codigo": "LIB0075",
@@ -9289,7 +9760,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 103"
         },
         {
           "codigo": "LIB0062",
@@ -9306,7 +9778,8 @@
               "fim": "22:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 104"
         },
         {
           "codigo": "LIB0083",
@@ -9323,7 +9796,8 @@
               "fim": "21:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 105"
         },
         {
           "codigo": "LIB0097",
@@ -9340,7 +9814,8 @@
               "fim": "17:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 101"
         },
         {
           "codigo": "LIB0100",
@@ -9357,7 +9832,8 @@
               "fim": "17:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "I 103"
         }
       ]
     },
@@ -9383,7 +9859,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 27"
         },
         {
           "codigo": "MUS0228",
@@ -9400,7 +9877,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 01"
         },
         {
           "codigo": "MUS0207",
@@ -9423,7 +9901,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 10"
         },
         {
           "codigo": "MUS0106",
@@ -9446,7 +9925,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 25"
         },
         {
           "codigo": "MUS0216",
@@ -9463,7 +9943,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 26"
         },
         {
           "codigo": "MUS0216",
@@ -9480,7 +9961,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "MUS0131",
@@ -9497,7 +9979,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 10"
         },
         {
           "codigo": "MUS0063",
@@ -9514,7 +9997,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 23"
         },
         {
           "codigo": "MUS0098",
@@ -9531,7 +10015,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 27"
         },
         {
           "codigo": "MUS0267",
@@ -9554,7 +10039,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 25"
         },
         {
           "codigo": "MUS0214",
@@ -9571,7 +10057,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 25"
         },
         {
           "codigo": "MUS0222",
@@ -9588,7 +10075,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 27"
         },
         {
           "codigo": "MUS0071",
@@ -9605,7 +10093,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 27"
         },
         {
           "codigo": "MUS0215",
@@ -9622,7 +10111,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 27"
         },
         {
           "codigo": "MUS0168",
@@ -9639,7 +10129,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 04"
         },
         {
           "codigo": "MUS0181",
@@ -9662,7 +10153,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 02"
         },
         {
           "codigo": "MUS0232",
@@ -9679,7 +10171,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 02"
         },
         {
           "codigo": "MUS0234",
@@ -9696,7 +10189,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 02"
         },
         {
           "codigo": "MUS0208",
@@ -9713,7 +10207,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 27"
         },
         {
           "codigo": "MUS0115",
@@ -9736,7 +10231,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 26"
         },
         {
           "codigo": "MUS0121",
@@ -9759,7 +10255,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": null
         },
         {
           "codigo": "MUS0121",
@@ -9782,7 +10279,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G26"
         },
         {
           "codigo": "MUS0264",
@@ -9799,7 +10297,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 23"
         },
         {
           "codigo": "MUS0224",
@@ -9816,7 +10315,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 25"
         },
         {
           "codigo": "MUS0113",
@@ -9839,7 +10339,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 03"
         },
         {
           "codigo": "MUS0238",
@@ -9856,7 +10357,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 03"
         },
         {
           "codigo": "MUS0240",
@@ -9873,7 +10375,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 03"
         },
         {
           "codigo": "MUS0133",
@@ -9890,7 +10393,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 10"
         },
         {
           "codigo": "MUS0266",
@@ -9907,7 +10411,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G10"
         },
         {
           "codigo": "MUS0269",
@@ -9924,7 +10429,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 10"
         },
         {
           "codigo": "MUS0200",
@@ -9941,7 +10447,8 @@
               "fim": "18:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 10"
         },
         {
           "codigo": "MUS0117",
@@ -9964,7 +10471,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 26"
         },
         {
           "codigo": "MUS0243",
@@ -9987,7 +10495,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 05"
         },
         {
           "codigo": "MUS0245",
@@ -10004,7 +10513,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 05"
         },
         {
           "codigo": "MUS0247",
@@ -10021,7 +10531,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 04"
         },
         {
           "codigo": "MUS0141",
@@ -10038,7 +10549,8 @@
               "fim": "16:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 26"
         },
         {
           "codigo": "MUS0084",
@@ -10055,7 +10567,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 26"
         },
         {
           "codigo": "MUS0223",
@@ -10072,7 +10585,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "E 02"
         },
         {
           "codigo": "MUS0265",
@@ -10089,7 +10603,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 10"
         },
         {
           "codigo": "MUS0177",
@@ -10112,7 +10627,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 04"
         },
         {
           "codigo": "MUS0249",
@@ -10129,7 +10645,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 04"
         },
         {
           "codigo": "MUS0251",
@@ -10146,7 +10663,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 04"
         },
         {
           "codigo": "MUS0114",
@@ -10169,7 +10687,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 08"
         },
         {
           "codigo": "MUS0213",
@@ -10186,7 +10705,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 08"
         },
         {
           "codigo": "MUS0221",
@@ -10203,7 +10723,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 08"
         },
         {
           "codigo": "MUS0110",
@@ -10226,7 +10747,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 06"
         },
         {
           "codigo": "MUS0254",
@@ -10243,7 +10765,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 06"
         },
         {
           "codigo": "MUS0256",
@@ -10260,7 +10783,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 05"
         },
         {
           "codigo": "MUS0112",
@@ -10283,7 +10807,8 @@
               "fim": "10:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 07"
         },
         {
           "codigo": "MUS0258",
@@ -10300,7 +10825,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 07"
         },
         {
           "codigo": "MUS0260",
@@ -10317,7 +10843,8 @@
               "fim": "12:00"
             }
           ],
-          "periodo": "2026.2"
+          "periodo": "2026.2",
+          "sala": "G 07"
         }
       ]
     }

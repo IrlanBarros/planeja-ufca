@@ -5,6 +5,7 @@ from zoneinfo import ZoneInfo
 from pathlib import Path
 from urllib.parse import urljoin
 from .schedule_parser import decodificar_horario
+from .salas import extrair_salas, enriquecer_turmas_com_salas
 from .courses import (
     consultar_cursos,
     extrair_cursos,
@@ -17,6 +18,7 @@ URL_TURMAS = (
     "https://sig.ufca.edu.br/sigaa/public/curso/"
     "turmas.jsf"
 )
+URL_SALAS = "https://sig.ufca.edu.br/sigaa/public/turmas/listar.jsf?aba=p-ensino"
 
 DATA_DIR = Path("public/data")
 DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -291,6 +293,54 @@ def separar_codigo_nome(texto):
     return codigo, nome
 
 
+def consultar_salas(ano, periodo):
+    """Uma sessão e um POST por unidade, compartilhados entre todos os cursos."""
+    locais = {}
+    with criar_sessao() as session:
+        try:
+            response = executar_com_retry(
+                lambda: session.get(URL_SALAS, timeout=30), "GET dos locais",
+            )
+            response.raise_for_status()
+            soup = BeautifulSoup(response.text, "html.parser")
+            select = soup.find("select", attrs={"name": "formTurma:inputDepto"})
+            if not select:
+                raise RuntimeError("Consulta pública de locais não encontrada.")
+            # Unidades acadêmicas de todos os campi: componentes podem ser compartilhados.
+            unidades = [op["value"] for op in select.find_all("option", value=True)
+                        if op.get_text(strip=True).startswith(("CENTRO", "INSTITUTO", "FACULDADE"))]
+            if not unidades:
+                raise RuntimeError("Unidades acadêmicas não encontradas na consulta de locais.")
+            for unidade in unidades:
+                try:
+                    form = soup.find("form", id="formTurma")
+                    buscar = form.find("input", attrs={"type": "submit", "value": "Buscar"}) if form else None
+                    if not form or not buscar:
+                        raise RuntimeError("Formulário público de locais não encontrado.")
+                    payload = {campo["name"]: campo.get("value", "")
+                               for campo in form.select("input[name]")
+                               if campo.get("type") != "submit"}
+                    payload.update({
+                        "formTurma:inputNivel": "G", "formTurma:inputDepto": unidade,
+                        "formTurma:inputAno": ano, "formTurma:inputPeriodo": periodo,
+                        buscar["name"]: buscar["value"],
+                    })
+                    post_url = urljoin(response.url, form.get("action"))
+                    response = executar_com_retry(
+                        lambda: session.post(post_url, data=payload, timeout=30),
+                        f"POST dos locais da unidade {unidade}",
+                    )
+                    response.raise_for_status()
+                    soup = BeautifulSoup(response.text, "html.parser")
+                    for chave, salas in extrair_salas(response.text).items():
+                        locais.setdefault(chave, set()).update(salas)
+                except (requests.RequestException, RuntimeError) as error:
+                    print(f"AVISO: locais da unidade {unidade} indisponíveis: {error}")
+        except (requests.RequestException, RuntimeError) as error:
+            print(f"AVISO: locais indisponíveis: {error}")
+    return locais
+
+
 def extrair_turmas(html):
     soup = BeautifulSoup(
         html,
@@ -388,15 +438,16 @@ def extrair_turmas(html):
                 vagas_reservadas = None
 
             turma = {
-    		"codigo": codigo,
-    		"disciplina": disciplina,
-    		"turma": numero_turma,
-    		"docente": docente,
-    		"vagas_reservadas": vagas_reservadas,
-    		"horario_sigaa": horario,
-    		"horarios": decodificar_horario(horario),
-    		"periodo": periodo,
-	    }
+                "codigo": codigo,
+                "disciplina": disciplina,
+                "turma": numero_turma,
+                "docente": docente,
+                "vagas_reservadas": vagas_reservadas,
+                "horario_sigaa": horario,
+                "horarios": decodificar_horario(horario),
+                "periodo": periodo,
+                "sala": None,
+            }
 
             turmas.append(turma)
 
@@ -591,6 +642,9 @@ def main():
             periodo,
         )
     )
+
+    locais = consultar_salas(ano, periodo)
+    enriquecer_turmas_com_salas(resultados, locais)
 
     arquivo = salvar_dados_cursos(
    	resultados,

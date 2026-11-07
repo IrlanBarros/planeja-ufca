@@ -29,6 +29,9 @@ https://seuhorarioufca.pages.dev/
 - Filtros por todas as turmas, disponíveis, com conflito e selecionadas
 - Exportação do horário em CSV
 - Exportação do horário em PDF
+- Salas nos cards, na grade, nas turmas selecionadas e nas exportações, incluindo locais por dia quando identificados explicitamente pelo SIGAA
+
+Os detalhes da fonte pública, da modelagem, da compatibilidade e da validação estão no [relatório de salas de aula](docs/salas-de-aula.md).
 
 ### Estrutura curricular
 
@@ -569,6 +572,7 @@ Dia
 Horário inicial
 Horário final
 Código de horário do SIGAA
+Sala
 ```
 
 O arquivo utiliza codificação UTF-8 e pode ser aberto em ferramentas como LibreOffice Calc e Microsoft Excel.
@@ -582,7 +586,8 @@ O PDF é gerado diretamente no navegador e contém:
 - disciplinas selecionadas;
 - turma;
 - docente;
-- horário.
+- horário;
+- sala, com os locais completos na relação detalhada.
 
 A grade é desenhada diretamente no documento, evitando depender de capturas de tela da interface.
 
@@ -594,7 +599,7 @@ As escolhas realizadas pelo usuário permanecem armazenadas apenas no navegador 
 
 ## Fonte dos dados
 
-As informações de estruturas curriculares, componentes, turmas, docentes, vagas e horários são obtidas a partir das páginas públicas do SIGAA da Universidade Federal do Cariri.
+As informações de estruturas curriculares, componentes, turmas, docentes, vagas, horários e salas são obtidas a partir das páginas públicas do SIGAA da Universidade Federal do Cariri.
 
 Este projeto não possui vínculo oficial com a UFCA.
 
