@@ -1,5 +1,6 @@
 import { jsPDF } from 'jspdf'
 import type { Turma } from '../types'
+import { descreverSalas, obterSala } from './salas'
 
 const DIAS = [
   { numero: 2, nome: 'Segunda' },
@@ -50,6 +51,15 @@ function quebrarTexto(
   largura: number,
 ) {
   return pdf.splitTextToSize(texto, largura) as string[]
+}
+
+function limitarLinha(pdf: jsPDF, texto: string, largura: number) {
+  if (pdf.getTextWidth(texto) <= largura) return texto
+  let compacto = texto
+  while (compacto && pdf.getTextWidth(`${compacto}...`) > largura) {
+    compacto = compacto.slice(0, -1)
+  }
+  return `${compacto}...`
 }
 
 function gerarCorTurma(codigo: string) {
@@ -286,44 +296,29 @@ function desenharGrade(
       )
 
       pdf.setTextColor(30)
-      pdf.setFont('helvetica', 'bold')
-      pdf.setFontSize(7)
-
-      pdf.text(
-        turma.codigo,
-        x + 2,
-        y + 3.5,
-      )
-
-      pdf.setFont(
-        'helvetica',
-        'normal',
-      )
-
+      pdf.setFont('helvetica', 'normal')
       pdf.setFontSize(5.8)
 
-      const nome = quebrarTexto(
-        pdf,
-        turma.disciplina,
-        largura - 4,
-      )
+      const sala = `Sala: ${obterSala(turma, horario) ?? 'Não informada'}`
+      const maxLinhas = Math.max(1, Math.floor((altura - 1) / 2.5))
+      const linhas = maxLinhas === 1
+        ? [`${turma.codigo} | ${sala}`]
+        : [
+            `${turma.codigo} | ${horario.inicio} - ${horario.fim}`,
+            ...(maxLinhas >= 3
+              ? [limitarLinha(pdf, turma.disciplina, largura - 4)]
+              : []),
+            ...quebrarTexto(pdf, sala, largura - 4),
+          ]
 
-      const maxLinhasNome =
-        altura >= 18 ? 2 : 1
-
-      pdf.text(
-        nome.slice(0, maxLinhasNome),
-        x + 2,
-        y + 7,
-      )
-
-      pdf.setFontSize(5.5)
-
-      pdf.text(
-        `${horario.inicio} - ${horario.fim}`,
-        x + 2,
-        y + altura - 2,
-      )
+      const visiveis = linhas.slice(0, maxLinhas)
+      if (linhas.length > maxLinhas) {
+        const ultima = visiveis.length - 1
+        visiveis[ultima] = `${visiveis[ultima]}...`
+      }
+      visiveis.forEach((linha, indice) => {
+        pdf.text(limitarLinha(pdf, linha, largura - 4), x + 2, y + 2.2 + indice * 2.5)
+      })
     })
   })
 
@@ -356,96 +351,47 @@ function adicionarPaginaDisciplinas(
   let y = 49
 
   turmas.forEach((turma) => {
-    const alturaCard = 26
-
-    if (y + alturaCard > 195) {
-      pdf.addPage(
-        'a4',
-        'landscape',
-      )
-
-      desenharCabecalho(
-        pdf,
-        periodo,
-	cursoNome,
-      )
-
-      y = 40
-    }
-
-    pdf.setFillColor(
-      248,
-      250,
-      252,
-    )
-
-    pdf.setDrawColor(220)
-
-    pdf.roundedRect(
-      15,
-      y,
-      267,
-      alturaCard,
-      2,
-      2,
-      'FD',
-    )
-
-    pdf.setFont(
-      'helvetica',
-      'bold',
-    )
-
-    pdf.setFontSize(10)
-
-    pdf.text(
-      `${turma.codigo} - ${turma.disciplina}`,
-      20,
-      y + 6,
-    )
-
-    pdf.setFont(
-      'helvetica',
-      'normal',
-    )
-
+    // Medir todas as linhas antes de desenhar evita cortar locais e nomes longos.
     pdf.setFontSize(8)
-
-    pdf.text(
+    pdf.setFont('helvetica', 'normal')
+    const linhas = [
+      `${turma.codigo} - ${turma.disciplina}`,
       `Turma: ${turma.turma}`,
-      20,
-      y + 12,
-    )
+      `Docente: ${turma.docente || 'Não informado'}`,
+      `Horario SIGAA: ${turma.horario_sigaa || 'Não informado'}`,
+      ...descreverSalas(turma).map((texto) => texto.replace(/[–—]/g, '-')),
+    ].flatMap((texto) => quebrarTexto(pdf, texto, 257))
 
-    pdf.text(
-      `Docente: ${
-        turma.docente ||
-        'Nao informado'
-      }`,
-      20,
-      y + 17,
-    )
-
-    pdf.text(
-      `Horario SIGAA: ${
-        turma.horario_sigaa ||
-        'Nao informado'
-      }`,
-      20,
-      y + 22,
-    )
-
-    y += alturaCard + 4
+    while (linhas.length > 0) {
+      const alturaNecessaria = Math.min(linhas.length * 4 + 8, 155)
+      if (y > 49 && y + alturaNecessaria > 195) {
+        pdf.addPage('a4', 'landscape')
+        desenharCabecalho(pdf, periodo, cursoNome)
+        y = 40
+      }
+      const capacidade = Math.floor((195 - y - 8) / 4)
+      const trecho = linhas.splice(0, capacidade)
+      const alturaCard = trecho.length * 4 + 8
+      pdf.setFont('helvetica', 'normal')
+      pdf.setFontSize(8)
+      pdf.setFillColor(248, 250, 252)
+      pdf.setDrawColor(220)
+      pdf.roundedRect(15, y, 267, alturaCard, 2, 2, 'FD')
+      trecho.forEach((linha, indice) => {
+        pdf.text(linha, 20, y + 6 + indice * 4)
+      })
+      y += alturaCard + 4
+    }
   })
 }
 
-export function exportarHorarioPdf(
+export function gerarHorarioPdf(
   turmas: Turma[],
   periodo: string,
   cursoNome: string,
 ) {
   if (turmas.length === 0) {
-    return
+    return null
   }
 
   const pdf = new jsPDF({
@@ -481,9 +427,18 @@ export function exportarHorarioPdf(
     cursoNome,
   )
 
+  return pdf
+}
+
+export function exportarHorarioPdf(
+  turmas: Turma[],
+  periodo: string,
+  cursoNome: string,
+) {
+  const pdf = gerarHorarioPdf(turmas, periodo, cursoNome)
   const cursoSlug = normalizarNomeArquivo(cursoNome)
 
-  pdf.save(
+  pdf?.save(
       `meu-horario-${cursoSlug}-${periodo}.pdf`,
   )
 }

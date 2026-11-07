@@ -24,7 +24,7 @@ header p {
   display: grid;
   grid-template-columns: repeat(
     auto-fill,
-    minmax(300px, 1fr)
+    minmax(min(300px, 100%), 1fr)
   );
   gap: 16px;
 }
@@ -33,6 +33,8 @@ header p {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .turma-cabecalho {
@@ -106,6 +108,18 @@ header p {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.salas-turma {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+  color: #334155;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
 }
 
 .selecionada span {
@@ -323,6 +337,14 @@ header p {
   color: #1e3a8a;
 
   font-size: 0.78rem;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.grade-aula:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: -3px;
 }
 
 .grade-aula strong {
@@ -334,6 +356,9 @@ header p {
 
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  flex-shrink: 0;
 
   font-weight: 600;
 }
@@ -341,6 +366,56 @@ header p {
 .grade-aula small {
   margin-top: auto;
   font-size: 0.7rem;
+}
+
+.grade-aula .grade-sala {
+  font-size: 0.7rem;
+}
+
+.grade-aula-curta {
+  padding: 3px 6px;
+}
+
+.grade-aula-curta .grade-disciplina,
+.grade-aula-muito-curta small {
+  display: none;
+}
+
+.grade-aula-muito-curta {
+  padding: 0 4px;
+  line-height: 1;
+}
+
+.grade-detalhes {
+  width: min(480px, 90vw);
+  max-height: 85vh;
+  overflow: auto;
+  overflow-wrap: anywhere;
+  padding: 24px;
+  border: 1px solid #2563eb;
+  border-radius: 10px;
+  color: #1a1a1a;
+}
+
+.grade-detalhes::backdrop {
+  background: #0f172a80;
+}
+
+.grade-detalhes h3 {
+  margin-top: 0;
+}
+
+.grade-detalhes p {
+  margin: 10px 0;
+}
+
+.grade-detalhes button {
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
 }
 
 .turmas-titulo {
@@ -470,6 +545,15 @@ header p {
 }
 
 @media (max-width: 600px) {
+  .meu-horario {
+    padding: 16px;
+  }
+
+  .selecionada {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
   .meu-horario-cabecalho {
     align-items: stretch;
     flex-direction: column;

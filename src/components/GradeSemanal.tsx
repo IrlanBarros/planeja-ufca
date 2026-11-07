@@ -1,4 +1,6 @@
-import type { Turma } from '../types'
+import { useRef, useState } from 'react'
+import type { Horario, Turma } from '../types'
+import { obterSala } from '../utils/salas'
 
 interface GradeSemanalProps {
   turmas: Turma[]
@@ -30,6 +32,11 @@ function formatarHora(minutos: number) {
 }
 
 function GradeSemanal({ turmas }: GradeSemanalProps) {
+  const dialogo = useRef<HTMLDialogElement>(null)
+  const [aulaDetalhada, setAulaDetalhada] = useState<{
+    turma: Turma
+    horario: Horario
+  } | null>(null)
   const quantidadeSlots =
     (FIM_GRADE - INICIO_GRADE) / INTERVALO
 
@@ -39,115 +46,143 @@ function GradeSemanal({ turmas }: GradeSemanalProps) {
   )
 
   return (
-    <div className="grade-wrapper">
-      <div
-        className="grade-semanal"
-        style={{
-          gridTemplateRows: `44px repeat(${quantidadeSlots}, 32px)`,
-        }}
-      >
-        <div className="grade-canto" />
+    <>
+      <div className="grade-wrapper">
+        <div
+          className="grade-semanal"
+          style={{
+            gridTemplateRows: `44px repeat(${quantidadeSlots}, 32px)`,
+          }}
+        >
+          <div className="grade-canto" />
 
-        {DIAS.map((dia, index) => (
-          <div
-            className="grade-dia"
-            key={dia.numero}
-            style={{
-              gridColumn: index + 2,
-              gridRow: 1,
-            }}
-          >
-            {dia.nome}
-          </div>
-        ))}
-
-        {slots.map((minutos, index) => (
-          <div
-            className="grade-hora"
-            key={minutos}
-            style={{
-              gridColumn: 1,
-              gridRow: index + 2,
-            }}
-          >
-            {minutos % 60 === 0
-              ? formatarHora(minutos)
-              : ''}
-          </div>
-        ))}
-
-        {DIAS.flatMap((dia, diaIndex) =>
-          slots.map((_, slotIndex) => (
+          {DIAS.map((dia, index) => (
             <div
-              className="grade-celula"
-              key={`${dia.numero}-${slotIndex}`}
+              className="grade-dia"
+              key={dia.numero}
               style={{
-                gridColumn: diaIndex + 2,
-                gridRow: slotIndex + 2,
+                gridColumn: index + 2,
+                gridRow: 1,
               }}
-            />
-          )),
-        )}
+            >
+              {dia.nome}
+            </div>
+          ))}
 
-        {turmas.flatMap((turma) =>
-          turma.horarios.map((horario) => {
-            const diaIndex = DIAS.findIndex(
-              (dia) => dia.numero === horario.dia,
-            )
+          {slots.map((minutos, index) => (
+            <div
+              className="grade-hora"
+              key={minutos}
+              style={{
+                gridColumn: 1,
+                gridRow: index + 2,
+              }}
+            >
+              {minutos % 60 === 0
+                ? formatarHora(minutos)
+                : ''}
+            </div>
+          ))}
 
-            if (diaIndex === -1) {
-              return []
-            }
-
-            const inicio =
-              horaParaMinutos(horario.inicio)
-
-            const fim =
-              horaParaMinutos(horario.fim)
-
-            const linhaInicial =
-              2 +
-              (inicio - INICIO_GRADE) /
-                INTERVALO
-
-            const linhaFinal =
-              2 +
-              (fim - INICIO_GRADE) /
-                INTERVALO
-
-            return (
+          {DIAS.flatMap((dia, diaIndex) =>
+            slots.map((_, slotIndex) => (
               <div
-                className="grade-aula"
-                key={[
-                  turma.codigo,
-                  turma.turma,
-                  turma.docente,
-                  horario.dia,
-                  horario.inicio,
-                ].join('|')}
+                className="grade-celula"
+                key={`${dia.numero}-${slotIndex}`}
                 style={{
                   gridColumn: diaIndex + 2,
-                  gridRow: `${linhaInicial} / ${linhaFinal}`,
+                  gridRow: slotIndex + 2,
                 }}
-                title={`${turma.disciplina} — ${turma.docente}`}
-              >
-                <strong>
-                  {turma.codigo}
-                </strong>
+              />
+            )),
+          )}
 
-                <span>
-                  {turma.disciplina}
-                </span>
+          {turmas.flatMap((turma) =>
+            turma.horarios.map((horario) => {
+              const diaIndex = DIAS.findIndex(
+                (dia) => dia.numero === horario.dia,
+              )
 
-                <small>
-                  {horario.inicio}–{horario.fim}
-                </small>
-              </div>
-            )
-          }),
-        )}
+              if (diaIndex === -1) {
+                return []
+              }
+
+              const inicio =
+                horaParaMinutos(horario.inicio)
+
+              const fim =
+                horaParaMinutos(horario.fim)
+
+              const sala = obterSala(turma, horario) ?? 'Não informada'
+
+              const linhaInicial =
+                2 +
+                (inicio - INICIO_GRADE) /
+                  INTERVALO
+
+              const linhaFinal =
+                2 +
+                (fim - INICIO_GRADE) /
+                  INTERVALO
+
+              return (
+                <button
+                  type="button"
+                  className={[
+                    'grade-aula',
+                    fim - inicio <= 60 ? 'grade-aula-curta' : '',
+                    fim - inicio <= 30 ? 'grade-aula-muito-curta' : '',
+                  ].filter(Boolean).join(' ')}
+                  key={[
+                    turma.codigo,
+                    turma.turma,
+                    turma.docente,
+                    horario.dia,
+                    horario.inicio,
+                  ].join('|')}
+                  style={{
+                    gridColumn: diaIndex + 2,
+                    gridRow: `${linhaInicial} / ${linhaFinal}`,
+                  }}
+                  aria-label={`${turma.codigo} — ${turma.disciplina}, ${horario.dia_nome}, ${horario.inicio}–${horario.fim}. Sala: ${sala}. Ver detalhes`}
+                  aria-haspopup="dialog"
+                  onClick={() => {
+                    setAulaDetalhada({ turma, horario })
+                    dialogo.current?.showModal()
+                  }}
+                >
+                  <strong>
+                    {turma.codigo}
+                  </strong>
+
+                  <span className="grade-disciplina">
+                    {turma.disciplina}
+                  </span>
+
+                  <span className="grade-sala">Sala: {sala}</span>
+
+                  <small>
+                    {horario.inicio}–{horario.fim}
+                  </small>
+                </button>
+              )
+            }),
+          )}
+        </div>
       </div>
-    </div>
+      <dialog ref={dialogo} className="grade-detalhes" aria-label="Detalhes da aula">
+        {aulaDetalhada && (
+          <>
+            <h3>{aulaDetalhada.turma.codigo} — {aulaDetalhada.turma.disciplina}</h3>
+            <p>Turma {aulaDetalhada.turma.turma}</p>
+            <p>Docente: {aulaDetalhada.turma.docente || 'Não informado'}</p>
+            <p>{aulaDetalhada.horario.dia_nome}, {aulaDetalhada.horario.inicio}–{aulaDetalhada.horario.fim}</p>
+            <p>Sala: {obterSala(aulaDetalhada.turma, aulaDetalhada.horario) ?? 'Não informada'}</p>
+          </>
+        )}
+        <form method="dialog"><button type="submit">Fechar</button></form>
+      </dialog>
+    </>
   )
 }
 

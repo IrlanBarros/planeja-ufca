@@ -71,6 +71,8 @@ export interface Horario {
   dia_nome: string
   inicio: string
   fim: string
+  // Ausente: usa o local da turma. Nulo: local deste encontro desconhecido.
+  sala?: string | null
 }
 
 export interface Turma {
@@ -82,6 +84,8 @@ export interface Turma {
   horario_sigaa: string
   horarios: Horario[]
   periodo: string
+  // Texto público do SIGAA, que pode descrever mais de um local.
+  sala?: string | null
 }
 
 export interface Curso {

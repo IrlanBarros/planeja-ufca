@@ -1,4 +1,5 @@
 import type { Turma } from '../types'
+import { obterSala } from './salas'
 
 function escaparCampo(valor: string | number | null) {
   const texto = valor === null ? '' : String(valor)
@@ -6,7 +7,8 @@ function escaparCampo(valor: string | number | null) {
   if (
     texto.includes(';') ||
     texto.includes('"') ||
-    texto.includes('\n')
+    texto.includes('\n') ||
+    texto.includes('\r')
   ) {
     return `"${texto.replace(/"/g, '""')}"`
   }
@@ -41,6 +43,7 @@ export function exportarHorarioCsv(
     'Início',
     'Fim',
     'Horário SIGAA',
+    'Sala',
   ]
 
   const linhas = turmas.flatMap((turma) => {
@@ -55,6 +58,7 @@ export function exportarHorarioCsv(
           '',
           '',
           turma.horario_sigaa,
+          obterSala(turma) ?? '',
         ],
       ]
     }
@@ -68,6 +72,7 @@ export function exportarHorarioCsv(
       horario.inicio,
       horario.fim,
       turma.horario_sigaa,
+      obterSala(turma, horario) ?? '',
     ])
   })
 
