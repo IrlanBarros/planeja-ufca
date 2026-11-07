@@ -604,9 +604,27 @@ A grade é desenhada diretamente no documento, evitando depender de capturas de 
 
 ## Privacidade
 
-O projeto não possui sistema de autenticação e não coleta dados pessoais dos estudantes.
+O projeto não possui autenticação ou backend para receber históricos. A importação opcional trata localmente dados pessoais acadêmicos fornecidos pelo estudante; isso é diferente de coleta remota.
 
-As escolhas realizadas pelo usuário permanecem armazenadas apenas no navegador através do `localStorage`.
+O PDF é interpretado no navegador com PDF.js e um worker incluído no build, sem CDN, upload ou serviços externos de interpretação. O arquivo original, o texto integral e identificadores como nome, CPF e matrícula não integram o perfil salvo. Apenas o perfil acadêmico estruturado pode ser gravado em IndexedDB, mediante escolha explícita após a conferência. O processamento local não representa garantia absoluta de segurança ou conformidade jurídica.
+
+As escolhas de turmas e o tema continuam armazenados separadamente em `localStorage`. A hospedagem pode processar informações técnicas de conexão necessárias ao acesso ao site. Consulte a página pública `/privacidade` para conhecer as diferenças e os controles disponíveis.
+
+## Importação do histórico acadêmico
+
+1. Abra **Meu Histórico Acadêmico** na página principal (`/historico`).
+2. Leia o aviso e escolha **Autorizar processamento local**. Recusar mantém as demais ferramentas disponíveis.
+3. Selecione o histórico escolar digital em PDF emitido pelo SIGAA da UFCA e escolha **Analisar PDF neste navegador**.
+4. Compare os resultados com o documento. Corrija curso, estrutura, período e campos dos registros ou rejeite uma tentativa. Alterações manuais ficam identificadas e preservam o valor acadêmico originalmente extraído.
+5. Escolha **Usar somente nesta sessão** (memória até fechar ou recarregar a página) ou **Salvar neste dispositivo** (IndexedDB, recuperado em visitas futuras no mesmo navegador).
+
+O perfil contém vínculo acadêmico, cinco índices oficiais sem recálculo, todas as tentativas de disciplinas, marcadores, pendências, equivalências direcionais, atividades e cargas horárias oficiais. A associação ao catálogo de cursos é conservadora e opcional; o código da matriz do histórico é preservado sem selecionar uma matriz mais recente.
+
+Para atualizar, escolha **Importar versão atualizada**, confira as datas de emissão e confirme a substituição integral. Um documento mais antigo gera aviso; não há fusão automática entre históricos. Para remover os dados, use **Apagar meus dados acadêmicos** e confirme. A exclusão preserva horários e tema.
+
+São aceitos PDFs digitais reconhecíveis da UFCA/SIGAA, inicialmente até 15 MB, 80 páginas e 45 segundos de leitura. Os limites são configuráveis em `src/features/historico/parser/importarPdf.ts`. Não há OCR ou suporte a PDFs protegidos por senha ou páginas rotacionadas. Mudanças no layout institucional podem exigir ajustes; informações incertas geram advertências e devem ser conferidas. Navegadores podem bloquear ou eliminar o armazenamento local.
+
+Esta etapa prepara modelos e acesso compartilhado ao perfil para futuras análises e planejamento, sem calcular índices, classificar integralização, recomendar disciplinas ou prever formatura. Arquitetura, arquivos, testes e limitações estão em [docs/importacao-historico-lgpd.md](docs/importacao-historico-lgpd.md).
 
 ## Fonte dos dados
 
@@ -630,6 +648,7 @@ O projeto possui atualmente uma versão funcional com:
 - exportação em CSV e PDF;
 - consulta de estruturas curriculares;
 - suporte a múltiplas matrizes;
+- importação local de histórico acadêmico, conferência e armazenamento opcional;
 - exibição de pré-requisitos;
 - identificação visual de disciplinas optativas;
 - atualização automatizada dos dados.

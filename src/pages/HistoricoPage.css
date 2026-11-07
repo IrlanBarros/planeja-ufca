@@ -1,0 +1,38 @@
+.historico-page { max-width: 1100px; }
+.historico-page header { margin-top: 24px; }
+.historico-page h1 { font-size: clamp(1.65rem, 4vw, 2.2rem); }
+.historico-card { padding: clamp(18px, 3vw, 30px); margin: 24px 0; border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-surface); }
+.historico-card > h2:first-child { margin-top: 0; }
+.historico-page p, .historico-page li { line-height: 1.65; overflow-wrap: anywhere; }
+.historico-page button { min-height: 44px; padding: 10px 16px; color: var(--color-text-primary); background: var(--color-surface); border: 1px solid var(--color-input-border); border-radius: 8px; cursor: pointer; }
+.historico-page button:hover { background: var(--color-surface-hover); }
+.historico-page button.historico-primario { color: var(--color-on-primary); background: var(--color-primary); border-color: var(--color-primary); }
+.historico-page button.historico-primario:hover { background: var(--color-primary-hover); }
+.historico-page button:disabled { cursor: default; background: var(--color-disabled-background); color: var(--color-disabled-text); border-color: var(--color-border); }
+.historico-acoes { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+.historico-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 20px; margin: 20px 0; }
+.historico-grid > div > span, .historico-grid > div > strong { display: block; margin-bottom: 6px; }
+.historico-campo { display: flex; flex-direction: column; gap: 8px; overflow-wrap: anywhere; }
+.historico-campo input, .historico-campo select { width: 100%; min-width: 0; min-height: 44px; border: 1px solid var(--color-input-border); border-radius: 6px; padding: 8px; background: var(--color-input-background); color: var(--color-text-primary); }
+.historico-campo input[type=file] { max-width: 100%; }
+.historico-checkbox { display: flex; align-items: flex-start; gap: 10px; margin: 20px 0; line-height: 1.6; }
+.historico-checkbox input { margin-top: 6px; width: 20px; height: 20px; flex-shrink: 0; }
+.historico-ajuda { color: var(--color-text-secondary); }
+.historico-aviso { color: var(--color-warning-text); background: var(--color-warning-background); border: 1px solid var(--color-warning); padding: 16px; border-radius: 8px; margin: 20px 0; }
+.historico-erro { color: var(--color-danger-text); background: var(--color-danger-background); border: 1px solid var(--color-danger-border); padding: 16px; border-radius: 8px; }
+.historico-manual { color: var(--color-warning-text); font-size: .85rem; font-weight: 600; }
+.historico-indices { display: flex; flex-wrap: wrap; gap: 12px; }
+.historico-indices > div { flex: 1; min-width: 115px; padding: 16px; border-radius: 8px; background: var(--color-surface-secondary); }
+.historico-indices dt { font-weight: 700; }
+.historico-indices dd { margin: 8px 0 0; }
+.historico-tabela { max-width: 100%; overflow-x: auto; margin: 16px 0; }
+.historico-tabela table { width: 100%; border-collapse: collapse; }
+.historico-tabela th, .historico-tabela td { padding: 12px; border-bottom: 1px solid var(--color-border); text-align: left; }
+.historico-tabela caption { text-align: left; margin-bottom: 10px; color: var(--color-text-secondary); }
+.historico-resumo > details { border-top: 1px solid var(--color-border); padding: 18px 0; }
+.historico-page summary { cursor: pointer; font-weight: 600; line-height: 1.6; }
+.historico-page summary:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+.historico-registro { border: 1px solid var(--color-border); border-radius: 8px; padding: 16px; margin-top: 16px; overflow-wrap: anywhere; }
+.historico-registro h4 { margin: 0 0 8px; }
+.historico-page progress { width: 100%; }
+@media (max-width: 600px) { .historico-acoes { flex-direction: column; } .historico-acoes button { width: 100%; } .historico-tabela th, .historico-tabela td { padding: 8px; } }
