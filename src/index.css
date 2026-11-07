@@ -1,3 +1,80 @@
+:root {
+  color-scheme: light;
+  --color-background: #f6f7f9;
+  --color-surface: #ffffff;
+  --color-surface-secondary: #f8fafc;
+  --color-surface-hover: #f3f4f6;
+  --color-text-primary: #1a1a1a;
+  --color-text-strong: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #5c6675;
+  --color-border: #d1d5db;
+  --color-border-strong: #94a3b8;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-on-primary: #ffffff;
+  --color-link: #2563eb;
+  --color-focus: #2563eb;
+  --color-focus-ring: #2563eb30;
+  --color-input-background: #ffffff;
+  --color-input-border: #7a8799;
+  --color-disabled-background: #e5e7eb;
+  --color-disabled-text: #6b7280;
+  --color-selected-border: #2563eb;
+  --color-selected-surface: #eff6ff;
+  --color-academic-background: #dbeafe;
+  --color-academic-text: #1e3a8a;
+  --color-danger: #dc2626;
+  --color-danger-text: #991b1b;
+  --color-danger-background: #fef2f2;
+  --color-danger-card: #fffafa;
+  --color-danger-border: #fecaca;
+  --color-warning: #b45309;
+  --color-warning-background: #fffbeb;
+  --color-warning-badge: #fef3c7;
+  --color-warning-text: #92400e;
+  --color-warning-hover: #92400e;
+  --color-backdrop: #0f172a80;
+  --color-shadow: #0f172a0a;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-background: #101826;
+  --color-surface: #182334;
+  --color-surface-secondary: #202d40;
+  --color-surface-hover: #28364b;
+  --color-text-primary: #e2e8f0;
+  --color-text-strong: #edf2f7;
+  --color-text-secondary: #bac8dc;
+  --color-text-muted: #a6b5ca;
+  --color-border: #39495f;
+  --color-border-strong: #71829a;
+  --color-link: #93c5fd;
+  --color-focus: #93c5fd;
+  --color-focus-ring: #93c5fd40;
+  --color-input-background: #182334;
+  --color-input-border: #71829a;
+  --color-disabled-background: #28364b;
+  --color-disabled-text: #9baabd;
+  --color-selected-border: #60a5fa;
+  --color-selected-surface: #1c3250;
+  --color-academic-background: #19345a;
+  --color-academic-text: #c5dfff;
+  --color-danger: #f87171;
+  --color-danger-text: #fecaca;
+  --color-danger-background: #3b202b;
+  --color-danger-card: #2d202b;
+  --color-danger-border: #aa5364;
+  --color-warning: #dca34b;
+  --color-warning-background: #30291b;
+  --color-warning-badge: #49391c;
+  --color-warning-text: #fde68a;
+  --color-warning-hover: #fbbf24;
+  --color-backdrop: #020617b3;
+  --color-shadow: #02061740;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -6,17 +83,104 @@ html {
   font-family:
     Inter, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
+  background: var(--color-background);
+  color: var(--color-text-primary);
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: #f6f7f9;
-  color: #1a1a1a;
+  background: var(--color-background);
+  color: var(--color-text-primary);
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
+}
+
+a {
+  color: var(--color-link);
+}
+
+:where(button, input, select, a):focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root > main {
+  flex: 1;
+}
+
+.appearance-bar {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.theme-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
+.theme-selector label {
+  font-weight: 600;
+}
+
+.theme-selector select {
+  min-height: 40px;
+  padding: 7px 10px;
+  border: 1px solid var(--color-input-border);
+  border-radius: 8px;
+  color: var(--color-text-primary);
+  background: var(--color-input-background);
+  cursor: pointer;
+}
+
+.theme-selector select:hover {
+  border-color: var(--color-focus);
+}
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.site-footer-content {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 24px 0;
+  overflow-wrap: anywhere;
+}
+
+.site-footer strong {
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin: 5px 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
 }

@@ -11,20 +11,20 @@
   margin-bottom: 32px;
   padding-bottom: 24px;
 
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .curriculo-page-header h1 {
   margin: 4px 0 6px;
 
-  color: #0f172a;
+  color: var(--color-text-strong);
 
   font-size: 2rem;
   line-height: 1.15;
 }
 
 .curriculo-page-eyebrow {
-  color: #2563eb;
+  color: var(--color-link);
 
   font-size: 0.8rem;
   font-weight: 700;
@@ -35,7 +35,7 @@
 .curriculo-curso-nome {
   margin: 0;
 
-  color: #64748b;
+  color: var(--color-text-muted);
 
   font-size: 1rem;
 }
@@ -49,11 +49,11 @@
 
   padding: 10px 15px;
 
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--color-border);
   border-radius: 8px;
 
-  background: #ffffff;
-  color: #334155;
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
 
   font-weight: 600;
   text-decoration: none;
@@ -65,14 +65,14 @@
 }
 
 .link-voltar:hover {
-  border-color: #94a3b8;
+  border-color: var(--color-border-strong);
 
-  background: #f8fafc;
-  color: #0f172a;
+  background: var(--color-surface-secondary);
+  color: var(--color-text-strong);
 }
 
 .link-voltar:focus-visible {
-  outline: 3px solid #2563eb30;
+  outline: 3px solid var(--color-focus);
   outline-offset: 2px;
 }
 
@@ -82,23 +82,23 @@
 .estrutura-curricular {
   padding: 28px;
 
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--color-border);
   border-radius: 12px;
 
-  background: #ffffff;
+  background: var(--color-surface);
 }
 
 .estrutura-curricular-cabecalho {
   margin-bottom: 30px;
   padding-bottom: 24px;
 
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .estrutura-curricular-cabecalho h2 {
   margin: 0 0 18px;
 
-  color: #0f172a;
+  color: var(--color-text-strong);
 
   font-size: 1.3rem;
 }
@@ -106,7 +106,7 @@
 .estrutura-curricular-cabecalho p {
   margin: 7px 0 0;
 
-  color: #64748b;
+  color: var(--color-text-muted);
 
   font-size: 0.9rem;
 }
@@ -125,7 +125,7 @@
 }
 
 .estrutura-selector label {
-  color: #475569;
+  color: var(--color-text-secondary);
 
   font-size: 0.85rem;
   font-weight: 600;
@@ -136,23 +136,23 @@
 
   padding: 11px 13px;
 
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--color-input-border);
   border-radius: 8px;
 
-  background: #ffffff;
-  color: #0f172a;
+  background: var(--color-input-background);
+  color: var(--color-text-strong);
 
   font: inherit;
   cursor: pointer;
 }
 
 .estrutura-selector select:hover {
-  border-color: #94a3b8;
+  border-color: var(--color-border-strong);
 }
 
 .estrutura-selector select:focus {
-  border-color: #2563eb;
-  outline: 3px solid #2563eb20;
+  border-color: var(--color-link);
+  outline: 3px solid var(--color-focus);
 }
 
 
@@ -176,7 +176,7 @@
 .nivel-curriculo h3 {
   margin: 0 0 14px;
 
-  color: #1e3a8a;
+  color: var(--color-academic-text);
 
   font-size: 1.05rem;
 }
@@ -189,7 +189,7 @@
 
   grid-template-columns: repeat(
     auto-fill,
-    minmax(300px, 1fr)
+    minmax(min(300px, 100%), 1fr)
   );
 
   gap: 12px;
@@ -197,11 +197,13 @@
 
 .componente-curricular {
   padding: 16px;
+  min-width: 0;
+  overflow-wrap: anywhere;
 
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--color-border);
   border-radius: 9px;
 
-  background: #f8fafc;
+  background: var(--color-surface-secondary);
 
   transition:
     border-color 0.15s ease,
@@ -209,8 +211,8 @@
 }
 
 .componente-curricular:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 2px 8px #0f172a0a;
+  border-color: var(--color-border);
+  box-shadow: 0 2px 8px var(--color-shadow);
 }
 
 .componente-curricular > div {
@@ -221,7 +223,7 @@
 }
 
 .componente-curricular strong {
-  color: #0f172a;
+  color: var(--color-text-strong);
 
   font-size: 0.9rem;
   line-height: 1.4;
@@ -230,7 +232,7 @@
 .componente-curricular span {
   flex-shrink: 0;
 
-  color: #475569;
+  color: var(--color-text-secondary);
 
   font-size: 0.82rem;
   font-weight: 700;
@@ -239,7 +241,7 @@
 .componente-curricular p {
   margin: 10px 0 0;
 
-  color: #64748b;
+  color: var(--color-text-muted);
 
   font-size: 0.8rem;
   line-height: 1.45;
@@ -277,4 +279,17 @@
     flex-direction: column;
     gap: 5px;
   }
+}
+
+.componente-curricular-optativa {
+  border-color: var(--color-warning);
+  background: var(--color-warning-background);
+}
+
+.componente-curricular-optativa:hover {
+  border-color: var(--color-warning-hover);
+}
+
+.componente-curricular-optativa strong {
+  color: var(--color-warning-text);
 }

@@ -1,9 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Consulte disciplinas da UFCA, monte seu horário e visualize estruturas curriculares. Projeto independente, não oficial da universidade." />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      // Aplicado antes da interface e do CSS para evitar um primeiro quadro com o tema errado.
+      (() => {
+        let preference = 'system'
+        try {
+          const saved = localStorage.getItem('seu-horario-ufca:theme')
+          if (saved === 'light' || saved === 'dark' || saved === 'system') preference = saved
+        } catch { /* O acesso ao armazenamento pode estar bloqueado. */ }
+        const prefersDark = typeof window.matchMedia === 'function'
+          && window.matchMedia('(prefers-color-scheme: dark)').matches
+        const theme = preference === 'system' ? (prefersDark ? 'dark' : 'light') : preference
+        document.documentElement.dataset.theme = theme
+        document.documentElement.style.colorScheme = theme
+      })()
+    </script>
     <title>Seu Horário UFCA</title>
   </head>
   <body>

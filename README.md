@@ -33,6 +33,15 @@ https://seuhorarioufca.pages.dev/
 
 Os detalhes da fonte pública, da modelagem, da compatibilidade e da validação estão no [relatório de salas de aula](docs/salas-de-aula.md).
 
+### Aparência e identidade
+
+- Temas Claro, Escuro e Sistema, disponíveis nas duas páginas
+- Preferência de tema persistida no navegador; Sistema é o padrão
+- Favicon próprio com um calendário e grade de horários
+- Rodapé compartilhado com autoria, licença MIT e aviso de projeto independente
+
+Os detalhes da implementação e da validação estão no [relatório de tema e identidade visual](docs/tema-e-identidade-visual.md).
+
 ### Estrutura curricular
 
 - Página dedicada para consulta da estrutura curricular do curso
@@ -366,6 +375,8 @@ As disciplinas selecionadas são armazenadas no `localStorage` do navegador.
 Isso significa que o usuário pode atualizar ou fechar a página sem perder o horário montado.
 
 As seleções são armazenadas separadamente por período acadêmico e por curso.
+
+A preferência visual usa a chave independente `seu-horario-ufca:theme`, com valores `light`, `dark` ou `system`. No modo Sistema, a interface acompanha as mudanças da preferência do sistema operacional. Se o armazenamento estiver bloqueado, o tema e a seleção de turmas continuam funcionando durante a sessão.
 
 Nenhuma informação do estudante é enviada ou armazenada em um servidor.
 
