@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Footer() {
   const initialYear = 2026
   const currentYear = Math.max(initialYear, new Date().getFullYear())
@@ -11,6 +13,7 @@ export default function Footer() {
         <strong>Seu Horário UFCA</strong>
         <p>© {years} Irlan Barros · Autoria e desenvolvimento · Licença MIT</p>
         <p>Projeto independente, não oficial da Universidade Federal do Cariri.</p>
+        <p><Link to="/privacidade">Privacidade e dados locais</Link></p>
       </div>
     </footer>
   )

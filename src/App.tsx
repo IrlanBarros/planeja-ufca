@@ -533,6 +533,10 @@ function App() {
             Ver estrutura curricular
           </Link>
 
+          <Link className="link-curriculo" to="/historico">
+            Meu Histórico Acadêmico
+          </Link>
+
         <p>
           {cursoSelecionado.nome} • {dados.periodo}
         </p>

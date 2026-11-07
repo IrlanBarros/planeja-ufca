@@ -18,7 +18,7 @@ describe('rodapé compartilhado', () => {
   ])('mantém o ano inicial em %i', (year, expected) => {
     vi.useFakeTimers()
     vi.setSystemTime(new Date(year, 6, 1))
-    const markup = renderToStaticMarkup(<Footer />)
+    const markup = renderToStaticMarkup(<MemoryRouter><Footer /></MemoryRouter>)
     expect(markup).toContain(`© ${expected} Irlan Barros`)
     expect(markup).toContain('Autoria e desenvolvimento')
     expect(markup).toContain('Licença MIT')
