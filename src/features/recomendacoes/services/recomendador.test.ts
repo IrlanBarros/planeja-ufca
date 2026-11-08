@@ -122,7 +122,7 @@ describe('contrato compartilhado dos horários', () => {
   it('mantém identificadores, chaves legadas e impede duplicações/conflitos sem substituir', () => {
     const a = turma('A'), b = turma('B')
     expect(gerarIdTurma(a)).toBe('A|01|Docente sintético|2-08:00-10:00')
-    expect(gerarStorageKey('2026.2', 'curso')).toBe('projeta-ufca:2026.2:curso:turmas')
+    expect(gerarStorageKey('2026.2', 'curso')).toBe('planeja-ufca:2026.2:curso:turmas')
     expect(validarAdicao([a], [a], '2026.2')).toContain('Já existe')
     expect(validarAdicao([b], [a], '2026.2')).toContain('Conflito com A')
     expect(validarAdicao([turma('B', 3)], [a], '2026.2')).toBeNull()

@@ -41,5 +41,5 @@ export function agruparComponentes<T extends { componente: LinhaExportacaoCurric
 
 export function nomeArquivoCurriculo(dados: ExportacaoCurriculo, extensao: 'pdf' | 'csv') {
   const normalizar = (texto: string) => texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-+|-+$/g, '')
-  return `projeta-ufca-${dados.modo === 'progresso' ? 'meu-progresso' : 'estrutura-curricular'}-${normalizar(dados.curso.nome).toLowerCase()}-${normalizar(dados.estrutura.codigo)}.${extensao}`
+  return `planeja-ufca-${dados.modo === 'progresso' ? 'meu-progresso' : 'estrutura-curricular'}-${normalizar(dados.curso.nome).toLowerCase()}-${normalizar(dados.estrutura.codigo)}.${extensao}`
 }

@@ -1,8 +1,10 @@
 import type { HistoricoAcademico } from '../models/types'
 import { decodificarPerfil } from './schema'
 
-export const NOME_BANCO = 'projeta-ufca-perfil-academico'
+export const NOME_BANCO = 'planeja-ufca-perfil-academico'
+export const NOME_BANCO_INTERMEDIARIO = 'projeta-ufca-perfil-academico'
 export const NOME_BANCO_LEGADO = 'seu-horario-perfil-academico'
+const BANCOS_LEGADOS = [NOME_BANCO_INTERMEDIARIO, NOME_BANCO_LEGADO]
 const STORE = 'perfil'
 const KEY = 'ativo'
 const MIGRADO = 'migracao-legada-concluida'
@@ -16,7 +18,7 @@ function abrir(nome: string): Promise<IDBDatabase | null> {
     let bloqueado = false, ausente = false
     req.onupgradeneeded = () => {
       // Consultar um banco legado inexistente não deve criar um banco vazio.
-      if (nome === NOME_BANCO_LEGADO) { ausente = true; req.transaction!.abort() }
+      if (nome !== NOME_BANCO) { ausente = true; req.transaction!.abort() }
       else req.result.createObjectStore(STORE)
     }
     req.onsuccess = () => { if (bloqueado) { req.result.close(); return }; req.result.onversionchange = () => req.result.close(); resolve(req.result) }
@@ -51,9 +53,29 @@ export async function lerPerfil(): Promise<HistoricoAcademico | null> {
   const value = await executar(NOME_BANCO, 'readonly', store => store.get(KEY))
   if (value !== undefined) return decodificarPerfil(value)
   if (await executar(NOME_BANCO, 'readonly', store => store.get(MIGRADO))) return null
-  const antigo = await executar(NOME_BANCO_LEGADO, 'readonly', store => store.get(KEY))
-  if (antigo === undefined) return null
-  const permitido = decodificarPerfil(antigo)
+  const candidatos: HistoricoAcademico[] = []
+  let erroLegado: unknown
+  let exclusaoIntermediaria = false
+  for (const nome of BANCOS_LEGADOS) {
+    const antigo = await executar(nome, 'readonly', store => store.get(KEY))
+    if (antigo === undefined) {
+      // Uma exclusão/substituição explícita na versão intermediária prevalece
+      // sobre cópias originais que possam continuar no mesmo navegador.
+      if (nome === NOME_BANCO_INTERMEDIARIO && await executar(nome, 'readonly', store => store.get(MIGRADO))) {
+        exclusaoIntermediaria = true
+        break
+      }
+      continue
+    }
+    try { candidatos.push(decodificarPerfil(antigo)) }
+    catch (erro) { erroLegado ??= erro }
+  }
+  if (!candidatos.length && erroLegado) throw erroLegado
+  // A data do perfil resolve conflitos entre legados; em empate, a marca
+  // intermediária tem prioridade. Um perfil atual válido nunca é substituído.
+  const permitido = candidatos.reduce<HistoricoAcademico | null>((maisRecente, perfil) =>
+    !maisRecente || Date.parse(perfil.importadoEm) > Date.parse(maisRecente.importadoEm) ? perfil : maisRecente, null)
+  if (!permitido && !exclusaoIntermediaria) return null
   let copiado = false
   // Revalida dentro da transação para não sobrescrever uma gravação de outra aba.
   await executar(NOME_BANCO, 'readwrite', store => {
@@ -62,7 +84,10 @@ export async function lerPerfil(): Promise<HistoricoAcademico | null> {
       if (req.result !== undefined) return
       const marcador = store.get(MIGRADO)
       marcador.onsuccess = () => {
-        if (!marcador.result) { store.put(permitido, KEY); store.put(true, MIGRADO); copiado = true }
+        if (!marcador.result) {
+          if (permitido) { store.put(permitido, KEY); copiado = true }
+          store.put(true, MIGRADO)
+        }
       }
     }
     return req
@@ -84,7 +109,13 @@ export async function salvarPerfil(perfil: HistoricoAcademico) {
 }
 export async function apagarPerfil() {
   // Exclusão explícita também alcança o legado, evitando cópias pessoais esquecidas.
-  await executar(NOME_BANCO_LEGADO, 'readwrite', store => store.delete(KEY))
+  for (const nome of BANCOS_LEGADOS) {
+    await executar(nome, 'readwrite', store => {
+      const req = store.delete(KEY)
+      store.put(true, MIGRADO)
+      return req
+    })
+  }
   await executar(NOME_BANCO, 'readwrite', store => {
     const req = store.delete(KEY)
     store.put(true, MIGRADO)

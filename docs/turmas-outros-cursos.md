@@ -88,7 +88,7 @@ Cumprimentos são obtidos pela análise acadêmica existente (`analisarSituacao`
 `useHorario`, `HorariosProvider`, `gerarIdTurma`, `gerarStorageKey` e `lerIdsHorario` permanecem com o contrato existente:
 
 ```text
-projeta-ufca:<periodo>:<cursoIdPrincipal>:turmas
+planeja-ufca:<periodo>:<cursoIdPrincipal>:turmas
 ```
 
 Todas as origens escrevem a mesma lista de IDs. Nenhuma chave é criada por aba, curso de origem ou matriz. O catálogo completo recupera turmas externas após recarregar. Navegar pelas páginas mantém o provedor compartilhado; recarregar recupera localStorage. Trocar curso principal consulta sua própria chave sem apagar a anterior. IDs antigos ou ausentes da oferta não são apagados por abrir ou filtrar a página.
@@ -173,4 +173,4 @@ Ficam para trabalhos futuros: interpretação estruturada de ramos compostos com
 
 ## Compatibilidade após o rebranding
 
-A marca pública é Projeta UFCA. As antigas chaves `seu-horario-ufca:<periodo>:<cursoId>:turmas` são lidas quando a nova chave não existe e copiadas sem apagar o original. Os IDs de turmas permanecem estáveis. Consulte [a migração](rebranding-projeta-ufca.md).
+A marca pública é Planeja UFCA. Na ausência da chave definitiva, a aplicação consulta `projeta-ufca:<periodo>:<cursoId>:turmas` e depois `seu-horario-ufca:<periodo>:<cursoId>:turmas`. A primeira seleção existente é validada e copiada sem apagar o original; listas vazias também têm prioridade. Os IDs de turmas permanecem estáveis. Consulte [a migração](rebranding-planeja-ufca.md).

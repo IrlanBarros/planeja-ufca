@@ -2,7 +2,7 @@
 import 'fake-indexeddb/auto'
 import { IDBFactory } from 'fake-indexeddb'
 import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest'
-import { criarBackup, interpretarBackup, restaurarBackup, validarBackup } from './backup'
+import { baixarBackup, criarBackup, interpretarBackup, restaurarBackup, validarBackup } from './backup'
 import { novoHistorico } from '../historico/models/types'
 import { lerPerfil, salvarPerfil } from '../historico/storage/indexedDb'
 import { gerarStorageKey } from '../horarios/selecao'
@@ -11,9 +11,52 @@ import { LEGACY_THEME_STORAGE_KEY, THEME_STORAGE_KEY } from '../../theme/theme'
 beforeEach(() => { localStorage.clear(); globalThis.indexedDB = new IDBFactory(); vi.stubGlobal('fetch', vi.fn()) })
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals() })
 const horario = () => ({ periodo: '2026.2', cursoId: 'sintetico', turmas: ['ABC0001|01|Docente público|24T46'] })
-const dados = () => ({ formato: 'projeta-ufca-backup', versao: 1, tema: 'dark', horarios: [horario()], perfil: null })
+const dados = () => ({ formato: 'planeja-ufca-backup', versao: 1, tema: 'dark', horarios: [horario()], perfil: null })
 
 describe('transferência explícita de dados entre origens', () => {
+  it('baixa JSON com a marca definitiva e libera a URL local sem transmitir dados', async () => {
+    let conteudo: Blob | undefined
+    vi.stubGlobal('URL', {
+      createObjectURL: vi.fn((blob: Blob) => { conteudo = blob; return 'blob:backup-local' }),
+      revokeObjectURL: vi.fn(),
+    })
+    const click = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(function (this: HTMLAnchorElement) {
+      expect(this.download).toMatch(/^planeja-ufca-backup-\d{4}-\d{2}-\d{2}\.json$/)
+      expect(this.href).toBe('blob:backup-local')
+    })
+    const backup = criarBackup()
+    baixarBackup(backup)
+    expect(click).toHaveBeenCalledOnce()
+    expect(conteudo?.type).toBe('application/json')
+    expect(JSON.parse(await conteudo!.text())).toEqual(backup)
+    expect(URL.revokeObjectURL).toHaveBeenCalledExactlyOnceWith('blob:backup-local')
+    expect(document.querySelector('a[download]')).toBeNull()
+    expect(fetch).not.toHaveBeenCalled()
+  })
+  it.each(['projeta-ufca-backup', 'seu-horario-ufca-backup'])('importa backup legado %s e normaliza sua identidade', async formato => {
+    const backup = interpretarBackup(JSON.stringify({ ...dados(), formato }))
+    expect(backup.formato).toBe('planeja-ufca-backup')
+    await restaurarBackup(backup, true)
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark')
+    expect(JSON.parse(localStorage.getItem(gerarStorageKey('2026.2', 'sintetico'))!)).toEqual(horario().turmas)
+    expect(fetch).not.toHaveBeenCalled()
+  })
+  it.each([true, false])('exporta os três prefixos com precedência independente da ordem (invertida: %s)', invertida => {
+    const entradas = [
+      ['seu-horario-ufca:2026.2:sintetico:turmas', '["original"]'],
+      ['projeta-ufca:2026.2:sintetico:turmas', '["intermediaria"]'],
+      [gerarStorageKey('2026.2', 'sintetico'), '[]'],
+      ['seu-horario-ufca:2026.1:sintetico:turmas', '["original"]'],
+      ['projeta-ufca:2026.1:sintetico:turmas', '["intermediaria"]'],
+    ]
+    for (const [chave, valor] of invertida ? entradas.reverse() : entradas) localStorage.setItem(chave, valor)
+    const backup = criarBackup()
+    expect(backup.formato).toBe('planeja-ufca-backup')
+    expect(backup.horarios).toHaveLength(2)
+    expect(backup.horarios.find(h => h.periodo === '2026.2')?.turmas).toEqual([])
+    expect(backup.horarios.find(h => h.periodo === '2026.1')?.turmas).toEqual(['intermediaria'])
+    expect(localStorage.length).toBe(5)
+  })
   it('reconstitui o backup em um armazenamento de destino vazio', async () => {
     const p = novoHistorico(); p.curso.nome = 'CURSO SINTÉTICO'
     localStorage.setItem(LEGACY_THEME_STORAGE_KEY, 'dark')

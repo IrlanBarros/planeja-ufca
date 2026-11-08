@@ -9,7 +9,7 @@ export default function PrivacidadePage() {
   useEffect(() => {
     if (hash === '#backup-titulo') document.getElementById('backup-titulo')?.scrollIntoView?.()
   }, [hash])
-  return <main className="container historico-page"><Link to="/">← Voltar aos horários</Link><header><h1>Privacidade e dados locais</h1><p>Projeta UFCA · Projeto independente, não oficial da Universidade Federal do Cariri.</p></header>
+  return <main className="container historico-page"><Link to="/">← Voltar aos horários</Link><header><h1>Privacidade e dados locais</h1><p>Planeja UFCA · Projeto independente, não oficial da Universidade Federal do Cariri.</p></header>
     <section className="historico-card"><h2>Finalidade e dados públicos</h2><p>O site permite consultar turmas, montar horários e visualizar currículos com informações públicas do SIGAA. Cursos, turmas, docentes, salas e matrizes são arquivos públicos consultados pelo navegador. Não há contas ou autenticação.</p>
       <h2>Importação opcional do histórico</h2><p>O histórico escolar contém dados pessoais, inclusive identificadores civis e institucionais. Após sua autorização, o PDF é lido neste navegador com o PDF.js e um worker servido pelo próprio site. O arquivo e seu conteúdo não são enviados a servidores, APIs de inteligência artificial, analytics ou serviços de OCR pelo fluxo de importação.</p>
       <p>O perfil utiliza curso, estrutura curricular, vínculo, períodos, prazos, suspensões, índices oficiais, tentativas de disciplinas, situações, notas, frequências, cargas horárias, pendências, equivalências e atividades autônomas. Correções manuais ficam identificadas com o valor acadêmico extraído originalmente.</p>

@@ -9,7 +9,7 @@ describe('PDF com salas', () => {
     turma.horarios[0].sala = 'SALA A'
     turma.horarios[1].sala = 'LAB B'
     const pdf = gerarHorarioPdf([turma], '2026.2', 'Curso')!
-    expect(pdf.output()).toContain('Projeta UFCA')
+    expect(pdf.output()).toContain('Planeja UFCA')
     expect(pdf.output()).not.toContain('Seu Horario - UFCA')
     expect(pdf.getNumberOfPages()).toBe(2)
     const paginas = pdf.internal.pages as unknown as string[][]

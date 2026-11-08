@@ -151,7 +151,7 @@ O provedor compartilhado fica no `AppLayout` e não realiza consultas extras. Ma
 
 ```text
 ID: codigo|turma|docente|horario_sigaa
-Chave: projeta-ufca:<periodo>:<cursoId>:turmas
+Chave: planeja-ufca:<periodo>:<cursoId>:turmas
 Valor: array de IDs (compatível com os horários antigos)
 ```
 
@@ -216,4 +216,4 @@ Evoluções possíveis, fora desta implementação: planejamento de múltiplos s
 
 ## Compatibilidade após o rebranding
 
-A marca pública é Projeta UFCA. As antigas chaves `seu-horario-ufca:<periodo>:<cursoId>:turmas` são lidas quando a nova chave não existe e copiadas sem apagar o original. Os IDs de turmas permanecem estáveis. Consulte [a migração](rebranding-projeta-ufca.md).
+A marca pública é Planeja UFCA. Na ausência da chave definitiva, a aplicação consulta `projeta-ufca:<periodo>:<cursoId>:turmas` e depois `seu-horario-ufca:<periodo>:<cursoId>:turmas`. A primeira seleção existente é validada e copiada sem apagar o original; listas vazias também têm prioridade. Os IDs de turmas permanecem estáveis. Consulte [a migração](rebranding-planeja-ufca.md).

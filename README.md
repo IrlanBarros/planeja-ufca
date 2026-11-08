@@ -1,6 +1,6 @@
-# Projeta UFCA
+# Planeja UFCA
 
-Projeta UFCA é uma plataforma independente de apoio ao planejamento acadêmico dos estudantes da Universidade Federal do Cariri. A ferramenta permite organizar horários, consultar disciplinas de diferentes cursos, acompanhar o progresso curricular e receber recomendações acadêmicas personalizadas. Não é uma plataforma oficial da universidade.
+Planeja UFCA é uma plataforma independente de apoio ao planejamento acadêmico dos estudantes da Universidade Federal do Cariri. A ferramenta permite organizar horários, consultar disciplinas de diferentes cursos, acompanhar o progresso curricular e receber recomendações acadêmicas personalizadas. Não é uma plataforma oficial da universidade.
 
 O sistema utiliza dados disponibilizados publicamente pelo SIGAA da UFCA e permite selecionar disciplinas, visualizar a grade semanal, identificar conflitos de horário, consultar matrizes curriculares, visualizar pré-requisitos, identificar disciplinas optativas e exportar o planejamento em CSV ou PDF.
 
@@ -8,11 +8,11 @@ O projeto foi desenvolvido com uma arquitetura sem backend permanente, mantendo 
 
 ## Acesso
 
-Domínio desejado: [projetaufca.pages.dev](https://projetaufca.pages.dev). A criação e a publicação desse endereço ainda precisam ser confirmadas no painel Cloudflare.
+Domínio desejado: [planejaufca.pages.dev](https://planejaufca.pages.dev). A criação e a publicação desse endereço ainda precisam ser confirmadas no painel Cloudflare.
 
-O endereço anterior, `https://seuhorarioufca.pages.dev`, deve permanecer acessível durante a transição para exportar os dados locais. A transferência entre domínios exige uma ação explícita; consulte o [procedimento de migração](docs/rebranding-projeta-ufca.md).
+Os endereços legados efetivamente utilizados devem permanecer acessíveis durante a transição para exportar os dados locais. A inspeção de 08/11/2026 encontrou HTTP 403 em `https://projetaufca.pages.dev` e `https://projeta-ufca.irlanbarros100.workers.dev`; o domínio original `https://seuhorarioufca.pages.dev` e o destino desejado não resolveram DNS nesta consulta. Isso não confirma disponibilidade do nome nem o estado administrativo das implantações. A transferência entre domínios exige uma ação explícita; consulte o [procedimento de migração](docs/rebranding-planeja-ufca.md).
 
-Repositório de destino após a renomeação: [IrlanBarros/projeta-ufca](https://github.com/IrlanBarros/projeta-ufca). A operação administrativa está descrita no mesmo procedimento.
+Repositório de destino após a renomeação: [IrlanBarros/planeja-ufca](https://github.com/IrlanBarros/planeja-ufca). A consulta ao GitHub em 08/11/2026 confirmou o nome atual `IrlanBarros/projeta-ufca`; a renomeação ainda é uma pendência. A operação administrativa está descrita no mesmo procedimento.
 
 ## Funcionalidades
 
@@ -154,7 +154,7 @@ As consultas detalhadas dos componentes utilizam cache local durante a execuçã
 ## Arquitetura
 
 ```text
-projeta-ufca/
+planeja-ufca/
 |
 |-- .github/
 |   `-- workflows/
@@ -398,7 +398,7 @@ Isso significa que o usuário pode atualizar ou fechar a página sem perder o ho
 
 As seleções são armazenadas separadamente por período acadêmico e por curso.
 
-A preferência visual usa a chave independente `projeta-ufca:theme`, com leitura e migração de `seu-horario-ufca:theme` apenas quando a nova chave não existe. Os valores aceitos são `light`, `dark` ou `system`. No modo Sistema, a interface acompanha as mudanças da preferência do sistema operacional. Se o armazenamento estiver bloqueado, o tema e a seleção de turmas continuam funcionando durante a sessão.
+A preferência visual usa a chave independente `planeja-ufca:theme`, com leitura de `projeta-ufca:theme` e depois `seu-horario-ufca:theme` apenas quando a chave definitiva não existe. Uma chave existente inválida é preservada e resulta no modo Sistema. Os valores aceitos são `light`, `dark` ou `system`. No modo Sistema, a interface acompanha as mudanças da preferência do sistema operacional. Se o armazenamento estiver bloqueado, o tema e a seleção de turmas continuam funcionando durante a sessão.
 
 Nenhuma informação do estudante é enviada ou armazenada em um servidor.
 
@@ -489,8 +489,8 @@ Git
 Após a renomeação no GitHub:
 
 ```bash
-git clone git@github.com:IrlanBarros/projeta-ufca.git
-cd projeta-ufca
+git clone git@github.com:IrlanBarros/planeja-ufca.git
+cd planeja-ufca
 ```
 
 ### Configure o ambiente Python
@@ -610,7 +610,7 @@ Código de horário do SIGAA
 Sala
 ```
 
-Os arquivos de horário usam o prefixo `projeta-ufca-horario-`; as estruturas curriculares usam `projeta-ufca-estrutura-curricular-` ou `projeta-ufca-meu-progresso-`. Os formatos acadêmicos permanecem iguais.
+Os arquivos de horário usam o prefixo `planeja-ufca-horario-`; as estruturas curriculares usam `planeja-ufca-estrutura-curricular-` ou `planeja-ufca-meu-progresso-`. Os formatos acadêmicos permanecem iguais.
 
 O arquivo utiliza codificação UTF-8 e pode ser aberto em ferramentas como LibreOffice Calc e Microsoft Excel.
 
@@ -634,7 +634,9 @@ No rodapé, abra **Exportar ou importar dados locais**. A exportação JSON incl
 
 Exporte no domínio antigo e importe no novo. Confira o resumo e confirme a substituição dos dados indicados; horários de outros períodos/cursos e o perfil salvo ausente do arquivo são preservados. Após a restauração, a página recarrega. Perfis temporários e outras preferências somente da sessão são descartados nessa recarga. Tudo ocorre no navegador, sem upload. Feche outras abas durante a restauração e mantenha o backup até conferir o resultado.
 
-As novas chaves são `projeta-ufca:<periodo>:<cursoId>:turmas` e `projeta-ufca:theme`; o banco é `projeta-ufca-perfil-academico`. O [relatório de rebranding](docs/rebranding-projeta-ufca.md) descreve a migração na mesma origem, os limites de recuperação e a publicação em fases.
+Novos backups usam o formato `planeja-ufca-backup`, versão 1. Arquivos compatíveis das identidades anteriores também são aceitos, com a mesma validação e confirmação.
+
+As novas chaves são `planeja-ufca:<periodo>:<cursoId>:turmas` e `planeja-ufca:theme`; o banco é `planeja-ufca-perfil-academico`. O [relatório de rebranding](docs/rebranding-planeja-ufca.md) descreve a migração na mesma origem, os limites de recuperação e a publicação em fases.
 
 ## Privacidade
 

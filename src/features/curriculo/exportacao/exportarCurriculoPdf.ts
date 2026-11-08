@@ -21,7 +21,7 @@ export function gerarCurriculoPdf(dados: ExportacaoCurriculo): jsPDF {
   let grupoAtual = ''
   function cabecalho() {
     pdf.setTextColor(20, 35, 55); pdf.setFont('helvetica', 'bold'); pdf.setFontSize(13)
-    pdf.text('Projeta UFCA', margem, 17)
+    pdf.text('Planeja UFCA', margem, 17)
     pdf.setFontSize(11)
     pdf.text(dados.modo === 'original' ? 'Estrutura Curricular' : 'Minha Estrutura Curricular - Progresso Acadêmico', margem, 24)
     pdf.setFont('helvetica', 'normal'); pdf.setFontSize(9)
