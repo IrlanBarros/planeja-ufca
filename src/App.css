@@ -2,12 +2,6 @@
   min-height: 100vh;
 }
 
-.container {
-  width: min(1100px, 92%);
-  margin: 0 auto;
-  padding: 40px 0;
-}
-
 header {
   margin-bottom: 32px;
 }
@@ -47,7 +41,7 @@ header p {
   font-weight: 700;
 }
 
-.turma-card h2 {
+.turma-card h3 {
   font-size: 1.15rem;
   margin: 12px 0 16px;
 }

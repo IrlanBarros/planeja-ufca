@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import type { DadosCurriculoCurso, IndiceCurriculos } from '../../types'
 import { useHistorico } from '../historico/hooks/context'
 import { resolverReferencia, type ReferenciaCurricular } from './referenciaCurricular'
+import { carregarJsonPublico } from '../../data/publicJson'
 
 export function useReferenciaCurricular(cursoId: string) {
   const { perfil, carregando: carregandoPerfil } = useHistorico()
@@ -10,11 +11,7 @@ export function useReferenciaCurricular(cursoId: string) {
   useEffect(() => {
     if (!cursoId) return
     const controller = new AbortController()
-    async function json<T>(url: string): Promise<T> {
-      const response = await fetch(url, { signal: controller.signal })
-      if (!response.ok) throw new Error('Falha ao consultar as estruturas curriculares públicas. Tente recarregar a página.')
-      return response.json() as Promise<T>
-    }
+    const json = carregarJsonPublico
     async function carregar() {
       const indice = await json<IndiceCurriculos>('/data/curriculos/index.json')
       const curso = indice.cursos.find(c => c.id === cursoId)

@@ -11,7 +11,10 @@ import {
 } from './theme'
 import type { ThemePreference } from './theme'
 
+const subscribeToHydration = () => () => {}
+
 export default function ThemeProvider({ children }: { children: ReactNode }) {
+  const hydrated = useSyncExternalStore(subscribeToHydration, () => true, () => false)
   const [preference, setThemePreference] = useState(readThemePreference)
   const prefersDark = useSyncExternalStore(
     subscribeToSystemTheme,
@@ -21,8 +24,9 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
   const resolvedTheme = resolveTheme(preference, prefersDark)
 
   useLayoutEffect(() => {
-    applyTheme(resolvedTheme)
-  }, [resolvedTheme])
+    // O bootstrap do HTML já aplicou a preferência antes do primeiro quadro.
+    if (hydrated) applyTheme(resolvedTheme)
+  }, [resolvedTheme, hydrated])
 
   function setPreference(value: ThemePreference) {
     saveThemePreference(value)
@@ -30,7 +34,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <ThemeContext value={{ preference, resolvedTheme, setPreference }}>
+    <ThemeContext value={{ preference: hydrated ? preference : 'system', resolvedTheme, setPreference }}>
       {children}
     </ThemeContext>
   )

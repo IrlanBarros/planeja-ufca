@@ -13,6 +13,7 @@ import ComponenteCurriculoCard from '../features/curriculo/components/Componente
 import ExportacaoCurriculo from '../features/curriculo/components/ExportacaoCurriculo'
 import '../App.css'
 import './CurriculoPage.css'
+import { carregarJsonPublico } from '../data/publicJson'
 
 interface Catalogo {
   cursoId: string
@@ -32,15 +33,14 @@ export default function CurriculoPage() {
   const [agora] = useState(() => new Date())
 
   useEffect(() => {
-    if (!cursoId) return
     const controller = new AbortController()
-    const id = cursoId
-    async function json<T>(url: string): Promise<T> {
-      const r = await fetch(url, { signal: controller.signal })
-      if (!r.ok) throw new Error('Não foi possível carregar os dados públicos. Tente novamente.')
-      return r.json()
-    }
+    const id = cursoId ?? ''
+    const json = carregarJsonPublico
     async function carregar(): Promise<Catalogo> {
+      if (!id) {
+        const indice = await json<IndiceCurriculos>('/data/curriculos/index.json')
+        return { cursoId: id, cursos: indice.cursos }
+      }
       // A falha da oferta afeta somente a referência temporal, sem bloquear a matriz.
       const [indice, oferta] = await Promise.allSettled([
         json<IndiceCurriculos>('/data/curriculos/index.json'), json<DadosCursos>('/data/cursos-atual.json'),
@@ -60,7 +60,7 @@ export default function CurriculoPage() {
   }, [cursoId])
 
   const carregando = !!cursoId && catalogo?.cursoId !== cursoId
-  const atual = cursoId && !carregando ? catalogo : null
+  const atual = !carregando ? catalogo : null
   const estruturas = [...(atual?.dados?.estruturas ?? [])].sort((a, b) => b.ano_criacao - a.ano_criacao)
   const cursoPerfil = perfil ? identificarCurso(perfil, atual?.cursos ?? []).curso : undefined
   const chavePerfil = perfil ? JSON.stringify([perfil.importadoEm, perfil.curso.idCurso, perfil.curso.estruturaCurricular]) : null
@@ -91,7 +91,13 @@ export default function CurriculoPage() {
     <header className="curriculo-page-header"><div><span className="curriculo-page-eyebrow">Planeja UFCA</span><h1>Estrutura curricular</h1>
       {atual?.curso && <p className="curriculo-curso-nome">{atual.curso.nome}</p>}
     </div><Link className="link-voltar" to="/">Voltar para Meu Horário</Link></header>
-    {!cursoId && <p className="erro">Nenhum curso foi informado. Selecione um curso na página de horários.</p>}
+    <p>Consulte as estruturas curriculares da UFCA, com disciplinas obrigatórias e optativas, cargas horárias e pré-requisitos. Você pode consultar e exportar a matriz original sem importar um histórico.</p>
+    {!cursoId && <section aria-labelledby="escolher-curso"><h2 id="escolher-curso">Escolha seu curso</h2>
+      <p>Selecione um curso para consultar suas matrizes. Com um histórico compatível, também é possível acompanhar seu progresso acadêmico localmente.</p>
+      {!catalogo && <p role="status">Carregando cursos…</p>}
+      <ul>{atual?.cursos?.filter(c => c.disponivel).map(c => <li key={c.id}><Link to={`/curriculo?curso=${encodeURIComponent(c.id)}`}>{c.nome} · ID {c.id}</Link></li>)}</ul>
+      <Link to="/">Consultar turmas e montar meu horário</Link>
+    </section>}
     {carregando && <p role="status">Carregando estrutura curricular…</p>}
     {atual?.erro && <p className="erro" role="alert">{atual.erro}</p>}
     {atual?.dados && !estrutura && <p role="alert">{solicitada ? 'A estrutura solicitada não foi encontrada neste curso.' : 'Nenhuma estrutura curricular disponível.'}</p>}

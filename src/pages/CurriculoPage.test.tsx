@@ -3,6 +3,7 @@ import 'fake-indexeddb/auto'
 import { IDBFactory } from 'fake-indexeddb'
 import { act, cleanup, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { limparCachePublico } from '../data/publicJson'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { Link, MemoryRouter } from 'react-router-dom'
 import AppRoutes from '../AppRoutes'
@@ -22,6 +23,7 @@ vi.mock('../features/curriculo/exportacao/exportarCurriculoPdf', () => ({ export
 let dados = dadosCurriculoTeste()
 
 beforeEach(() => {
+  limparCachePublico()
   globalThis.indexedDB = new IDBFactory(); localStorage.clear()
   dados = dadosCurriculoTeste()
   vi.useFakeTimers({ toFake: ['Date'] }); vi.setSystemTime(dados.agora)
@@ -183,7 +185,7 @@ describe('currículo público e personalizado', () => {
     vi.mocked(exportarCurriculoCsv).mockImplementationOnce(() => { throw new Error('Falha de download') })
     await userEvent.click(screen.getByRole('button', { name: 'Baixar CSV' }))
     expect(await screen.findByText(/Não foi possível gerar o arquivo/)).toBeTruthy()
-    cleanup(); vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('Falha do catálogo') }))
+    cleanup(); limparCachePublico(); vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('Falha do catálogo') }))
     montar(); expect((await screen.findByRole('alert')).textContent).toContain('Falha do catálogo')
   })
 })

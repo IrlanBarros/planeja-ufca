@@ -13,6 +13,13 @@ export default function Footer() {
         <strong>Planeja UFCA</strong>
         <p>© {years} Irlan Barros · Autoria e desenvolvimento · Licença MIT</p>
         <p>Projeto independente, não oficial da Universidade Federal do Cariri.</p>
+        <nav className="footer-nav" aria-label="Ferramentas acadêmicas">
+          <Link to="/">Horários</Link>
+          <Link to="/curriculo">Estruturas curriculares</Link>
+          <Link to="/historico">Histórico acadêmico</Link>
+          <Link to="/recomendacoes">Recomendações</Link>
+          <Link to="/guia-academico">Guia acadêmico</Link>
+        </nav>
         <p><Link to="/privacidade">Privacidade e dados locais</Link></p>
         <p><Link to="/privacidade#backup-titulo">Exportar ou importar dados locais</Link></p>
       </div>

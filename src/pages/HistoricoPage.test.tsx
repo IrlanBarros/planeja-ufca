@@ -3,6 +3,7 @@ import 'fake-indexeddb/auto'
 import { IDBFactory } from 'fake-indexeddb'
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { limparCachePublico } from '../data/publicJson'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { Link, MemoryRouter, Route, Routes } from 'react-router-dom'
 import HistoricoPage from './HistoricoPage'
@@ -21,6 +22,7 @@ const mockImportar = vi.mocked(importarPdf)
 const perfil = () => interpretarUfca(sintetico())
 
 beforeEach(() => {
+  limparCachePublico()
   globalThis.indexedDB = new IDBFactory()
   localStorage.clear()
   mockImportar.mockReset().mockImplementation(async () => perfil())

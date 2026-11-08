@@ -1,0 +1,65 @@
+{
+  "node": "22.14.0",
+  "vite": "8.2.2",
+  "chunks": [
+    {
+      "file": "exportarCurriculoPdf-CwNmzFqQ.js",
+      "bytes": 4457,
+      "gzip": 2050
+    },
+    {
+      "file": "html2canvas-BM9_No8G.js",
+      "bytes": 199496,
+      "gzip": 45775
+    },
+    {
+      "file": "index-5VrNjDJU.js",
+      "bytes": 799263,
+      "gzip": 251772
+    },
+    {
+      "file": "index-D9BTFqWv.css",
+      "bytes": 32577,
+      "gzip": 6117
+    },
+    {
+      "file": "index.es-BQytpM6V.js",
+      "bytes": 151412,
+      "gzip": 48230
+    },
+    {
+      "file": "pdf-bKRNyGcR.js",
+      "bytes": 444963,
+      "gzip": 131790
+    },
+    {
+      "file": "pdf.worker.min-CIqJB0yW.mjs",
+      "bytes": 1271915,
+      "gzip": 378377
+    },
+    {
+      "file": "pdf.worker.min-UqOn5EDC.js",
+      "bytes": 65,
+      "gzip": 85
+    },
+    {
+      "file": "purify.es-ChwZkWde.js",
+      "bytes": 26812,
+      "gzip": 10562
+    },
+    {
+      "file": "rolldown-runtime-CbXtAM7H.js",
+      "bytes": 589,
+      "gzip": 368
+    }
+  ],
+  "html_bytes": 2299,
+  "initial_js": [
+    "index-5VrNjDJU.js",
+    "rolldown-runtime-CbXtAM7H.js"
+  ],
+  "commit": "03d98826940729b24e54a76fecb4b4e27d6670fb",
+  "method": "Build local; tamanho sem compressão e estimativa gzip nível 9. JavaScript inicial = script de entrada + modulepreload presentes no HTML; não é medição de tempo nem de execução.",
+  "initial_js_bytes": 799852,
+  "initial_js_gzip": 252140
+}

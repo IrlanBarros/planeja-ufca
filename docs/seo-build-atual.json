@@ -1,0 +1,303 @@
+[
+  {
+    "path": "/",
+    "html": 5661,
+    "js": 285070,
+    "jsGzip": 92874,
+    "jsRequests": 6,
+    "css": 14595,
+    "cssRequests": 2,
+    "resources": [
+      {
+        "file": "/assets/index-Cm_iCITN.js",
+        "bytes": 249248,
+        "gzip": 79473
+      },
+      {
+        "file": "/assets/rolldown-runtime-hePW80VL.js",
+        "bytes": 716,
+        "gzip": 428
+      },
+      {
+        "file": "/assets/integracaoCurricular-Dunq3Wex.js",
+        "bytes": 4178,
+        "gzip": 1983
+      },
+      {
+        "file": "/assets/elegibilidade-BnRTxKoK.js",
+        "bytes": 7482,
+        "gzip": 2798
+      },
+      {
+        "file": "/assets/catalogo-Dz7wXxJX.js",
+        "bytes": 1734,
+        "gzip": 882
+      },
+      {
+        "file": "/assets/App-Df345XId.js",
+        "bytes": 21712,
+        "gzip": 7310
+      },
+      {
+        "file": "/assets/index-z0RhNzgV.css",
+        "bytes": 4040,
+        "gzip": 1357
+      },
+      {
+        "file": "/assets/App-CDgBNknI.css",
+        "bytes": 10555,
+        "gzip": 2338
+      }
+    ]
+  },
+  {
+    "path": "/curriculo",
+    "html": 5441,
+    "js": 283864,
+    "jsGzip": 92082,
+    "jsRequests": 5,
+    "css": 23095,
+    "cssRequests": 3,
+    "resources": [
+      {
+        "file": "/assets/index-Cm_iCITN.js",
+        "bytes": 249248,
+        "gzip": 79473
+      },
+      {
+        "file": "/assets/rolldown-runtime-hePW80VL.js",
+        "bytes": 716,
+        "gzip": 428
+      },
+      {
+        "file": "/assets/integracaoCurricular-Dunq3Wex.js",
+        "bytes": 4178,
+        "gzip": 1983
+      },
+      {
+        "file": "/assets/elegibilidade-BnRTxKoK.js",
+        "bytes": 7482,
+        "gzip": 2798
+      },
+      {
+        "file": "/assets/CurriculoPage-yFcxVOQH.js",
+        "bytes": 22240,
+        "gzip": 7400
+      },
+      {
+        "file": "/assets/index-z0RhNzgV.css",
+        "bytes": 4040,
+        "gzip": 1357
+      },
+      {
+        "file": "/assets/CurriculoPage-DHnxiXmw.css",
+        "bytes": 8500,
+        "gzip": 1914
+      },
+      {
+        "file": "/assets/App-CDgBNknI.css",
+        "bytes": 10555,
+        "gzip": 2338
+      }
+    ]
+  },
+  {
+    "path": "/historico",
+    "html": 5527,
+    "js": 303103,
+    "jsGzip": 98143,
+    "jsRequests": 5,
+    "css": 18124,
+    "cssRequests": 3,
+    "resources": [
+      {
+        "file": "/assets/index-Cm_iCITN.js",
+        "bytes": 249248,
+        "gzip": 79473
+      },
+      {
+        "file": "/assets/rolldown-runtime-hePW80VL.js",
+        "bytes": 716,
+        "gzip": 428
+      },
+      {
+        "file": "/assets/integracaoCurricular-Dunq3Wex.js",
+        "bytes": 4178,
+        "gzip": 1983
+      },
+      {
+        "file": "/assets/indices-6r8qPyFy.js",
+        "bytes": 18489,
+        "gzip": 6106
+      },
+      {
+        "file": "/assets/HistoricoPage-DtKJ2LZN.js",
+        "bytes": 30472,
+        "gzip": 10153
+      },
+      {
+        "file": "/assets/index-z0RhNzgV.css",
+        "bytes": 4040,
+        "gzip": 1357
+      },
+      {
+        "file": "/assets/App-CDgBNknI.css",
+        "bytes": 10555,
+        "gzip": 2338
+      },
+      {
+        "file": "/assets/HistoricoPage-C0ut1oZf.css",
+        "bytes": 3529,
+        "gzip": 1016
+      }
+    ]
+  },
+  {
+    "path": "/recomendacoes",
+    "html": 6361,
+    "js": 291080,
+    "jsGzip": 94969,
+    "jsRequests": 7,
+    "css": 18325,
+    "cssRequests": 3,
+    "resources": [
+      {
+        "file": "/assets/index-Cm_iCITN.js",
+        "bytes": 249248,
+        "gzip": 79473
+      },
+      {
+        "file": "/assets/rolldown-runtime-hePW80VL.js",
+        "bytes": 716,
+        "gzip": 428
+      },
+      {
+        "file": "/assets/integracaoCurricular-Dunq3Wex.js",
+        "bytes": 4178,
+        "gzip": 1983
+      },
+      {
+        "file": "/assets/elegibilidade-BnRTxKoK.js",
+        "bytes": 7482,
+        "gzip": 2798
+      },
+      {
+        "file": "/assets/catalogo-Dz7wXxJX.js",
+        "bytes": 1734,
+        "gzip": 882
+      },
+      {
+        "file": "/assets/fontes-D4WbloG8.js",
+        "bytes": 968,
+        "gzip": 510
+      },
+      {
+        "file": "/assets/RecomendacoesPage-BsII7h4j.js",
+        "bytes": 26754,
+        "gzip": 8895
+      },
+      {
+        "file": "/assets/index-z0RhNzgV.css",
+        "bytes": 4040,
+        "gzip": 1357
+      },
+      {
+        "file": "/assets/RecomendacoesPage-hzZ3Iw6k.css",
+        "bytes": 3730,
+        "gzip": 1019
+      },
+      {
+        "file": "/assets/App-CDgBNknI.css",
+        "bytes": 10555,
+        "gzip": 2338
+      }
+    ]
+  },
+  {
+    "path": "/guia-academico",
+    "html": 40487,
+    "js": 283523,
+    "jsGzip": 91155,
+    "jsRequests": 5,
+    "css": 6451,
+    "cssRequests": 2,
+    "resources": [
+      {
+        "file": "/assets/index-Cm_iCITN.js",
+        "bytes": 249248,
+        "gzip": 79473
+      },
+      {
+        "file": "/assets/rolldown-runtime-hePW80VL.js",
+        "bytes": 716,
+        "gzip": 428
+      },
+      {
+        "file": "/assets/fontes-D4WbloG8.js",
+        "bytes": 968,
+        "gzip": 510
+      },
+      {
+        "file": "/assets/indices-6r8qPyFy.js",
+        "bytes": 18489,
+        "gzip": 6106
+      },
+      {
+        "file": "/assets/GuiaAcademicoPage-DMkEhXHc.js",
+        "bytes": 14102,
+        "gzip": 4638
+      },
+      {
+        "file": "/assets/index-z0RhNzgV.css",
+        "bytes": 4040,
+        "gzip": 1357
+      },
+      {
+        "file": "/assets/GuiaAcademicoPage-DdoYJnf4.css",
+        "bytes": 2411,
+        "gzip": 854
+      }
+    ]
+  },
+  {
+    "path": "/privacidade",
+    "html": 9188,
+    "js": 262339,
+    "jsGzip": 84701,
+    "jsRequests": 3,
+    "css": 18124,
+    "cssRequests": 3,
+    "resources": [
+      {
+        "file": "/assets/index-Cm_iCITN.js",
+        "bytes": 249248,
+        "gzip": 79473
+      },
+      {
+        "file": "/assets/rolldown-runtime-hePW80VL.js",
+        "bytes": 716,
+        "gzip": 428
+      },
+      {
+        "file": "/assets/PrivacidadePage-0XPcSUHw.js",
+        "bytes": 12375,
+        "gzip": 4800
+      },
+      {
+        "file": "/assets/index-z0RhNzgV.css",
+        "bytes": 4040,
+        "gzip": 1357
+      },
+      {
+        "file": "/assets/App-CDgBNknI.css",
+        "bytes": 10555,
+        "gzip": 2338
+      },
+      {
+        "file": "/assets/HistoricoPage-C0ut1oZf.css",
+        "bytes": 3529,
+        "gzip": 1016
+      }
+    ]
+  }
+]
