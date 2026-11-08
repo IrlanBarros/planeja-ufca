@@ -3,7 +3,8 @@ import type { HistoricoAcademico } from '../../historico/models/types'
 import { encontrarConflitos } from '../../../utils/conflitos'
 import { gerarIdTurma } from '../../horarios/selecao'
 import type { OfertaComponente, PreferenciasPlanejamento } from '../models/types'
-import { equivalentesPermitidos } from './equivalencias'
+import { equivalentesCurriculares } from './equivalencias'
+import { catalogarOferta } from '../../horarios/catalogo'
 
 const minutos = (hora: string) => { const [h, m] = hora.split(':').map(Number); return h * 60 + m }
 export function motivosIncompatibilidade(turma: Turma, preferencias: PreferenciasPlanejamento, selecionadas: Turma[]): string[] {
@@ -24,18 +25,23 @@ export function motivosIncompatibilidade(turma: Turma, preferencias: Preferencia
 }
 
 export function localizarOfertas(c: ComponenteCurricular, perfil: HistoricoAcademico, oferta: DadosCursos, cursoId: string, preferencias: PreferenciasPlanejamento, selecionadas: Turma[]): OfertaComponente[] {
-  const permitidos = equivalentesPermitidos(c, perfil)
-  const potenciais = c.equivalencias_codigos.filter(codigo => !permitidos.includes(codigo))
+  const permitidos = equivalentesCurriculares(c)
+  const historicos = perfil.equivalencias.filter(e => e.codigoExigido === c.codigo).map(e => e.codigoUtilizado)
+  const potenciais = [...new Set([...c.equivalencias_codigos, ...historicos])].filter(codigo => !permitidos.includes(codigo))
   const encontrados = new Map<string, OfertaComponente>()
   // O agrupamento principal vem primeiro, preservando a procedência sem duplicar turmas.
-  const cursos = [...oferta.cursos].sort((a, b) => Number(b.id === cursoId) - Number(a.id === cursoId) || a.id.localeCompare(b.id))
-  for (const curso of cursos) for (const turma of curso.turmas) {
+  for (const item of catalogarOferta(oferta)) {
+    const { turma } = item
+    const curso = [...item.cursos].sort((a, b) => Number(b.id === cursoId) - Number(a.id === cursoId) || a.id.localeCompare(b.id))[0]
     if (turma.periodo !== oferta.periodo || ![c.codigo, ...permitidos, ...potenciais].includes(turma.codigo)) continue
     const id = gerarIdTurma(turma)
     if (encontrados.has(id)) continue
-    const confirmada = turma.codigo === c.codigo || permitidos.includes(turma.codigo)
+    const confirmada = !item.divergente && (turma.codigo === c.codigo || permitidos.includes(turma.codigo))
     const motivos = motivosIncompatibilidade(turma, preferencias, selecionadas)
-    if (!confirmada) motivos.push('Equivalência potencial com expressão ambígua; exige confirmação institucional.')
+    if (item.divergente) motivos.push('Metadados divergentes para a mesma turma nos agrupamentos públicos; confirme a oferta.')
+    else if (!confirmada) motivos.push(historicos.includes(turma.codigo)
+      ? 'Cumprimento registrado no histórico neste contexto; futuros aproveitamentos exigem confirmação institucional.'
+      : 'Equivalência potencial com expressão composta ou ambígua; exige confirmação institucional.')
     encontrados.set(id, { turma, cursoId: curso.id, cursoNome: curso.nome, origem: turma.codigo !== c.codigo ? 'equivalente' : curso.id === cursoId ? 'matriz' : 'outro-agrupamento', confirmada, compativel: !motivos.length, motivos })
   }
   return [...encontrados.values()].sort((a, b) => Number(b.compativel) - Number(a.compativel) || gerarIdTurma(a.turma).localeCompare(gerarIdTurma(b.turma)))

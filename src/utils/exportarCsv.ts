@@ -1,5 +1,6 @@
 import type { Turma } from '../types'
 import { obterSala } from './salas'
+import { descreverProcedencia, type Procedencias } from '../features/horarios/catalogo'
 
 function escaparCampo(valor: string | number | null) {
   const texto = valor === null ? '' : String(valor)
@@ -29,6 +30,7 @@ export function exportarHorarioCsv(
   turmas: Turma[],
   periodo: string,
   cursoNome: string,
+  procedencias?: Procedencias,
 ) {
   if (turmas.length === 0) {
     return
@@ -44,6 +46,7 @@ export function exportarHorarioCsv(
     'Fim',
     'Horário SIGAA',
     'Sala',
+    ...(procedencias ? ['Curso de oferta'] : []),
   ]
 
   const linhas = turmas.flatMap((turma) => {
@@ -59,6 +62,7 @@ export function exportarHorarioCsv(
           '',
           turma.horario_sigaa,
           obterSala(turma) ?? '',
+          ...(procedencias ? [descreverProcedencia(turma, procedencias)] : []),
         ],
       ]
     }
@@ -73,6 +77,7 @@ export function exportarHorarioCsv(
       horario.fim,
       turma.horario_sigaa,
       obterSala(turma, horario) ?? '',
+      ...(procedencias ? [descreverProcedencia(turma, procedencias)] : []),
     ])
   })
 

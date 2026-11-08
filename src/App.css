@@ -695,3 +695,99 @@ header p {
   outline: 3px solid var(--color-focus);
   outline-offset: 2px;
 }
+
+.abas-turmas {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.abas-turmas button {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 8px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font: inherit;
+  cursor: pointer;
+}
+
+.abas-turmas button[aria-selected="true"] {
+  border-bottom-color: var(--color-primary);
+  color: var(--color-link);
+  font-weight: 700;
+}
+
+.abas-turmas button:focus-visible,
+[role="tabpanel"]:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.referencia-curricular {
+  padding: 16px;
+  margin-bottom: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow-wrap: anywhere;
+}
+
+[role="tabpanel"] .curso-selector {
+  margin-bottom: 20px;
+  min-width: 0;
+}
+
+.selecao-ajuda,
+.correspondencias-turma small {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.correspondencias-turma small {
+  display: block;
+  margin-top: 6px;
+}
+
+.correspondencias-turma ul {
+  padding-left: 20px;
+}
+
+.correspondencias-turma li + li {
+  margin-top: 10px;
+}
+
+.badge-origem {
+  display: inline-block;
+  padding: 3px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.grupo-equivalencias + .grupo-equivalencias {
+  margin-top: 24px;
+}
+
+.mostrar-mais {
+  margin-top: 20px;
+  white-space: normal;
+}
+
+@media (max-width: 400px) {
+  .abas-turmas {
+    gap: 2px;
+  }
+
+  .abas-turmas button {
+    font-size: 0.85rem;
+    padding-inline: 4px;
+  }
+}

@@ -93,7 +93,7 @@ Para regras curriculares sem árvore lógica, uma expressão contendo somente al
 
 O resultado por equivalência consulta apenas conclusões **diretas** dos códigos utilizados. Não realimenta o reconhecimento em cadeia: A aceitar B e B aceitar C não faz A aceitar C. Também não cria a direção inversa nem associa por nomes ou cargas iguais. Um registro explícito de cumprimento no histórico é evidência própria, mesmo quando não existe tentativa correspondente no documento importado.
 
-Na oferta, são aceitos o código exato e equivalentes respaldados pela direção correspondente. Alternativas potenciais com expressão ambígua aparecem com advertência e não entram no plano. A cobertura por exigência impede selecionar duas turmas do mesmo componente ou dois componentes que cumpririam a mesma exigência reconhecida.
+Na oferta futura, são aceitos o código exato e equivalentes individuais previstos na matriz pela direção correspondente (`equivalentesCurriculares`). Um cumprimento explicitamente registrado no histórico continua válido na análise do passado (`equivalentesPermitidos`/`cumprimentos`), mas, sozinho, não autoriza futuras ofertas: essas correspondências aparecem com advertência contextual e não entram no plano. Alternativas potenciais com expressão composta ou ambígua também exigem confirmação. A cobertura por exigência impede o planejador de incluir dois componentes que cumpririam a mesma exigência reconhecida. A [consulta manual de turmas externas](turmas-outros-cursos.md) informa a mesma duplicação como advertência, permitindo comparar alternativas; as validações técnicas de período, código e conflitos continuam compartilhadas.
 
 ## Pré-requisitos e correquisitos
 

@@ -5,6 +5,7 @@ import type { HistoricoAcademico } from '../features/historico/models/types'
 import { useHistorico } from '../features/historico/hooks/context'
 import { useHorario } from '../features/horarios/context'
 import { gerarIdTurma } from '../features/horarios/selecao'
+import { catalogarOferta } from '../features/horarios/catalogo'
 import { PREFERENCIAS_INICIAIS } from '../features/recomendacoes/models/types'
 import type { CategoriaRecomendacao } from '../features/recomendacoes/models/types'
 import { useRecomendacoes } from '../features/recomendacoes/hooks/useRecomendacoes'
@@ -27,7 +28,7 @@ function PlanejamentoCarregado({ perfil, curso, estrutura, oferta }: { perfil: H
   const [preferencias, setPreferencias] = useState(PREFERENCIAS_INICIAIS)
   const [agora] = useState(() => new Date())
   const [mensagem, setMensagem] = useState<string | null>(null)
-  const { selecionadas, adicionar, remover } = useHorario(oferta.periodo, curso.id, oferta.cursos.flatMap(c => c.turmas))
+  const { selecionadas, adicionar, remover } = useHorario(oferta.periodo, curso.id, catalogarOferta(oferta).map(item => item.turma))
   const perfilAssociado = { ...perfil, curso: { ...perfil.curso, idCurso: curso.id } }
   const resultado = gerarRecomendacoes({ perfil: perfilAssociado, estrutura, oferta, cursoId: curso.id, preferencias, selecionadas, agora })
   function incluir(novas: Turma[]) {

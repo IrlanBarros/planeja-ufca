@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type {
   Curso,
   DadosCursos,
-  DadosCurriculoCurso,
-  IndiceCurriculos,
   Turma,
 } from './types'
 import {
@@ -15,42 +13,12 @@ import GradeSemanal from './components/GradeSemanal'
 import SalasTurma from './components/SalasTurma'
 import { exportarHorarioCsv } from './utils/exportarCsv'
 import { exportarHorarioPdf } from './utils/exportarPdf'
-import { possuiSalasPorEncontro } from './utils/salas'
+import SelecaoTurmas from './features/horarios/SelecaoTurmas'
+import { catalogarOferta, descreverProcedencia, pertenceAoCurso, rotuloCurso } from './features/horarios/catalogo'
+import { useReferenciaCurricular } from './features/horarios/useReferenciaCurricular'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useHorario } from './features/horarios/context'
 import { gerarIdTurma } from './features/horarios/selecao'
-
-type FiltroTurmas =
-  | 'todas'
-  | 'disponiveis'
-  | 'conflito'
-  | 'selecionadas'
-
-function normalizarTexto(texto: string) {
-  return texto
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .trim()
-}
-
-function gerarRotuloCurso(
-  curso: Curso,
-  cursos: Curso[],
-) {
-  const quantidadeMesmoNome =
-    cursos.filter(
-      (item) =>
-        normalizarTexto(item.nome) ===
-        normalizarTexto(curso.nome),
-    ).length
-
-  if (quantidadeMesmoNome > 1) {
-    return `${curso.nome} (${curso.id})`
-  }
-
-  return curso.nome
-}
 
 function App() {
   const [dados, setDados] = useState<DadosCursos | null>(null)
@@ -59,25 +27,19 @@ function App() {
   const [erro, setErro] = useState<string | null>(null)
   const [searchParams] = useSearchParams()
   const cursoSolicitado = searchParams.get('curso')
-  const { selecionadas, adicionar, remover } = useHorario(
-    dados?.periodo ?? '', cursoSelecionadoId ?? '', dados?.cursos.flatMap(c => c.turmas) ?? [],
-  )
   const [erroSelecao, setErroSelecao] = useState<string | null>(null)
-  const [busca, setBusca] = useState('')
   const [conflitos, setConflitos] =
   useState<ConflitoHorario[]>([])
 
   const [turmaComConflito, setTurmaComConflito] =
     useState<Turma | null>(null)
 
-  const [filtro, setFiltro] =
-    useState<FiltroTurmas>('todas')
+  const referencia = useReferenciaCurricular(cursoSelecionadoId ?? '')
+  const catalogo = useMemo(() => dados ? catalogarOferta(dados) : [], [dados])
+  const procedencias = useMemo(() => new Map(catalogo.map(item => [item.id, item.cursos])), [catalogo])
 
-  const [
-    codigosOptativas,
-    setCodigosOptativas,
-  ] = useState<Set<string>>(
-    new Set(),
+  const { selecionadas, adicionar, remover } = useHorario(
+    dados?.periodo ?? '', cursoSelecionadoId ?? '', catalogo.map(item => item.turma),
   )
 
   useEffect(() => {
@@ -123,113 +85,6 @@ function App() {
     carregarDados()
     return () => controller.abort()
   }, [cursoSolicitado])
-
-  useEffect(() => {
-    if (!cursoSelecionadoId) {
-      return
-    }
-
-    const cursoIdAtual =
-      cursoSelecionadoId
-
-    let cancelado = false
-
-    async function carregarOptativas() {
-      try {
-        const responseIndice =
-          await fetch(
-            '/data/curriculos/index.json',
-          )
-
-        if (!responseIndice.ok) {
-          return
-        }
-
-        const indice: IndiceCurriculos =
-          await responseIndice.json()
-
-        const curso =
-          indice.cursos.find(
-            (item) =>
-              item.id === cursoIdAtual,
-          )
-
-        if (
-          !curso ||
-          !curso.disponivel ||
-          !curso.arquivo
-        ) {
-          if (!cancelado) {
-            setCodigosOptativas(
-              new Set(),
-            )
-          }
-
-          return
-        }
-
-        const responseCurriculo =
-          await fetch(
-            `/data/curriculos/` +
-            `${curso.arquivo}`,
-          )
-
-        if (!responseCurriculo.ok) {
-          return
-        }
-
-        const dadosCurriculo:
-          DadosCurriculoCurso =
-          await responseCurriculo.json()
-
-        if (cancelado) {
-          return
-        }
-
-        const estruturaMaisRecente =
-          [...dadosCurriculo.estruturas]
-            .sort(
-              (a, b) =>
-                b.ano_criacao -
-                a.ano_criacao,
-            )[0]
-
-        const optativas = new Set(
-          estruturaMaisRecente
-            ?.componentes
-            .filter(
-              (componente) =>
-                componente.tipo ===
-                'optativa',
-            )
-            .map(
-              (componente) =>
-                componente.codigo,
-            ) ?? [],
-        )
-
-        setCodigosOptativas(
-          optativas,
-        )
-      } catch (error) {
-        console.error(error)
-
-        if (!cancelado) {
-          setCodigosOptativas(
-            new Set(),
-          )
-        }
-      }
-    }
-
-    carregarOptativas()
-
-    return () => {
-      cancelado = true
-    }
-  }, [
-    cursoSelecionadoId,
-  ])
 
   function turmaEstaSelecionada(turma: Turma) {
     const id = gerarIdTurma(turma)
@@ -307,8 +162,6 @@ function App() {
 
     setConflitos([])
     setTurmaComConflito(null)
-    setBusca('')
-    setFiltro('todas')
   }
 
   if (erro) {
@@ -349,49 +202,6 @@ function App() {
     )
   }
 
-  const termoBusca = normalizarTexto(busca)
-
-  const turmasVisiveis = [...new Map([...cursoSelecionado.turmas, ...selecionadas].map(t => [gerarIdTurma(t), t])).values()]
-  const turmasFiltradas = turmasVisiveis.filter((turma) => {
-    const selecionada =
-      turmaEstaSelecionada(turma)
-
-    const conflitosDaTurma = selecionada
-      ? []
-      : encontrarConflitos(
-          turma,
-          selecionadas,
-        )
-
-    const possuiConflito =
-      conflitosDaTurma.length > 0
-
-    const correspondeBusca =
-      !termoBusca ||
-      normalizarTexto(turma.codigo).includes(termoBusca) ||
-      normalizarTexto(turma.disciplina).includes(termoBusca) ||
-      normalizarTexto(turma.docente).includes(termoBusca)
-
-    if (!correspondeBusca) {
-      return false
-    }
-
-    switch (filtro) {
-      case 'disponiveis':
-        return !selecionada && !possuiConflito
-
-      case 'conflito':
-        return possuiConflito
-
-      case 'selecionadas':
-        return selecionada
-
-      case 'todas':
-      default:
-        return true
-    }
-  })
-
   return (
     <main className="container">
       <header>
@@ -416,7 +226,7 @@ function App() {
                   key={curso.id}
                   value={curso.id}
                 >
-                  {gerarRotuloCurso(
+                  {rotuloCurso(
                     curso,
                     dados.cursos,
                   )}
@@ -531,6 +341,7 @@ function App() {
                   selecionadas,
                   dados.periodo,
                   cursoSelecionado.nome,
+                  procedencias,
                 )
               }
             >
@@ -545,6 +356,7 @@ function App() {
                   selecionadas,
                   dados.periodo,
                   cursoSelecionado.nome,
+                  procedencias,
                 )
               }
             >
@@ -569,9 +381,11 @@ function App() {
                     {turma.codigo} — {turma.disciplina}
                   </strong>
 
-                  <span>
-                    {turma.horario_sigaa}
-                  </span>
+                  <span>Turma {turma.turma} · {turma.docente || 'Docente não informado'}</span>
+                  <span>{turma.horario_sigaa}</span>
+                  {catalogo.find(item => item.id === gerarIdTurma(turma) && !pertenceAoCurso(item, cursoSelecionado.id)) && (
+                    <span>Curso de oferta: {descreverProcedencia(turma, procedencias)}</span>
+                  )}
                   <SalasTurma turma={turma} />
                 </div>
 
@@ -588,242 +402,11 @@ function App() {
         )}
       </section>
 
-      <section>
-
-        <div className="turmas-titulo">
-          <div>
-            <h2>
-              Turmas disponíveis
-            </h2>
-
-            <p>
-              {turmasFiltradas.length} de{' '}
-              {cursoSelecionado.turmas.length} turma(s)
-            </p>
-          </div>
-        </div>
-
-        <div className="busca-container">
-          <input
-            type="search"
-            className="campo-busca"
-            placeholder="Buscar por código, disciplina ou docente..."
-            value={busca}
-            onChange={(event) =>
-              setBusca(event.target.value)
-            }
-            aria-label="Buscar turmas"
-          />
-        </div>
-
-        <div className="filtros-turmas">
-          <button
-            type="button"
-            className={filtro === 'todas' ? 'filtro-ativo' : ''}
-            aria-pressed={filtro === 'todas'}
-            onClick={() => setFiltro('todas')}
-          >
-            Todas
-          </button>
-
-          <button
-            type="button"
-            className={filtro === 'disponiveis' ? 'filtro-ativo' : ''}
-            aria-pressed={filtro === 'disponiveis'}
-            onClick={() => setFiltro('disponiveis')}
-          >
-            Disponíveis
-          </button>
-
-          <button
-            type="button"
-            className={filtro === 'conflito' ? 'filtro-ativo' : ''}
-            aria-pressed={filtro === 'conflito'}
-            onClick={() => setFiltro('conflito')}
-          >
-            Com conflito
-          </button>
-
-          <button
-            type="button"
-            className={filtro === 'selecionadas' ? 'filtro-ativo' : ''}
-            aria-pressed={filtro === 'selecionadas'}
-            onClick={() => setFiltro('selecionadas')}
-          >
-            Selecionadas
-          </button>
-        </div>
-
-        {turmasFiltradas.length === 0 && (
-          <div className="nenhum-resultado">
-            <strong>
-              Nenhuma turma encontrada
-            </strong>
-
-            <p>
-              Tente pesquisar por outro código,
-              disciplina ou docente.
-            </p>
-          </div>
-        )}
-
-        <div className="lista-turmas">
-          {turmasFiltradas.map((turma) => {
-            const selecionada =
-              turmaEstaSelecionada(turma)
-
-            const optativa =
-              codigosOptativas.has(
-                turma.codigo,
-              )
-
-            const conflitosDaTurma = selecionada
-              ? []
-              : encontrarConflitos(
-                  turma,
-                  selecionadas,
-                )
-
-            const possuiConflito =
-              conflitosDaTurma.length > 0
-
-              return (
-                <article
-                  className={[
-                    'turma-card',
-                    optativa
-                      ? 'optativa-card'
-                      : '',
-                    selecionada
-                    ? 'selecionada-card'
-                      : '',
-                    possuiConflito
-                      ? 'conflito-card'
-                      : '',
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
-                  key={gerarIdTurma(turma)}
-                >
-                  <div className="turma-cabecalho">
-                    <div className="turma-identificacao">
-                      <span className="codigo">
-                        {turma.codigo}
-                      </span>
-
-                      {optativa && (
-                        <span className="badge-optativa">
-                          Optativa
-                        </span>
-                      )}
-                    </div>
-
-                    <span>
-                      Turma {turma.turma}
-                    </span>
-                  </div>
-
-                  <h2>
-                    {turma.disciplina}
-                  </h2>
-
-                  <p>
-                    <strong>
-                      Docente:
-                    </strong>{' '}
-                    {turma.docente || 'Não informado'}
-                  </p>
-
-                  <p>
-                    <strong>
-                      Horário:
-                    </strong>{' '}
-                    {turma.horario_sigaa || 'Não informado'}
-                  </p>
-
-                  {!possuiSalasPorEncontro(turma) && (
-                    <div className="horarios">
-                      {turma.horarios.map((horario) => (
-                        <span
-                          className="horario"
-                          key={[
-                            horario.dia,
-                            horario.inicio,
-                            horario.fim,
-                          ].join('|')}
-                        >
-                          {horario.dia_nome}:{' '}
-                          {horario.inicio}–{horario.fim}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-
-                  <SalasTurma turma={turma} />
-
-                  {possuiConflito && (
-                    <div className="conflito-card-aviso">
-                      <strong>
-                        ⚠ Conflito de horário
-                      </strong>
-
-                      {conflitosDaTurma.map(
-                        (conflito, index) => (
-                          <p
-                            key={[
-                              conflito.turma.codigo,
-                              conflito.dia,
-                              conflito.inicio,
-                              index,
-                            ].join('|')}
-                          >
-                            Conflita com{' '}
-                            <strong>
-                              {conflito.turma.disciplina}
-                            </strong>
-                            {' '}na {conflito.diaNome}, das{' '}
-                            {conflito.inicio} às {conflito.fim}.
-                          </p>
-                        ),
-                      )}
-                    </div>
-                  )}
-
-                  <button
-                    type="button"
-                    className={
-                      selecionada
-                        ? 'botao-remover'
-                        : possuiConflito
-                          ? 'botao-bloqueado'
-                          : 'botao-adicionar'
-                    }
-                    aria-disabled={
-                      !selecionada && possuiConflito
-                    }
-                    onClick={() => {
-                      if (selecionada) {
-                        alternarTurma(turma)
-                        return
-                      }
-
-                      tentarAdicionarTurma(
-                        turma,
-                        conflitosDaTurma,
-                      )
-                    }}
-                  >
-                    {selecionada
-                      ? 'Remover do horário'
-                      : possuiConflito
-                        ? 'Indisponível por conflito'
-                        : 'Adicionar ao horário'}
-                  </button>
-                </article>
-              )
-          })}
-        </div>
-      </section>
+      <SelecaoTurmas key={cursoSelecionado.id} cursoId={cursoSelecionado.id} periodo={dados.periodo} cursos={dados.cursos}
+        catalogo={catalogo} selecionadas={selecionadas} referencia={referencia}
+        alternar={(turma, conflitosDaTurma) => turmaEstaSelecionada(turma)
+          ? alternarTurma(turma) : tentarAdicionarTurma(turma, conflitosDaTurma)}
+        limparAviso={() => { fecharAvisoConflito(); setErroSelecao(null) }} />
     </main>
   )
 }

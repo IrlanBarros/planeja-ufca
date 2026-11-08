@@ -33,6 +33,26 @@ https://seuhorarioufca.pages.dev/
 
 Os detalhes da fonte pública, da modelagem, da compatibilidade e da validação estão no [relatório de salas de aula](docs/salas-de-aula.md).
 
+### Turmas equivalentes e de outros cursos
+
+A seleção de turmas tem três abas na mesma página:
+
+- **Meu curso:** oferta do curso principal, com os cards, busca, optativas e filtros habituais.
+- **Equivalentes:** ofertas externas do mesmo componente curricular ou de alternativas individuais explicitamente previstas na matriz. Cada card mostra o componente de referência, o fundamento da correspondência e o curso de oferta. As alternativas ficam agrupadas pelo componente da matriz; cada turma física aparece uma vez.
+- **Outros cursos:** consulta livre da oferta pública dos demais cursos, mesmo sem histórico. Escolha o **Curso de oferta** ou pesquise código, disciplina, docente ou curso, ignorando acentos e maiúsculas. Cursos homônimos são diferenciados pelo ID. Nas abas externas, **Mostrar mais turmas** amplia a lista em blocos de 24.
+
+Em **Equivalentes**, use **Estrutura curricular de referência** para escolher a matriz pública. Sem histórico compatível, a mais recente é apenas uma sugestão explicitamente identificada. Com histórico do curso principal, a consulta utiliza exclusivamente a matriz desse vínculo; versões com o mesmo código exigem confirmação do ID. Uma matriz ausente não é substituída por outra. Cumprimentos só aparecem com histórico compatível e não impedem a consulta manual.
+
+Turmas externas reconhecidas ficam inicialmente em **Equivalentes**. Em **Outros cursos**, pesquisar ou escolher um curso também inclui essas turmas, permitindo encontrá-las por código. Regras com `E`, expressões compostas ou listas ambíguas não viram equivalências individuais; suas ofertas continuam acessíveis em **Outros cursos**. Não se presume simetria, transitividade, equivalência por nome ou por carga horária. Um cumprimento no histórico comprova apenas aquele contexto, sem autorizar automaticamente aproveitamentos futuros.
+
+O botão **Adicionar ao horário** usa a seleção existente: todas as origens aparecem juntas em **Meu horário**, na grade, na lista de salas e nas exportações. Sobreposições são verificadas entre todos os cursos; duas turmas do mesmo código são impedidas. Possíveis duplicações acadêmicas comprovadas pela matriz são advertidas na consulta manual. **Disponíveis** significa compatibilidade conhecida de horário, sem confirmar vagas.
+
+Trocar de aba limpa busca, filtros e avisos, preservando o curso principal, a matriz e as turmas selecionadas. O horário continua salvo localmente por **período e curso principal**, com os mesmos IDs e chaves anteriores, inclusive após recarregar ou navegar. Trocar o curso principal abre o horário daquele curso, preservando o anterior.
+
+O PDF inclui grade e relação detalhada de todas as turmas, salas e cursos de oferta conhecidos. O CSV mantém BOM UTF-8, separador `;`, escapes e colunas anteriores, acrescentando **Curso de oferta** ao final. Uma disciplina externa sem carga curricular identificável permanece no horário; o planejador informa a limitação e suspende inclusões automáticas dependentes desse total.
+
+A presença de uma turma em outro curso não garante vaga, autorização de matrícula ou aproveitamento curricular. A análise usa apenas catálogos públicos e perfil local; nenhum histórico é enviado a servidores. Detalhes em [Turmas de outros cursos](docs/turmas-outros-cursos.md).
+
 ### Aparência e identidade
 
 - Temas Claro, Escuro e Sistema, disponíveis nas duas páginas

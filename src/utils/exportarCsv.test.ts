@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { exportarHorarioCsv } from './exportarCsv'
 import { turmaTeste } from './turmaTeste'
+import { gerarIdTurma } from '../features/horarios/selecao'
 
 afterEach(() => vi.unstubAllGlobals())
 
@@ -59,5 +60,27 @@ describe('CSV com salas', () => {
     const { createObjectURL } = prepararDownload()
     exportarHorarioCsv([], '2026.2', 'Curso')
     expect(createObjectURL).not.toHaveBeenCalled()
+  })
+
+  it('acrescenta procedência confiável ao final, com turmas de vários cursos e escape', async () => {
+    const { createObjectURL } = prepararDownload()
+    const principal = turmaTeste({ sala: 'Sala P' })
+    const externa = turmaTeste({ codigo: 'EM0010', horarios: [], sala: 'Lab externo' })
+    const desconhecida = turmaTeste({ codigo: 'SEMORIGEM', horarios: [], sala: 'Sala desconhecida' })
+    const procedencias = new Map([
+      [gerarIdTurma(principal), [{ id: 'cc', nome: 'Computação' }]],
+      [gerarIdTurma(externa), [{ id: 'em', nome: 'Materiais; "Integral"' }, { id: 'outro', nome: 'Outro agrupamento' }]],
+    ])
+    exportarHorarioCsv([principal, externa, desconhecida], '2026.2', 'Computação', procedencias)
+    const blob = createObjectURL.mock.calls[0][0]
+    expect([...new Uint8Array(await blob.arrayBuffer()).slice(0, 3)]).toEqual([239, 187, 191])
+    const linhas = (await blob.text()).split('\n')
+    expect(linhas).toHaveLength(5)
+    expect(linhas[0]).toBe('Código;Disciplina;Turma;Docente;Dia;Início;Fim;Horário SIGAA;Sala;Curso de oferta')
+    expect(linhas[1]).toContain(';segunda-feira;14:00;16:00;24T46;Sala P;Computação (cc)')
+    expect(linhas[3]).toContain('EM0010;Redes de Computadores;01;')
+    expect(linhas[3]).toContain(';Lab externo;"Materiais; ""Integral"" (em) / Outro agrupamento (outro)"')
+    expect(linhas[4]).toContain(';Sala desconhecida;')
+    expect(linhas.join('\n')).not.toContain('undefined')
   })
 })

@@ -8,12 +8,15 @@ import GuiaAcademicoPage from './GuiaAcademicoPage'
 import ResumoHistorico from '../features/historico/components/ResumoHistorico'
 import { novoHistorico } from '../features/historico/models/types'
 import { ThemeContext } from '../theme/theme'
+import { HistoricoContext } from '../features/historico/hooks/context'
 
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); vi.restoreAllMocks() })
 
 function montar(rota = '/guia-academico', tema: 'light' | 'dark' = 'light') {
   return render(<ThemeContext value={{ preference: tema, resolvedTheme: tema, setPreference: vi.fn() }}>
-    <MemoryRouter initialEntries={[rota]}><AppRoutes /></MemoryRouter>
+    <HistoricoContext value={{ perfil: null, carregando: false, salvo: false, erro: null, confirmar: vi.fn(), apagar: vi.fn() }}>
+      <MemoryRouter initialEntries={[rota]}><AppRoutes /></MemoryRouter>
+    </HistoricoContext>
   </ThemeContext>)
 }
 
