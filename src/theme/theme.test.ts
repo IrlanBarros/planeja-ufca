@@ -9,6 +9,7 @@ import {
   systemPrefersDark,
   THEME_STORAGE_KEY,
   LEGACY_THEME_STORAGE_KEY,
+  INTERMEDIATE_THEME_STORAGE_KEY,
 } from './theme'
 
 const bootstrap = html.match(/<script>([\s\S]*?)<\/script>/)![1]
@@ -41,6 +42,24 @@ function browserEnvironment(saved: string | null, dark: boolean, blocked = false
 afterEach(() => vi.unstubAllGlobals())
 
 describe('preferência de tema e primeiro quadro', () => {
+  it.each([
+    ['dark', 'light', 'system', 'dark'],
+    [null, 'light', 'dark', 'light'],
+    [null, 'system', 'light', 'system'],
+    [null, null, 'dark', 'dark'],
+    ['inválido', 'dark', 'light', 'system'],
+    [null, 'inválido', 'dark', 'system'],
+  ] as const)('prioriza Planeja %s, intermediária %s e original %s', (nova, intermediaria, original, esperado) => {
+    const env = browserEnvironment(null, true)
+    const dados = new Map<string, string | null>([[THEME_STORAGE_KEY, nova], [INTERMEDIATE_THEME_STORAGE_KEY, intermediaria], [LEGACY_THEME_STORAGE_KEY, original]])
+    env.storage.getItem.mockImplementation(chave => dados.get(chave) ?? null)
+    env.storage.setItem.mockImplementation((chave, valor) => { dados.set(chave, valor) })
+    runBootstrap(env.storage, env.browserWindow, env.browserDocument)
+    expect(readThemePreference()).toBe(esperado)
+    expect(env.browserDocument.documentElement.dataset.theme).toBe(esperado === 'system' ? 'dark' : esperado)
+    expect(dados.get(INTERMEDIATE_THEME_STORAGE_KEY)).toBe(intermediaria)
+    expect(dados.get(LEGACY_THEME_STORAGE_KEY)).toBe(original)
+  })
   it.each(['light', 'dark', 'system'] as const)('migra %s uma única vez e mantém bootstrap e React de acordo', value => {
     const env = browserEnvironment(null, true)
     const dados = new Map<string, string>([[LEGACY_THEME_STORAGE_KEY, value]])

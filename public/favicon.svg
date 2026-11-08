@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <title>Projeta UFCA — calendário</title>
+  <title>Planeja UFCA — calendário</title>
   <rect x="1" y="1" width="30" height="30" rx="7" fill="#2563eb"/>
   <rect x="6" y="8" width="20" height="19" rx="3" fill="#eff6ff"/>
   <path d="M6 14h20" stroke="#2563eb" stroke-width="2"/>

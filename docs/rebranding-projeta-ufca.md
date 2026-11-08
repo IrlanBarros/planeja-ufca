@@ -1,4 +1,6 @@
-# Rebranding para Projeta UFCA
+# Registro histórico: rebranding intermediário para Projeta UFCA
+
+> Documento histórico da etapa anterior. Projeta UFCA deixou de ser a marca atual por conflito com outro projeto universitário. A identidade vigente é **Planeja UFCA**. Para comandos, domínios, migração e checklist atuais, use [Rebranding Planeja UFCA](rebranding-planeja-ufca.md). As configurações e validações abaixo registram apenas aquela implementação e não confirmam o estado atual dos serviços.
 
 ## Motivação e identidade
 

@@ -52,7 +52,7 @@ describe('modelo de exportação e privacidade', () => {
     const d = dadosCurriculoTeste(); d.curso = { ...d.curso, nome: 'Ciência / da Computação ?' }
     for (const modo of ['original', 'progresso'] as const) for (const extensao of ['pdf', 'csv'] as const) {
       const m = prepararExportacao({ ...d, modo })
-      expect(nomeArquivoCurriculo(m, extensao)).toBe(`projeta-ufca-${modo === 'original' ? 'estrutura-curricular' : 'meu-progresso'}-ciencia-da-computacao-AB001.${extensao}`)
+      expect(nomeArquivoCurriculo(m, extensao)).toBe(`planeja-ufca-${modo === 'original' ? 'estrutura-curricular' : 'meu-progresso'}-ciencia-da-computacao-AB001.${extensao}`)
     }
   })
 })
@@ -89,7 +89,7 @@ describe('PDF completo, paginado e legível', () => {
     const m = exportacaoTeste(modo), pdf = gerarCurriculoPdf(m), conteudo = pdf.output()
     for (const l of m.linhas) expect(conteudo).toContain(l.componente.codigo)
     expect(conteudo).toContain('Optativas'); expect(conteudo).toContain('Outros componentes obrigat')
-    expect(conteudo).toContain('Projeta UFCA'); expect(conteudo).toContain('AB001')
+    expect(conteudo).toContain('Planeja UFCA'); expect(conteudo).toContain('AB001')
     if (modo === 'original') { expect(conteudo).not.toContain('Histórico emitido'); expect(conteudo).not.toContain('Legenda das situa') }
     else {
       expect(conteudo).toContain('2026-10-01'); expect(conteudo).toContain('Legenda das situa'); expect(conteudo).toContain('50,0%')
@@ -106,7 +106,7 @@ describe('PDF completo, paginado e legível', () => {
     const paginas = (pdf.internal.pages as unknown as string[][]).slice(1)
     paginas.forEach((p, i) => {
       const conteudo = p.join('\n')
-      expect(conteudo).toContain('Projeta UFCA'); expect(conteudo).toContain(` ${i + 1} de ${pdf.getNumberOfPages()}`)
+      expect(conteudo).toContain('Planeja UFCA'); expect(conteudo).toContain(` ${i + 1} de ${pdf.getNumberOfPages()}`)
       expect(conteudo).toContain('AB001')
     })
   })

@@ -6,11 +6,13 @@ export function gerarIdTurma(turma: Turma) {
   return [turma.codigo, turma.turma, turma.docente, turma.horario_sigaa].join('|')
 }
 export function gerarStorageKey(periodo: string, cursoId: string) {
-  return `projeta-ufca:${periodo}:${cursoId}:turmas`
+  return `planeja-ufca:${periodo}:${cursoId}:turmas`
 }
 
-export const PREFIXO_HORARIO = 'projeta-ufca:'
+export const PREFIXO_HORARIO = 'planeja-ufca:'
+export const PREFIXO_HORARIO_INTERMEDIARIO = 'projeta-ufca:'
 export const PREFIXO_HORARIO_LEGADO = 'seu-horario-ufca:'
+export const PREFIXOS_HORARIO = [PREFIXO_HORARIO, PREFIXO_HORARIO_INTERMEDIARIO, PREFIXO_HORARIO_LEGADO] as const
 
 export function validarIdsHorario(valor: unknown): string[] {
   if (!Array.isArray(valor) || valor.length > 5000 || !valor.every(id => typeof id === 'string' && id.length > 0 && id.length <= 4000)) {
@@ -25,7 +27,9 @@ export function lerIdsHorario(chave: string): string[] {
     // Até uma lista vazia na nova chave é uma escolha existente e tem prioridade.
     if (atual !== null) return validarIdsHorario(JSON.parse(atual))
     if (!chave.startsWith(PREFIXO_HORARIO)) return []
-    const legado = localStorage.getItem(chave.replace(PREFIXO_HORARIO, PREFIXO_HORARIO_LEGADO))
+    const sufixo = chave.slice(PREFIXO_HORARIO.length)
+    const legado = localStorage.getItem(PREFIXO_HORARIO_INTERMEDIARIO + sufixo)
+      ?? localStorage.getItem(PREFIXO_HORARIO_LEGADO + sufixo)
     if (legado === null) return []
     const ids = validarIdsHorario(JSON.parse(legado))
     try { localStorage.setItem(chave, JSON.stringify(ids)) } catch { /* Recupera em memória. */ }

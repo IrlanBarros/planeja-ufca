@@ -7,6 +7,24 @@ beforeEach(() => localStorage.clear())
 afterEach(() => vi.restoreAllMocks())
 
 describe('migração dos horários na mesma origem', () => {
+  it.each(['[]', '["intermediaria","intermediaria"]', 'inválido'])('prioriza a seleção intermediária %s sobre a original', valor => {
+    const intermediaria = 'projeta-ufca:2026.2:curso:turmas'
+    localStorage.setItem(antiga, '["original"]')
+    localStorage.setItem(intermediaria, valor)
+    const esperado = valor.startsWith('["') ? ['intermediaria'] : []
+    expect(lerIdsHorario(nova)).toEqual(esperado)
+    expect(lerIdsHorario(nova)).toEqual(esperado)
+    expect(localStorage.getItem(intermediaria)).toBe(valor)
+    expect(localStorage.getItem(antiga)).toBe('["original"]')
+    expect(localStorage.getItem(nova)).toBe(valor === 'inválido' ? null : JSON.stringify(esperado))
+  })
+  it('preserva a escolha definitiva diante das duas marcas anteriores', () => {
+    localStorage.setItem(antiga, '["original"]')
+    localStorage.setItem('projeta-ufca:2026.2:curso:turmas', '["intermediaria"]')
+    localStorage.setItem(nova, '[]')
+    expect(lerIdsHorario(nova)).toEqual([])
+    expect(localStorage.getItem(nova)).toBe('[]')
+  })
   it('recupera IDs legados, elimina duplicações e preserva a origem', () => {
     localStorage.setItem(antiga, '["ABC|01|Docente|24T46","externa","externa"]')
     expect(lerIdsHorario(nova)).toEqual(['ABC|01|Docente|24T46', 'externa'])

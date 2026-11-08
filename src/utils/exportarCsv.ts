@@ -107,7 +107,7 @@ export function exportarHorarioCsv(
   link.href = url
   const cursoSlug = normalizarNomeArquivo(cursoNome)
 
-  link.download = `projeta-ufca-horario-${cursoSlug}-${periodo}.csv`
+  link.download = `planeja-ufca-horario-${cursoSlug}-${periodo}.csv`
 
   document.body.appendChild(link)
 

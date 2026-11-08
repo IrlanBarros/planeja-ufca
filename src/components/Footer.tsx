@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="site-footer-content">
-        <strong>Projeta UFCA</strong>
+        <strong>Planeja UFCA</strong>
         <p>© {years} Irlan Barros · Autoria e desenvolvimento · Licença MIT</p>
         <p>Projeto independente, não oficial da Universidade Federal do Cariri.</p>
         <p><Link to="/privacidade">Privacidade e dados locais</Link></p>

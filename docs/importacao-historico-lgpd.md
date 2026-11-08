@@ -85,7 +85,7 @@ Erros internos do PDF.js não chegam à interface, console ou causas encadeadas.
 
 ## Persistência e recuperação
 
-O banco IndexedDB `projeta-ufca-perfil-academico`, versão 1, possui a store `perfil` e a chave `ativo`. Cada escrita troca integralmente esse único registro em uma transação. A interface só informa sucesso após a conclusão da transação.
+O banco IndexedDB `planeja-ufca-perfil-academico`, versão 1, possui a store `perfil` e a chave `ativo`. Cada escrita troca integralmente esse único registro em uma transação. A interface só informa sucesso após a conclusão da transação.
 
 `storage/schema.ts` valida tipos, estrutura, limites de listas/textos, números finitos e versão. A lista de campos permitidos reconstrói o objeto nas leituras e escritas, descartando propriedades extras inclusive dentro de objetos aninhados. Versões incompatíveis e objetos inválidos não são migrados nem removidos silenciosamente: a aplicação informa a limitação e preserva o dado até uma exclusão/substituição explícita.
 
@@ -166,4 +166,4 @@ Nenhum commit ou push é realizado como parte desta entrega.
 
 ## Compatibilidade após o rebranding
 
-Projeta UFCA mantém o schema acadêmico 1. O antigo banco `seu-horario-perfil-academico` é consultado somente na migração para o banco novo; seu perfil é validado, copiado e relido, sem eliminar a cópia original automaticamente. A exclusão explícita do perfil também remove o registro legado; um marcador impede sua recuperação indevida posterior. O backup opcional em `/privacidade` permite transferir tema, horários e perfil estruturado entre domínios, com autorização separada para incluir o perfil e confirmação de restauração. O arquivo pode conter dados acadêmicos pessoais; não contém PDF, texto integral ou identificadores civis. Veja [o procedimento e as limitações](rebranding-projeta-ufca.md).
+Planeja UFCA mantém o schema acadêmico 1. Os bancos legados `projeta-ufca-perfil-academico` e `seu-horario-perfil-academico` são consultados somente na migração para o banco definitivo. Entre perfis legados válidos, vence a data `importadoEm` mais recente; em empate, vence o intermediário. Um perfil definitivo já existente sempre tem prioridade. A cópia é validada, gravada em transação e relida, sem eliminar os originais automaticamente. Uma exclusão registrada na versão intermediária impede ressuscitar o perfil original. A exclusão explícita do perfil também remove o registro legado; um marcador impede sua recuperação indevida posterior. O backup opcional em `/privacidade` permite transferir tema, horários e perfil estruturado entre domínios, com autorização separada para incluir o perfil e confirmação de restauração. O arquivo pode conter dados acadêmicos pessoais; não contém PDF, texto integral ou identificadores civis. Veja [o procedimento e as limitações](rebranding-planeja-ufca.md).

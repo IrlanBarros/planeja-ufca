@@ -1,7 +1,7 @@
 import 'fake-indexeddb/auto'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { IDBFactory } from 'fake-indexeddb'
-import { apagarPerfil, lerPerfil, NOME_BANCO, NOME_BANCO_LEGADO, salvarPerfil } from './indexedDb'
+import { apagarPerfil, lerPerfil, NOME_BANCO, NOME_BANCO_INTERMEDIARIO, NOME_BANCO_LEGADO, salvarPerfil } from './indexedDb'
 import { decodificarPerfil } from './schema'
 import { novoHistorico } from '../models/types'
 
@@ -16,6 +16,78 @@ async function gravarBruto(value: unknown, banco = NOME_BANCO) {
 }
 
 describe('IndexedDB exclusivo do perfil acadêmico', () => {
+  it.each([NOME_BANCO_INTERMEDIARIO, NOME_BANCO_LEGADO])('recupera %s sem criar outros bancos legados', async banco => {
+    const p = novoHistorico()
+    await gravarBruto(p, banco)
+    expect(await lerPerfil()).toEqual(p)
+    expect(await lerPerfil()).toEqual(p)
+    expect((await indexedDB.databases()).map(db => db.name).sort()).toEqual([NOME_BANCO, banco].sort())
+  })
+  it.each([true, false])('escolhe a data de importação mais recente entre legados (intermediário recente: %s)', async intermediarioRecente => {
+    const p = { ...novoHistorico(), importadoEm: '2026-01-01T12:00:00Z' }
+    const recente = { ...p, importadoEm: '2026-11-08T12:00:00Z' }
+    await gravarBruto(intermediarioRecente ? recente : p, NOME_BANCO_INTERMEDIARIO)
+    await gravarBruto(intermediarioRecente ? p : recente, NOME_BANCO_LEGADO)
+    expect(await lerPerfil()).toEqual(recente)
+    // Mesmo um legado posterior não substitui uma escolha já migrada.
+    await gravarBruto({ ...recente, importadoEm: '2027-01-01T12:00:00Z' }, NOME_BANCO_LEGADO)
+    expect(await lerPerfil()).toEqual(recente)
+  })
+  it('respeita exclusão na versão intermediária sem ressuscitar o perfil original', async () => {
+    const p = novoHistorico()
+    await gravarBruto(p, NOME_BANCO_LEGADO)
+    const req = indexedDB.open(NOME_BANCO_INTERMEDIARIO, 1)
+    await new Promise<void>(resolve => { req.onupgradeneeded = () => req.result.createObjectStore('perfil'); req.onsuccess = () => resolve() })
+    const db = req.result
+    await new Promise<void>(resolve => { const tx = db.transaction('perfil', 'readwrite'); tx.objectStore('perfil').put(true, 'migracao-legada-concluida'); tx.oncomplete = () => resolve() })
+    db.close()
+    expect(await lerPerfil()).toBeNull()
+    const apagar = indexedDB.deleteDatabase(NOME_BANCO_INTERMEDIARIO)
+    await new Promise<void>(resolve => { apagar.onsuccess = () => resolve() })
+    // O marcador de exclusão já foi transferido para o banco definitivo.
+    expect(await lerPerfil()).toBeNull()
+  })
+  it('prioriza o intermediário em empate e mantém gravações simultâneas no banco definitivo', async () => {
+    const p = { ...novoHistorico(), importadoEm: '2026-11-08T12:00:00Z' }
+    const intermediario = { ...p, curso: { ...p.curso, nome: 'INTERMEDIÁRIO SINTÉTICO' } }
+    await gravarBruto(p, NOME_BANCO_LEGADO)
+    await gravarBruto(intermediario, NOME_BANCO_INTERMEDIARIO)
+    expect(await lerPerfil()).toEqual(intermediario)
+    const atual = { ...p, curso: { ...p.curso, nome: 'ESCOLHA EXPLÍCITA SINTÉTICA' } }
+    await Promise.all([lerPerfil(), salvarPerfil(atual), lerPerfil()])
+    expect(await lerPerfil()).toEqual(atual)
+  })
+  it('aborta a cópia inteira se gravar o marcador falhar depois do perfil', async () => {
+    const p = novoHistorico()
+    await gravarBruto(p, NOME_BANCO_INTERMEDIARIO)
+    const put = IDBObjectStore.prototype.put
+    const spy = vi.spyOn(IDBObjectStore.prototype, 'put').mockImplementation(function (this: IDBObjectStore, valor, chave) {
+      if (chave === 'migracao-legada-concluida') throw new Error('quota')
+      return put.call(this, valor, chave)
+    })
+    await expect(lerPerfil()).rejects.toThrow()
+    spy.mockRestore()
+    const req = indexedDB.open(NOME_BANCO, 1)
+    await new Promise<void>(resolve => { req.onsuccess = () => resolve() })
+    const get = req.result.transaction('perfil').objectStore('perfil').get('ativo')
+    await new Promise<void>(resolve => { get.onsuccess = () => resolve() })
+    expect(get.result).toBeUndefined(); req.result.close()
+    expect(await lerPerfil()).toEqual(p)
+  })
+  it('preserva o banco intermediário se a migração falhar', async () => {
+    const p = novoHistorico()
+    await gravarBruto(p, NOME_BANCO_INTERMEDIARIO)
+    const put = vi.spyOn(IDBObjectStore.prototype, 'put').mockImplementation(() => { throw new Error('quota') })
+    await expect(lerPerfil()).rejects.toThrow()
+    put.mockRestore()
+    expect(await lerPerfil()).toEqual(p)
+  })
+  it('usa um legado válido sem copiar campos extras nem apagar o legado inválido', async () => {
+    const p = novoHistorico()
+    await gravarBruto({ schemaVersion: 9 }, NOME_BANCO_INTERMEDIARIO)
+    await gravarBruto(p, NOME_BANCO_LEGADO)
+    expect(await lerPerfil()).toEqual(p)
+  })
   it('migra o legado de forma idempotente e confirma o conteúdo sem apagar o original', async () => {
     const p = novoHistorico(); p.curso.nome = 'LEGADO SINTÉTICO'
     await gravarBruto(p, NOME_BANCO_LEGADO)

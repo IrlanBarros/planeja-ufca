@@ -1,13 +1,13 @@
 import type { HistoricoAcademico } from '../historico/models/types'
 import { decodificarPerfil } from '../historico/storage/schema'
 import { salvarPerfil } from '../historico/storage/indexedDb'
-import { gerarStorageKey, PREFIXO_HORARIO, PREFIXO_HORARIO_LEGADO, validarIdsHorario } from '../horarios/selecao'
+import { gerarStorageKey, PREFIXOS_HORARIO, validarIdsHorario } from '../horarios/selecao'
 import { readThemePreference, THEME_STORAGE_KEY, type ThemePreference } from '../../theme/theme'
 
 export const LIMITE_BACKUP = 8 * 1024 * 1024
 interface HorarioBackup { periodo: string; cursoId: string; turmas: string[] }
 export interface BackupLocal {
-  formato: 'projeta-ufca-backup'
+  formato: 'planeja-ufca-backup'
   versao: 1
   tema: ThemePreference
   horarios: HorarioBackup[]
@@ -24,7 +24,8 @@ function identificador(valor: unknown): string {
 }
 export function validarBackup(valor: unknown): BackupLocal {
   const b = objeto(valor)
-  if (b.formato !== 'projeta-ufca-backup') throw new Error('Arquivo de backup inválido.')
+  // Normaliza o formato antigo somente depois de validar seu conteúdo.
+  if (b.formato !== 'planeja-ufca-backup' && b.formato !== 'projeta-ufca-backup' && b.formato !== 'seu-horario-ufca-backup') throw new Error('Arquivo de backup inválido.')
   if (b.versao !== 1) throw new Error('Versão de backup incompatível.')
   if (b.tema !== 'light' && b.tema !== 'dark' && b.tema !== 'system') throw new Error('Preferência de tema inválida no backup.')
   if (!Array.isArray(b.horarios) || b.horarios.length > 500) throw new Error('Lista de horários inválida no backup.')
@@ -38,7 +39,7 @@ export function validarBackup(valor: unknown): BackupLocal {
     return { periodo, cursoId, turmas: validarIdsHorario(h.turmas) }
   })
   if (b.perfil === undefined) throw new Error('O backup está incompleto.')
-  return { formato: 'projeta-ufca-backup', versao: 1, tema: b.tema, horarios, perfil: b.perfil === null ? null : decodificarPerfil(b.perfil) }
+  return { formato: 'planeja-ufca-backup', versao: 1, tema: b.tema, horarios, perfil: b.perfil === null ? null : decodificarPerfil(b.perfil) }
 }
 export function interpretarBackup(texto: string): BackupLocal {
   if (new Blob([texto]).size > LIMITE_BACKUP) throw new Error('O backup excede o limite de 8 MB.')
@@ -51,12 +52,14 @@ export function coletarHorarios(): HorarioBackup[] {
   const encontrados = new Map<string, string>()
   for (let i = 0; i < localStorage.length; i++) {
     const chave = localStorage.key(i)!
-    if (!chave.startsWith(PREFIXO_HORARIO) && !chave.startsWith(PREFIXO_HORARIO_LEGADO)) continue
-    const partes = chave.match(/^(?:projeta-ufca|seu-horario-ufca):([^:]+):([^:]+):turmas$/)
+    const prioridade = PREFIXOS_HORARIO.findIndex(prefixo => chave.startsWith(prefixo))
+    if (prioridade === -1) continue
+    const partes = chave.match(/^(?:planeja-ufca|projeta-ufca|seu-horario-ufca):([^:]+):([^:]+):turmas$/)
     if (!partes) continue
     const nova = gerarStorageKey(partes[1], partes[2])
     // Não mesclar escolhas novas com cópias antigas que podem estar desatualizadas.
-    if (!encontrados.has(nova) || chave.startsWith(PREFIXO_HORARIO)) encontrados.set(nova, chave)
+    const anterior = encontrados.get(nova)
+    if (!anterior || prioridade < PREFIXOS_HORARIO.findIndex(prefixo => anterior.startsWith(prefixo))) encontrados.set(nova, chave)
   }
   return [...encontrados].map(([nova, chave]) => {
     const partes = nova.split(':')
@@ -67,7 +70,7 @@ export function coletarHorarios(): HorarioBackup[] {
 /** O chamador só passa o perfil quando a inclusão foi autorizada explicitamente. */
 export function criarBackup(perfil: HistoricoAcademico | null = null, tema = readThemePreference()): BackupLocal {
   try {
-    return validarBackup({ formato: 'projeta-ufca-backup', versao: 1, tema, horarios: coletarHorarios(), perfil })
+    return validarBackup({ formato: 'planeja-ufca-backup', versao: 1, tema, horarios: coletarHorarios(), perfil })
   } catch { throw new Error('Não foi possível ler todos os horários locais. Confira as permissões e os dados deste navegador antes de exportar.') }
 }
 
@@ -105,7 +108,7 @@ export function baixarBackup(backup: BackupLocal) {
   const link = document.createElement('a')
   try {
     link.href = url
-    link.download = `projeta-ufca-backup-${new Date().toISOString().slice(0, 10)}.json`
+    link.download = `planeja-ufca-backup-${new Date().toISOString().slice(0, 10)}.json`
     document.body.appendChild(link); link.click()
   } finally { link.remove(); URL.revokeObjectURL(url) }
 }
