@@ -94,7 +94,7 @@ function desenharCabecalho(
   pdf.setFontSize(20)
 
   pdf.text(
-    'Seu Horario - UFCA',
+    'Projeta UFCA',
     15,
     15,
   )
@@ -445,6 +445,6 @@ export function exportarHorarioPdf(
   const cursoSlug = normalizarNomeArquivo(cursoNome)
 
   pdf?.save(
-      `meu-horario-${cursoSlug}-${periodo}.pdf`,
+      `projeta-ufca-horario-${cursoSlug}-${periodo}.pdf`,
   )
 }

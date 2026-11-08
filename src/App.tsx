@@ -167,7 +167,7 @@ function App() {
   if (erro) {
     return (
       <main className="container">
-        <h1>Seu Horário - UFCA</h1>
+        <h1>Projeta UFCA</h1>
 
         <p className="erro">
           {erro}
@@ -179,7 +179,7 @@ function App() {
   if (!dados) {
     return (
       <main className="container">
-        <h1>Seu Horário - UFCA</h1>
+        <h1>Projeta UFCA</h1>
 
         <p>
           Carregando turmas...
@@ -206,7 +206,7 @@ function App() {
     <main className="container">
       <header>
         <h1>
-          Seu Horário - UFCA
+          Projeta UFCA
         </h1>
 
           <div className="curso-selector">

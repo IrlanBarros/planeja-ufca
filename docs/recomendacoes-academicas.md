@@ -151,7 +151,7 @@ O provedor compartilhado fica no `AppLayout` e não realiza consultas extras. Ma
 
 ```text
 ID: codigo|turma|docente|horario_sigaa
-Chave: seu-horario-ufca:<periodo>:<cursoId>:turmas
+Chave: projeta-ufca:<periodo>:<cursoId>:turmas
 Valor: array de IDs (compatível com os horários antigos)
 ```
 
@@ -213,3 +213,7 @@ Os testes novos exercitam situações oficiais/desconhecidas, tentativas múltip
 Validação realizada: 232 testes do Vitest e 34 testes Python passaram; lint e build concluídos. A checagem local do PDF de referência também passou, sem incorporar o documento aos testes versionados. O build conclui com aviso de chunk principal acima de 500 kB; o pacote inclui o suporte a PDF. A validação visual incluiu o tema escuro e uma largura útil de 387 pixels sem transbordamento horizontal, além dos temas claro/escuro/automático nos testes da interface.
 
 Evoluções possíveis, fora desta implementação: planejamento de múltiplos semestres, oferta histórica/futura, interpretação de correquisitos estruturados, verificação de vigência das equivalências, otimização global de horários e projeções de conclusão com dados e regras adequados. Nenhuma dessas projeções é implementada aqui.
+
+## Compatibilidade após o rebranding
+
+A marca pública é Projeta UFCA. As antigas chaves `seu-horario-ufca:<periodo>:<cursoId>:turmas` são lidas quando a nova chave não existe e copiadas sem apagar o original. Os IDs de turmas permanecem estáveis. Consulte [a migração](rebranding-projeta-ufca.md).

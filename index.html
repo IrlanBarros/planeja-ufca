@@ -4,15 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Consulte disciplinas da UFCA, monte seu horário e visualize estruturas curriculares. Projeto independente, não oficial da universidade." />
+    <meta name="description" content="Projeta UFCA: organize seus horários, acompanhe sua graduação, consulte estruturas curriculares e descubra disciplinas para planejar sua trajetória acadêmica. Projeto independente, não oficial da universidade." />
+    <meta name="application-name" content="Projeta UFCA" />
+    <meta property="og:title" content="Projeta UFCA" />
+    <meta property="og:description" content="Planeje sua trajetória acadêmica com horários, currículos e recomendações. Projeto independente, não oficial da UFCA." />
+    <meta property="og:type" content="website" />
     <meta name="color-scheme" content="light dark" />
     <script>
       // Aplicado antes da interface e do CSS para evitar um primeiro quadro com o tema errado.
       (() => {
         let preference = 'system'
         try {
-          const saved = localStorage.getItem('seu-horario-ufca:theme')
-          if (saved === 'light' || saved === 'dark' || saved === 'system') preference = saved
+          const current = localStorage.getItem('projeta-ufca:theme')
+          const saved = current ?? localStorage.getItem('seu-horario-ufca:theme')
+          if (saved === 'light' || saved === 'dark' || saved === 'system') {
+            preference = saved
+            if (current === null) {
+              try { localStorage.setItem('projeta-ufca:theme', saved) } catch { /* A leitura ainda vale. */ }
+            }
+          }
         } catch { /* O acesso ao armazenamento pode estar bloqueado. */ }
         const prefersDark = typeof window.matchMedia === 'function'
           && window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -21,7 +31,7 @@
         document.documentElement.style.colorScheme = theme
       })()
     </script>
-    <title>Seu Horário UFCA</title>
+    <title>Projeta UFCA</title>
   </head>
   <body>
     <div id="root"></div>

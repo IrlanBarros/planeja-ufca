@@ -8,6 +8,7 @@ import {
   subscribeToSystemTheme,
   systemPrefersDark,
   THEME_STORAGE_KEY,
+  LEGACY_THEME_STORAGE_KEY,
 } from './theme'
 
 const bootstrap = html.match(/<script>([\s\S]*?)<\/script>/)![1]
@@ -21,11 +22,11 @@ function browserEnvironment(saved: string | null, dark: boolean, blocked = false
     removeEventListener: vi.fn((_event: string, callback: () => void) => listeners.delete(callback)),
   }
   const storage = {
-    getItem: vi.fn(() => {
+    getItem: vi.fn<(chave: string) => string | null>(() => {
       if (blocked) throw new Error('SecurityError')
       return saved
     }),
-    setItem: vi.fn(() => {
+    setItem: vi.fn<(chave: string, valor: string) => void>(() => {
       if (blocked) throw new Error('SecurityError')
     }),
   }
@@ -40,6 +41,30 @@ function browserEnvironment(saved: string | null, dark: boolean, blocked = false
 afterEach(() => vi.unstubAllGlobals())
 
 describe('preferência de tema e primeiro quadro', () => {
+  it.each(['light', 'dark', 'system'] as const)('migra %s uma única vez e mantém bootstrap e React de acordo', value => {
+    const env = browserEnvironment(null, true)
+    const dados = new Map<string, string>([[LEGACY_THEME_STORAGE_KEY, value]])
+    env.storage.getItem.mockImplementation(chave => dados.get(chave) ?? null)
+    env.storage.setItem.mockImplementation((chave, valor) => { dados.set(chave, valor) })
+    runBootstrap(env.storage, env.browserWindow, env.browserDocument)
+    expect(dados.get(THEME_STORAGE_KEY)).toBe(value)
+    expect(readThemePreference()).toBe(value)
+    expect(env.storage.setItem).toHaveBeenCalledTimes(1)
+    expect(env.browserDocument.documentElement.dataset.theme).toBe(value === 'system' ? 'dark' : value)
+    expect(dados.get(LEGACY_THEME_STORAGE_KEY)).toBe(value)
+  })
+  it('prioriza nova chave até quando inválida e tolera falha ao migrar', () => {
+    const env = browserEnvironment(null, false)
+    env.storage.getItem.mockImplementation(chave => chave === THEME_STORAGE_KEY ? 'light' : 'dark')
+    expect(readThemePreference()).toBe('light')
+    env.storage.getItem.mockImplementation(chave => chave === THEME_STORAGE_KEY ? 'inválido' : 'dark')
+    expect(readThemePreference()).toBe('system')
+    env.storage.getItem.mockImplementation(chave => chave === THEME_STORAGE_KEY ? null : 'dark')
+    env.storage.setItem.mockImplementation(() => { throw new Error('quota') })
+    expect(readThemePreference()).toBe('dark')
+    runBootstrap(env.storage, env.browserWindow, env.browserDocument)
+    expect(env.browserDocument.documentElement.dataset.theme).toBe('dark')
+  })
   it.each([
     ['light', true, 'light', 'light'],
     ['dark', false, 'dark', 'dark'],

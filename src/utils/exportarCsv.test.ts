@@ -32,7 +32,7 @@ describe('CSV com salas', () => {
     expect(linhas[0]).toBe('Código;Disciplina;Turma;Docente;Dia;Início;Fim;Horário SIGAA;Sala')
     expect(linhas[1]).toContain(';segunda-feira;14:00;16:00;24T46;"Lab; ""Física"" - Bloco B"')
     expect(linhas[2]).toContain(';quarta-feira;14:00;16:00;24T46;Sala C')
-    expect(link.download).toBe('meu-horario-ciencia-da-computacao-2026.2.csv')
+    expect(link.download).toBe('projeta-ufca-horario-ciencia-da-computacao-2026.2.csv')
     expect(link.click).toHaveBeenCalledOnce()
     expect(revokeObjectURL).toHaveBeenCalledWith('blob:horario')
   })

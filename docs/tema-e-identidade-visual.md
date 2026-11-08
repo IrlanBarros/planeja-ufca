@@ -10,7 +10,7 @@ A análise inicial identificou CSS compartilhado em `App.css`, CSS da página cu
 
 `ThemeProvider` envolve o roteador e mantém uma única preferência em memória. `useTheme` oferece a preferência, o tema efetivo e a função de alteração. O seletor usa um elemento `select` nativo, com label visível e opções Claro, Escuro e Sistema.
 
-A chave `seu-horario-ufca:theme` aceita somente `light`, `dark` e `system`. Valores ausentes, inválidos ou inacessíveis resultam em Sistema. A leitura e a escrita têm tratamento de exceções. A escolha explícita é persistida imediatamente; quando o navegador bloqueia a escrita, a preferência continua funcionando em memória.
+A chave atual `projeta-ufca:theme` aceita somente `light`, `dark` e `system`. Valores ausentes, inválidos ou inacessíveis resultam em Sistema. A leitura e a escrita têm tratamento de exceções. A escolha explícita é persistida imediatamente; quando o navegador bloqueia a escrita, a preferência continua funcionando em memória.
 
 `useSyncExternalStore` observa a consulta `(prefers-color-scheme: dark)` e remove o listener ao desmontar. Mudanças do sistema afetam o tema efetivo quando a preferência é Sistema. As escolhas Claro e Escuro têm prioridade sobre o sistema.
 
@@ -46,13 +46,13 @@ Testes de contraste calculam a luminância das cores reais do CSS: 17 pares de t
 
 `public/favicon.svg` foi substituído por um calendário azul com folhas claras e pequenos blocos que representam uma grade de horários. A composição usa `viewBox="0 0 32 32"`, formas simples e bordas arredondadas; não utiliza símbolos institucionais.
 
-A referência `/favicon.svg` foi mantida no HTML. Não foi necessário adicionar PNG ou bibliotecas. `index.html` agora declara `lang="pt-BR"`, inclui uma descrição da aplicação e informa suporte a esquemas claro/escuro. O título permanece **Seu Horário UFCA**.
+A referência `/favicon.svg` foi mantida no HTML. Não foi necessário adicionar PNG ou bibliotecas. `index.html` agora declara `lang="pt-BR"`, inclui uma descrição da aplicação e informa suporte a esquemas claro/escuro. O título atual é **Projeta UFCA**.
 
 ## 5. Rodapé
 
 Conteúdo em 2026:
 
-> **Seu Horário UFCA**  
+> **Projeta UFCA**
 > © 2026 Irlan Barros · Autoria e desenvolvimento · Licença MIT  
 > Projeto independente, não oficial da Universidade Federal do Cariri.
 
@@ -104,3 +104,7 @@ Mudanças do sistema e bloqueio de armazenamento foram simulados nos testes auto
 O SVG é o único formato de favicon entregue. O cache e a aparência na aba em navegadores diferentes, especialmente em 16 px, ainda merecem conferência manual. A inspeção visual local não equivale a testes em aparelhos físicos ou em todos os navegadores.
 
 O aviso do Vite sobre tamanho do bundle não impede a geração dos arquivos de produção; a divisão do bundle não fez parte desta tarefa.
+
+## Atualização de identidade: Projeta UFCA
+
+As verificações e decisões anteriores acima registram a implementação original do tema. O rebranding preserva a paleta e o desenho do calendário; atualiza o nome no título, favicon e rodapé. A chave histórica `seu-horario-ufca:theme` é validada e copiada somente se a chave nova estiver ausente. O bootstrap do HTML segue a mesma precedência, inclusive se a escrita falhar, sem alterar o modo Sistema. Os horários também recebem chaves novas compatíveis. Detalhes em [Rebranding Projeta UFCA](rebranding-projeta-ufca.md).
