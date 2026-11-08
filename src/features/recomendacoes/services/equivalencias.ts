@@ -10,11 +10,39 @@ export const CONCLUSOES: Readonly<Record<string, string>> = {
 // Regras E, expressões especiais e listas ambíguas permanecem condicionais.
 export function alternativasSeguras(expressao: string | null, codigos: string[]): string[] | null {
   if (!expressao?.trim()) return codigos.length <= 1 ? [...codigos] : null
-  const tokens = expressao.replace(/[()]/g, ' ').trim().split(/\s+/)
-  if (!tokens.every((t, i) => i % 2 ? t === 'OU' : codigos.includes(t))) return null
-  const alternativas = [...new Set(tokens.filter((_, i) => i % 2 === 0))]
-  return tokens.length % 2 === 1 && codigos.every(c => alternativas.includes(c)) ? alternativas : null
+  const tokens = expressao.match(/\(|\)|[^\s()]+/g) ?? []
+  if (tokens.length > 1000) return null
+  let posicao = 0
+  function alternativa(): string[] | null {
+    const token = tokens[posicao++]
+    if (token === '(') {
+      const grupo = disjuncao()
+      return tokens[posicao++] === ')' ? grupo : null
+    }
+    return token && !['E', 'OU', ')'].includes(token) && codigos.includes(token) ? [token] : null
+  }
+  function disjuncao(): string[] | null {
+    const resultado = alternativa()
+    if (!resultado) return null
+    while (tokens[posicao] === 'OU') {
+      posicao++
+      const proxima = alternativa()
+      if (!proxima) return null
+      resultado.push(...proxima)
+    }
+    return resultado
+  }
+  const resultado = disjuncao()
+  return resultado && posicao === tokens.length && codigos.every(c => resultado.includes(c)) ? [...new Set(resultado)] : null
 }
+
+/** Autorizações individuais da matriz para consultar/planejar ofertas futuras. */
+export function equivalentesCurriculares(componente: ComponenteCurricular) {
+  return alternativasSeguras(componente.equivalencias_expressao, componente.equivalencias_codigos) ?? []
+}
+
+// Evidências históricas são usadas na análise do cumprimento passado, não como
+// autorização universal para ofertas futuras (equivalentesCurriculares).
 
 export function equivalentesPermitidos(componente: ComponenteCurricular, perfil: HistoricoAcademico) {
   const matriz = alternativasSeguras(componente.equivalencias_expressao, componente.equivalencias_codigos)

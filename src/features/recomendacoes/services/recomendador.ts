@@ -33,13 +33,13 @@ export function gerarRecomendacoes({ perfil, estrutura, oferta, cursoId, prefere
   const entrada = indicePeriodo(perfil.vinculo.periodoIngresso), atual = indicePeriodo(oferta.periodo)
   const nivelEstimado = entrada !== null && atual !== null && atual >= entrada ? atual - entrada + 1 : null
   const diasSelecionados = new Set(selecionadas.flatMap(t => t.horarios.map(h => h.dia)))
-  const simultaneosSelecionados = new Set(selecionadas.flatMap(t => [...exigenciasParaCodigo(t.codigo, componentes, perfil)]))
+  const simultaneosSelecionados = new Set(selecionadas.flatMap(t => [...exigenciasParaCodigo(t.codigo, componentes)]))
   const itens: Recomendacao[] = componentes.filter(c => !situacoes.get(c.codigo)!.cumprido && (c.tipo === 'obrigatoria' || perfil.cargaHoraria.optativas.pendente !== 0)).map(c => {
     const situacao = situacoes.get(c.codigo)!
     const requisitos = elegibilidade(c, situacoes, simultaneosSelecionados)
     const dependencias = analisarDependencias(c.codigo, componentes, situacoes)
     const ofertas = localizarOfertas(c, perfil, oferta, cursoId, preferencias, selecionadas).map(o => {
-      if (duplicaExigencia(o.turma, selecionadas, componentes, perfil) && !o.motivos.some(m => m.includes('já está'))) return { ...o, compativel: false, motivos: [...o.motivos, 'O horário já contempla esta exigência por um componente equivalente.'] }
+      if (duplicaExigencia(o.turma, selecionadas, componentes) && !o.motivos.some(m => m.includes('já está'))) return { ...o, compativel: false, motivos: [...o.motivos, 'O horário já contempla esta exigência por um componente equivalente.'] }
       return o
     })
     const confirmadas = ofertas.filter(o => o.confirmada)
@@ -60,7 +60,7 @@ export function gerarRecomendacoes({ perfil, estrutura, oferta, cursoId, prefere
   itens.sort((a, b) => b.pontuacao - a.pontuacao || (a.componente.nivel ?? Infinity) - (b.componente.nivel ?? Infinity) || a.componente.codigo.localeCompare(b.componente.codigo))
   const plano: Turma[] = []
   const componentesPlanejados = new Set<string>()
-  const cargas = selecionadas.map(t => cargaDaTurma(t, componentes, perfil))
+  const cargas = selecionadas.map(t => cargaDaTurma(t, componentes))
   let cargaPlanejada = cargas.reduce<number>((n, c) => n + (c ?? 0), 0)
   if (cargas.includes(null)) avisos.push('Carga horária de uma turma selecionada não identificada na matriz. O plano automático depende dessa confirmação.')
   if (!Number.isFinite(preferencias.cargaHoraria) || preferencias.cargaHoraria < 0) avisos.push('Informe uma carga horária pretendida válida.')
@@ -74,10 +74,10 @@ export function gerarRecomendacoes({ perfil, estrutura, oferta, cursoId, prefere
     const dias = new Set(base.flatMap(t => t.horarios.map(h => h.dia)))
     const alternativas = [...item.ofertas].sort((a, b) => preferencias.estrategia === 'concentrar' ? new Set(a.turma.horarios.filter(h => !dias.has(h.dia)).map(h => h.dia)).size - new Set(b.turma.horarios.filter(h => !dias.has(h.dia)).map(h => h.dia)).size : 0)
     for (const o of alternativas) {
-      if (!o.confirmada || motivosIncompatibilidade(o.turma, preferencias, base).length || duplicaExigencia(o.turma, base, componentes, perfil)) continue
+      if (!o.confirmada || motivosIncompatibilidade(o.turma, preferencias, base).length || duplicaExigencia(o.turma, base, componentes)) continue
       let pacote = [o.turma]
       const codigosPacote = [item.componente.codigo]
-      const simultaneos = new Set([...base, ...pacote].flatMap(t => [...exigenciasParaCodigo(t.codigo, componentes, perfil)]))
+      const simultaneos = new Set([...base, ...pacote].flatMap(t => [...exigenciasParaCodigo(t.codigo, componentes)]))
       if (avaliarCoRequisitos(item.componente, situacoes, simultaneos).avaliacao.estado !== 'satisfeito') {
         let conjunto: ReturnType<typeof montarGrupo> = null
         for (const codigo of item.correquisitosSimultaneos) {
@@ -89,8 +89,8 @@ export function gerarRecomendacoes({ perfil, estrutura, oferta, cursoId, prefere
         pacote = [...pacote, ...conjunto.turmas]
         codigosPacote.push(...conjunto.componentes)
       }
-      const ch = pacote.reduce((n, t) => n + (cargaDaTurma(t, componentes, perfil) ?? Infinity), 0)
-      const chBase = base.reduce((n, t) => n + (cargaDaTurma(t, componentes, perfil) ?? Infinity), 0)
+      const ch = pacote.reduce((n, t) => n + (cargaDaTurma(t, componentes) ?? Infinity), 0)
+      const chBase = base.reduce((n, t) => n + (cargaDaTurma(t, componentes) ?? Infinity), 0)
       if (ch + chBase <= preferencias.cargaHoraria) return { turmas: pacote, componentes: codigosPacote }
     }
     return null
@@ -101,7 +101,7 @@ export function gerarRecomendacoes({ perfil, estrutura, oferta, cursoId, prefere
     if (!grupo) continue
     plano.push(...grupo.turmas)
     grupo.componentes.forEach(codigo => componentesPlanejados.add(codigo))
-    cargaPlanejada += grupo.turmas.reduce((n, t) => n + (cargaDaTurma(t, componentes, perfil) ?? 0), 0)
+    cargaPlanejada += grupo.turmas.reduce((n, t) => n + (cargaDaTurma(t, componentes) ?? 0), 0)
   }
   for (const item of itens) {
     if (componentesPlanejados.has(item.componente.codigo)) {

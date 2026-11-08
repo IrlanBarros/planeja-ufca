@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { gerarHorarioPdf } from './exportarPdf'
 import { turmaTeste } from './turmaTeste'
+import { gerarIdTurma } from '../features/horarios/selecao'
 
 describe('PDF com salas', () => {
   it('gera grade e relação com os locais dos encontros, sem consultas externas', () => {
@@ -47,5 +48,33 @@ describe('PDF com salas', () => {
 
   it('não gera PDF sem seleção', () => {
     expect(gerarHorarioPdf([], '2026.2', 'Curso')).toBeNull()
+  })
+
+  it('exporta grade e relação de vários cursos com origens e procedência desconhecida', () => {
+    const principal = turmaTeste({ sala: 'Sala P' })
+    const externa = turmaTeste({ codigo: 'EM0010', disciplina: 'Algebra', sala: 'Lab externo' })
+    const desconhecida = turmaTeste({ codigo: 'SEMORIGEM', horarios: [], sala: 'Sala final' })
+    const procedencias = new Map([
+      [gerarIdTurma(principal), [{ id: 'cc', nome: 'Computacao' }]],
+      [gerarIdTurma(externa), [{ id: 'em', nome: 'Materiais' }, { id: 'adm', nome: 'Administracao' }]],
+    ])
+    const pdf = gerarHorarioPdf([principal, externa, desconhecida], '2026.2', 'Computacao', procedencias)!
+    const grade = (pdf.internal.pages as unknown as string[][])[1].join('\n')
+    expect(grade).toContain('CC0024'); expect(grade).toContain('EM0010')
+    const texto = pdf.output()
+    expect(texto).toContain('Curso de oferta: Materiais \\(em\\) / Administracao \\(adm\\)')
+    expect(texto).toContain('Lab externo'); expect(texto).toContain('Sala final')
+    expect(texto).toContain('SEMORIGEM')
+    expect(texto).not.toContain('undefined')
+    expect(texto).not.toContain('Curso de oferta: null')
+  })
+
+  it('pagina cursos associados extensos sem perder a última turma', () => {
+    const turma = turmaTeste()
+    const procedencias = new Map([[gerarIdTurma(turma), [{ id: 'origem', nome: 'Agrupamento publico '.repeat(800) + 'FIM_DOS_CURSOS' }]]])
+    const pdf = gerarHorarioPdf([turma, turmaTeste({ codigo: 'ULTIMA', horarios: [] })], '2026.2', 'Curso', procedencias)!
+    expect(pdf.getNumberOfPages()).toBeGreaterThan(2)
+    expect(pdf.output()).toContain('FIM_DOS_CURSOS')
+    expect(pdf.output()).toContain('ULTIMA')
   })
 })

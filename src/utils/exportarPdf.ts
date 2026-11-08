@@ -1,3 +1,4 @@
+import { descreverProcedencia, type Procedencias } from '../features/horarios/catalogo'
 import { jsPDF } from 'jspdf'
 import type { Turma } from '../types'
 import { descreverSalas, obterSala } from './salas'
@@ -330,6 +331,7 @@ function adicionarPaginaDisciplinas(
   turmas: Turma[],
   periodo: string,
   cursoNome: string,
+  procedencias?: Procedencias,
 ) {
   pdf.addPage('a4', 'landscape')
 
@@ -357,6 +359,7 @@ function adicionarPaginaDisciplinas(
     const linhas = [
       `${turma.codigo} - ${turma.disciplina}`,
       `Turma: ${turma.turma}`,
+      ...(descreverProcedencia(turma, procedencias) ? [`Curso de oferta: ${descreverProcedencia(turma, procedencias)}`] : []),
       `Docente: ${turma.docente || 'Não informado'}`,
       `Horario SIGAA: ${turma.horario_sigaa || 'Não informado'}`,
       ...descreverSalas(turma).map((texto) => texto.replace(/[–—]/g, '-')),
@@ -389,6 +392,7 @@ export function gerarHorarioPdf(
   turmas: Turma[],
   periodo: string,
   cursoNome: string,
+  procedencias?: Procedencias,
 ) {
   if (turmas.length === 0) {
     return null
@@ -425,6 +429,7 @@ export function gerarHorarioPdf(
     turmas,
     periodo,
     cursoNome,
+    procedencias,
   )
 
   return pdf
@@ -434,8 +439,9 @@ export function exportarHorarioPdf(
   turmas: Turma[],
   periodo: string,
   cursoNome: string,
+  procedencias?: Procedencias,
 ) {
-  const pdf = gerarHorarioPdf(turmas, periodo, cursoNome)
+  const pdf = gerarHorarioPdf(turmas, periodo, cursoNome, procedencias)
   const cursoSlug = normalizarNomeArquivo(cursoNome)
 
   pdf?.save(
