@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import Footer from './Footer'
 import ThemeSelector from './ThemeSelector'
+import HorariosProvider from '../features/horarios/HorariosProvider'
 
 export default function AppLayout() {
   return (
@@ -8,7 +9,7 @@ export default function AppLayout() {
       <div className="appearance-bar">
         <ThemeSelector />
       </div>
-      <Outlet />
+      <HorariosProvider><Outlet /></HorariosProvider>
       <Footer />
     </>
   )

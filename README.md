@@ -624,7 +624,7 @@ Para atualizar, escolha **Importar versão atualizada**, confira as datas de emi
 
 São aceitos PDFs digitais reconhecíveis da UFCA/SIGAA, inicialmente até 15 MB, 80 páginas e 45 segundos de leitura. Os limites são configuráveis em `src/features/historico/parser/importarPdf.ts`. Não há OCR ou suporte a PDFs protegidos por senha ou páginas rotacionadas. Mudanças no layout institucional podem exigir ajustes; informações incertas geram advertências e devem ser conferidas. Navegadores podem bloquear ou eliminar o armazenamento local.
 
-Esta etapa prepara modelos e acesso compartilhado ao perfil para futuras análises e planejamento, sem calcular índices, classificar integralização, recomendar disciplinas ou prever formatura. Arquitetura, arquivos, testes e limitações estão em [docs/importacao-historico-lgpd.md](docs/importacao-historico-lgpd.md).
+A importação prepara modelos e acesso compartilhado ao perfil, sem recalcular índices ou prever formatura. O planejamento por regras está disponível separadamente em `/recomendacoes`. Arquitetura, arquivos, testes e limitações estão em [docs/importacao-historico-lgpd.md](docs/importacao-historico-lgpd.md).
 
 ## Guia Acadêmico
 
@@ -659,18 +659,18 @@ O projeto possui atualmente uma versão funcional com:
 - consulta de estruturas curriculares;
 - suporte a múltiplas matrizes;
 - importação local de histórico acadêmico, conferência e armazenamento opcional;
+- recomendações determinísticas com equivalências, requisitos, dependências e preferências;
+- integração das sugestões com o horário existente;
 - exibição de pré-requisitos;
 - identificação visual de disciplinas optativas;
 - atualização automatizada dos dados.
 
 Entre as possíveis evoluções futuras estão:
 
-- uso do histórico acadêmico para identificar disciplinas concluídas;
-- avaliação automática de pré-requisitos;
-- indicação de quais disciplinas o estudante pode cursar;
-- geração automática de combinações de horários;
+- planejamento de múltiplos semestres;
+- análise de ofertas futuras e vigência das equivalências;
+- otimização global de combinações de horários;
 - priorização de horários com menos janelas;
-- preferência por determinados dias ou turnos;
 - melhorias de acessibilidade;
 - otimizações para dispositivos móveis.
 
@@ -683,3 +683,17 @@ Este projeto é distribuído sob a licença MIT. Consulte o arquivo `LICENSE` pa
 Desenvolvido por **Irlan Barros**.
 
 Transformando café em código e conflitos de horário em problema resolvido.
+
+## Recomendações acadêmicas
+
+Abra **Planejar meu próximo semestre** na página principal ou no histórico, ou acesse `/recomendacoes`. É necessário importar e conferir um histórico acadêmico pelos controles existentes; o perfil pode ser temporário ou salvo neste dispositivo.
+
+O planejador identifica a matriz pelo código do documento e combina disciplinas cumpridas, equivalências direcionais, pré-requisitos E/OU, correquisitos, dependências curriculares e a oferta do período consultado. A priorização é determinística e explicável: considera obrigatoriedade, desbloqueios efetivos, nível curricular, retomadas, oferta e preferências. Não usa notas ou índices para julgar capacidade acadêmica.
+
+Configure carga pretendida, dias, turnos e as estratégias **Equilibrado**, **Priorizar avanço** ou **Concentrar horários**, depois gere as sugestões. Cada card permite consultar motivos, tentativas, fontes e turmas alternativas. Adicione uma turma elegível ou o conjunto sugerido ao horário atual, preservando escolhas anteriores. Correquisitos pendentes precisam de inclusão conjunta compatível. As turmas continuam removíveis e exportáveis na página principal, com as mesmas chaves de armazenamento por curso e período.
+
+Dados incompletos, matrículas antigas e regras ambíguas são sinalizados para confirmação. A ferramenta não confirma vagas livres, autorizações de matrícula, limites oficiais de carga, aprovação ou prazo de formatura. É um projeto independente da UFCA e não substitui a análise oficial de matrícula.
+
+Histórico, preferências e recomendações são analisados no navegador. Só os catálogos públicos são buscados por GET. Os resultados e as preferências do planejador não são persistidos; apagar o perfil invalida a personalização. Os horários possuem armazenamento independente.
+
+Veja [arquitetura, critérios, pesos, fontes normativas, testes e limitações](docs/recomendacoes-academicas.md).
