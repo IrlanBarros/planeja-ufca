@@ -20,7 +20,7 @@ export function gerarRecomendacoes({ perfil, estrutura, oferta, cursoId, prefere
   preferencias: PreferenciasPlanejamento; selecionadas?: Turma[]; agora: Date
 }): ResultadoRecomendacoes {
   const componentes = [...new Map(estrutura.componentes.map(c => [c.codigo, c])).values()]
-  const situacoes = analisarSituacao(perfil, componentes, oferta.periodo)
+  const situacoes = analisarSituacao(perfil, componentes, oferta.periodo, agora)
   const avisos = [...perfil.validacao.advertencias, ...perfil.validacao.camposNaoReconhecidos]
   if (estrutura.codigo !== codigoEstruturaHistorico(perfil.curso.estruturaCurricular) || cursoId !== perfil.curso.idCurso) {
     return { itens: [], plano: [], cargaPlanejada: 0, avisos: ['Curso ou código da estrutura não corresponde ao perfil confirmado.'], pendentes: 0, elegiveis: 0, ofertados: 0 }

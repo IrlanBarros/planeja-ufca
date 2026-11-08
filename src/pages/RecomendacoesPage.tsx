@@ -14,6 +14,7 @@ import PreferenciasPlanejamento from '../features/recomendacoes/components/Prefe
 import ResumoRecomendacoes from '../features/recomendacoes/components/ResumoRecomendacoes'
 import RecomendacaoCard from '../features/recomendacoes/components/RecomendacaoCard'
 import { fontes } from '../features/guia-academico/data/fontes'
+import { urlProgressoCurricular } from '../features/historico/integracaoCurricular'
 import '../App.css'
 import './RecomendacoesPage.css'
 
@@ -34,6 +35,7 @@ function PlanejamentoCarregado({ perfil, curso, estrutura, oferta }: { perfil: H
     setMensagem(erro ?? `${novas.length} turma(s) adicionada(s) ao seu horário de ${curso.nome}, ${oferta.periodo}.`)
   }
   return <>
+    <p><Link to={urlProgressoCurricular(curso.id, estrutura.id)}>Ver minha estrutura curricular</Link></p>
     <ResumoRecomendacoes perfil={perfil} periodo={oferta.periodo} resultado={resultado} />
     {resultado.avisos.length > 0 && <aside className="planejador-aviso" aria-label="Limitações dos dados"><ul>{resultado.avisos.map(a => <li key={a}>{a}</li>)}</ul></aside>}
     <PreferenciasPlanejamento preferencias={preferencias} alterar={p => { setPreferencias(p); setMensagem('Recomendações atualizadas com suas preferências.') }} />

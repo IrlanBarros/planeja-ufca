@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import type { CursoIndiceCurriculo, DadosCursos, DadosCurriculoCurso, EstruturaCurricular, IndiceCurriculos } from '../../../types'
 import type { HistoricoAcademico } from '../../historico/models/types'
-import { associarCurso, codigoEstruturaHistorico, normalizarCurso } from '../../historico/integracaoCurricular'
+import { identificarCurso, identificarEstrutura } from '../../historico/integracaoCurricular'
+
+export { identificarCurso } from '../../historico/integracaoCurricular'
 
 interface DadosPlanejamento {
   oferta?: DadosCursos
@@ -11,13 +13,6 @@ interface DadosPlanejamento {
   estruturasAmbiguas?: EstruturaCurricular[]
   erro?: string
 }
-export function identificarCurso(perfil: HistoricoAcademico, cursos: CursoIndiceCurriculo[], confirmado: string | null) {
-  if (perfil.curso.idCurso) return { curso: cursos.find(c => c.id === perfil.curso.idCurso), candidatos: [] }
-  const associados = associarCurso(perfil, cursos)
-  const candidatos = cursos.filter(c => normalizarCurso(c.nome) === normalizarCurso(perfil.curso.nome ?? ''))
-  return { curso: cursos.find(c => c.id === associados.curso.idCurso) ?? candidatos.find(c => c.id === confirmado), candidatos }
-}
-
 export function useRecomendacoes(perfil: HistoricoAcademico, cursoConfirmado: string | null, estruturaConfirmada: string | null) {
   const chave = JSON.stringify([perfil.curso, cursoConfirmado, estruturaConfirmada])
   const [estado, setEstado] = useState<{ chave: string; dados: DadosPlanejamento } | null>(null)
@@ -37,8 +32,7 @@ export function useRecomendacoes(perfil: HistoricoAcademico, cursoConfirmado: st
       if (!curso.disponivel || !curso.arquivo) return { curso, erro: 'A estrutura curricular deste curso não está disponível. Não é possível gerar recomendações personalizadas.' }
       const curriculo = await json<DadosCurriculoCurso>(`/data/curriculos/${curso.arquivo}`)
       if (curriculo.curso_id !== curso.id) return { erro: 'O arquivo curricular não corresponde ao ID do curso. Confirme os dados públicos.' }
-      const estruturas = curriculo.estruturas.filter(e => e.codigo === codigoEstruturaHistorico(perfil.curso.estruturaCurricular))
-      const estrutura = estruturas.length === 1 ? estruturas[0] : estruturas.find(e => e.id === estruturaConfirmada)
+      const { estrutura, candidatas: estruturas } = identificarEstrutura(perfil, curriculo.estruturas, estruturaConfirmada)
       if (!estrutura) return { curso, estruturasAmbiguas: estruturas.length > 1 ? estruturas : undefined, erro: estruturas.length > 1 ? 'Há estruturas com o mesmo código. Confirme o ID da matriz vinculada ao seu histórico.' : `A matriz ${perfil.curso.estruturaCurricular ?? '(não identificada)'} não foi encontrada. Confira o histórico; outra matriz não será escolhida automaticamente.` }
       return { curso, estrutura, oferta }
     }

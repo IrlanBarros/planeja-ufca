@@ -46,6 +46,8 @@ describe.each([['claro', light], ['escuro', dark]] as const)('contraste do tema 
     ['danger-text', 'danger-background'],
     ['warning-text', 'warning-badge'],
     ['warning-text', 'warning-background'],
+    ['success-text', 'success-background'],
+    ['text-secondary', 'surface-secondary'],
   ])('%s sobre %s atende 4,5:1', (foreground, background) => {
     expect(contrast(colors[foreground], colors[background])).toBeGreaterThanOrEqual(4.5)
   })

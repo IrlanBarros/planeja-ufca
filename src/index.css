@@ -34,6 +34,9 @@
   --color-warning-badge: #fef3c7;
   --color-warning-text: #92400e;
   --color-warning-hover: #92400e;
+  --color-success: #15803d;
+  --color-success-background: #f0fdf4;
+  --color-success-text: #166534;
   --color-backdrop: #0f172a80;
   --color-shadow: #0f172a0a;
 }
@@ -71,6 +74,9 @@
   --color-warning-badge: #49391c;
   --color-warning-text: #fde68a;
   --color-warning-hover: #fbbf24;
+  --color-success: #86efac;
+  --color-success-background: #15342a;
+  --color-success-text: #bbf7d0;
   --color-backdrop: #020617b3;
   --color-shadow: #02061740;
 }
