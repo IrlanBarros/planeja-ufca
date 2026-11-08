@@ -22,7 +22,7 @@
 .historico-erro { color: var(--color-danger-text); background: var(--color-danger-background); border: 1px solid var(--color-danger-border); padding: 16px; border-radius: 8px; }
 .historico-manual { color: var(--color-warning-text); font-size: .85rem; font-weight: 600; }
 .historico-indices { display: flex; flex-wrap: wrap; gap: 12px; }
-.historico-indices > div { flex: 1; min-width: 115px; padding: 16px; border-radius: 8px; background: var(--color-surface-secondary); }
+.historico-indices > div { flex: 1 1 165px; min-width: 0; padding: 16px; border-radius: 8px; background: var(--color-surface-secondary); overflow-wrap: anywhere; }
 .historico-indices dt { font-weight: 700; }
 .historico-indices dd { margin: 8px 0 0; }
 .historico-tabela { max-width: 100%; overflow-x: auto; margin: 16px 0; }

@@ -14,6 +14,7 @@ import { sintetico } from '../features/historico/parser/fixtures.test-utils'
 import { importarPdf } from '../features/historico/parser/importarPdf'
 import { ThemeContext } from '../theme/theme'
 import AppLayout from '../components/AppLayout'
+import GuiaAcademicoPage from './GuiaAcademicoPage'
 
 vi.mock('../features/historico/parser/importarPdf', async importOriginal => ({ ...await importOriginal<typeof import('../features/historico/parser/importarPdf')>(), importarPdf: vi.fn() }))
 const mockImportar = vi.mocked(importarPdf)
@@ -28,7 +29,7 @@ beforeEach(() => {
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); vi.restoreAllMocks() })
 
 function montar() {
-  return render(<ThemeContext value={{ preference: 'system', resolvedTheme: 'light', setPreference: vi.fn() }}><HistoricoProvider><MemoryRouter initialEntries={['/historico']}><Routes><Route element={<AppLayout />}><Route path="/historico" element={<HistoricoPage />} /><Route path="/" element={<main><h1>Horários públicos</h1><Link to="/historico">Abrir perfil</Link></main>} /><Route path="/privacidade" element={<PrivacidadePage />} /></Route></Routes></MemoryRouter></HistoricoProvider></ThemeContext>)
+  return render(<ThemeContext value={{ preference: 'system', resolvedTheme: 'light', setPreference: vi.fn() }}><HistoricoProvider><MemoryRouter initialEntries={['/historico']}><Routes><Route element={<AppLayout />}><Route path="/historico" element={<HistoricoPage />} /><Route path="/" element={<main><h1>Horários públicos</h1><Link to="/historico">Abrir perfil</Link></main>} /><Route path="/privacidade" element={<PrivacidadePage />} /><Route path="/guia-academico" element={<GuiaAcademicoPage />} /></Route></Routes></MemoryRouter></HistoricoProvider></ThemeContext>)
 }
 async function iniciar(autorizar = true) {
   await userEvent.click(await screen.findByRole('button', { name: 'Importar histórico acadêmico' }))
@@ -42,6 +43,19 @@ async function selecionar() {
 }
 
 describe('fluxo de importação e privacidade na interface', () => {
+  it.each([false, true])('consulta o guia e volta preservando o perfil (persistido: %s)', async persistir => {
+    montar(); await iniciar(); await selecionar()
+    await userEvent.click(screen.getByRole('button', { name: persistir ? 'Salvar neste dispositivo' : 'Usar somente nesta sessão' }))
+    await screen.findByRole('heading', { name: 'Seu perfil acadêmico' })
+    const antes = await lerPerfil()
+    await userEvent.click(screen.getByRole('link', { name: 'Entenda este índice: IEA' }))
+    expect(await screen.findByRole('heading', { name: 'IEA — Índice de Eficiência Acadêmica' })).toBeTruthy()
+    expect(await lerPerfil()).toEqual(antes)
+    await userEvent.click(screen.getByRole('link', { name: 'Consultar meu histórico acadêmico' }))
+    await screen.findByRole('heading', { name: 'Seu perfil acadêmico' })
+    expect(screen.getByText('8.1234')).toBeTruthy()
+    expect(await lerPerfil()).toEqual(antes)
+  })
   it('exige ação afirmativa, permite recusa e mantém acesso aos horários', async () => {
     montar(); await iniciar(false)
     expect(screen.queryByLabelText('Selecionar PDF')).toBeNull()

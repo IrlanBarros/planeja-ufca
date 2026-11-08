@@ -1,0 +1,34 @@
+.guia-page { max-width: 1100px; }
+.guia-page header { margin-top: 30px; max-width: 760px; }
+.guia-page h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2; }
+.guia-page h2 { font-size: clamp(1.35rem, 3vw, 1.75rem); line-height: 1.35; }
+.guia-page h3 { font-size: 1.05rem; margin-top: 26px; }
+.guia-page p, .guia-page li, .guia-page dd { line-height: 1.75; }
+.guia-page p, .guia-page li, .guia-page dd, .guia-page h2, .guia-page h3 { overflow-wrap: anywhere; }
+.guia-page [id] { scroll-margin-top: 24px; }
+.guia-page [tabindex="-1"]:focus-visible, .guia-page summary:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 5px; border-radius: 4px; }
+.guia-etiqueta { color: var(--color-text-secondary); font-weight: 600; }
+.guia-introducao { background: var(--color-selected-surface); border-left: 4px solid var(--color-selected-border); padding: 8px 22px; border-radius: 0 10px 10px 0; }
+.guia-atalhos { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 28px 0 36px; }
+.guia-atalhos a { padding: 8px 0; }
+.guia-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; margin: 24px 0 40px; }
+.guia-card, .guia-explicacao, .guia-glossario, .guia-fontes { border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-surface); padding: clamp(18px, 3vw, 30px); min-width: 0; }
+.guia-card { display: flex; flex-direction: column; align-items: flex-start; }
+.guia-sigla { background: var(--color-academic-background); color: var(--color-academic-text); border-radius: 6px; padding: 5px 10px; font-weight: 750; }
+.guia-card h3 { margin: 16px 0 0; }
+.guia-card p { color: var(--color-text-secondary); }
+.guia-card a { margin-top: auto; padding: 10px 0; font-weight: 600; }
+.guia-explicacao, .guia-glossario, .guia-fontes { margin: 24px 0; }
+.guia-explicacao > h2, .guia-glossario > h2, .guia-fontes > h2 { margin-top: 0; }
+.guia-exemplo { background: var(--color-surface-secondary); padding: 2px 20px 8px; border-radius: 8px; margin: 24px 0; }
+.guia-page details { border-top: 1px solid var(--color-border); padding: 16px 0; }
+.guia-page summary { cursor: pointer; font-weight: 600; line-height: 1.6; padding: 6px 0; }
+.guia-notacao { font-family: ui-monospace, monospace; background: var(--color-surface-secondary); padding: 16px; border-radius: 8px; overflow-wrap: anywhere; }
+.guia-page dt { font-weight: 650; margin-top: 20px; }
+.guia-page dd { margin: 6px 0 0; }
+.guia-fonte { color: var(--color-text-secondary); font-size: .9rem; }
+.guia-page ol, .guia-page ul { padding-left: 24px; }
+@media (max-width: 600px) {
+  .guia-atalhos { flex-direction: column; gap: 4px; }
+  .guia-exemplo { padding-left: 14px; padding-right: 14px; }
+}
