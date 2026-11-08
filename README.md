@@ -626,6 +626,16 @@ São aceitos PDFs digitais reconhecíveis da UFCA/SIGAA, inicialmente até 15 MB
 
 Esta etapa prepara modelos e acesso compartilhado ao perfil para futuras análises e planejamento, sem calcular índices, classificar integralização, recomendar disciplinas ou prever formatura. Arquitetura, arquivos, testes e limitações estão em [docs/importacao-historico-lgpd.md](docs/importacao-historico-lgpd.md).
 
+## Guia Acadêmico
+
+A página pública `/guia-academico` explica **MC, MCN, IECH, IEPL e IEA**, com exemplos hipotéticos passo a passo, fórmulas expansíveis, fatores de influência, limites e dúvidas frequentes. O glossário distingue esses índices de carga horária, situações das disciplinas, estrutura curricular, equivalências, prazos e períodos.
+
+Abra **Entenda seus índices acadêmicos** na página principal ou **Entenda este índice** no resumo do histórico para ir diretamente à explicação correspondente. O guia funciona sem PDF, perfil ou autorização de tratamento; seus componentes não acessam IndexedDB. A navegação preserva o perfil temporário ou salvo e os valores extraídos, inclusive ausentes, sem gravar informações ou colocá-las na URL.
+
+O conteúdo é exclusivamente educativo: **não recalcula indicadores individuais**, simula notas, recomenda matrículas nem prevê formatura. Os dados tipados das explicações ficam separados dos dados pessoais. As fontes são o Regulamento dos Cursos de Graduação (Resolução Consuni nº 157/2023), suas alterações nº 279/2025 e nº 308/2026 e o catálogo do Consuni, incluindo a homologação nº 313/2026. Última verificação: **07/11/2026**, sem atualização normativa automática.
+
+A MCN depende de estatísticas institucionais externas ao histórico individual. A legenda do SIGAA contém descrições de faixas de notas diferentes do art. 95 consultado; o guia explica os códigos sem publicar essas faixas como regra vigente. Confira os detalhes, as referências consultáveis e o procedimento de manutenção em [docs/guia-indices-academicos.md](docs/guia-indices-academicos.md).
+
 ## Fonte dos dados
 
 As informações de estruturas curriculares, componentes, turmas, docentes, vagas, horários e salas são obtidas a partir das páginas públicas do SIGAA da Universidade Federal do Cariri.

@@ -536,6 +536,9 @@ function App() {
           <Link className="link-curriculo" to="/historico">
             Meu Histórico Acadêmico
           </Link>
+          <Link className="link-curriculo" to="/guia-academico">
+            Entenda seus índices acadêmicos
+          </Link>
 
         <p>
           {cursoSelecionado.nome} • {dados.periodo}

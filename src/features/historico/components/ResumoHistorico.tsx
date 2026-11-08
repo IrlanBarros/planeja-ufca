@@ -1,5 +1,7 @@
 import type { HistoricoAcademico, TentativaComponente } from '../models/types'
 import { validarHistorico } from '../validation/profile'
+import { Link } from 'react-router-dom'
+import { indices } from '../../guia-academico/data/indices'
 
 interface Props { perfil: HistoricoAcademico; alterar?: (perfil: HistoricoAcademico) => void }
 const mostrar = (v: string | number | null) => v ?? 'Não identificado'
@@ -39,7 +41,11 @@ export default function ResumoHistorico({ perfil: h, alterar }: Props) {
     </div>
     <h3>Índices oficiais do SIGAA</h3>
     <p className="historico-ajuda">Valores extraídos do documento, sem recálculo.</p>
-    <dl className="historico-indices">{Object.entries(h.indicesOficiais).map(([k, v]) => <div key={k}><dt>{k.toUpperCase()}</dt><dd>{mostrar(v)}</dd></div>)}</dl>
+    <dl className="historico-indices">{indices.map(indice => <div key={indice.id}>
+      <dt>{indice.sigla} — {indice.nome}</dt>
+      <dd>{mostrar(h.indicesOficiais[indice.id])}</dd>
+      <dd><Link to={`/guia-academico#${indice.id}`} aria-label={`Entenda este índice: ${indice.sigla}`}>Entenda este índice</Link></dd>
+    </div>)}</dl>
     <h3>Carga horária oficial</h3>
     <div className="historico-tabela"><table><caption>Carga horária em horas, conforme o documento</caption><thead><tr><th>Categoria</th><th>Exigida</th><th>Integralizada</th><th>Pendente</th></tr></thead><tbody>
       {Object.entries(h.cargaHoraria).map(([k, v]) => <tr key={k}><th>{({ obrigatorias: 'Obrigatórias', optativas: 'Optativas', complementares: 'Complementares', total: 'Total' })[k]}</th><td>{mostrar(v.exigida)}</td><td>{mostrar(v.integralizada)}</td><td>{mostrar(v.pendente)}</td></tr>)}
