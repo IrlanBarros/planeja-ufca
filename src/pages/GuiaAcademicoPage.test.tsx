@@ -21,13 +21,13 @@ function montar(rota = '/guia-academico', tema: 'light' | 'dark' = 'light') {
 }
 
 describe('guia público', () => {
-  it.each(['light', 'dark'] as const)('abre a rota no tema %s sem perfil, PDF, rede ou IndexedDB', tema => {
+  it.each(['light', 'dark'] as const)('abre a rota no tema %s sem perfil, PDF, rede ou IndexedDB', async tema => {
     const fetch = vi.fn(() => { throw new Error('Rede bloqueada') })
     const open = vi.fn(() => { throw new Error('IndexedDB bloqueado') })
     vi.stubGlobal('fetch', fetch)
     vi.stubGlobal('indexedDB', { open })
     montar('/guia-academico', tema)
-    expect(screen.getByRole('heading', { level: 1, name: 'Guia Acadêmico da UFCA' })).toBeTruthy()
+    expect(await screen.findByRole('heading', { level: 1, name: 'Guia Acadêmico da UFCA' })).toBeTruthy()
     expect(screen.getAllByRole('main')).toHaveLength(1)
     expect(document.querySelectorAll('footer')).toHaveLength(1)
     expect(screen.getByLabelText('Tema')).toBeTruthy()
@@ -44,7 +44,7 @@ describe('guia público', () => {
       : { cursos: [] } })))
     montar('/')
     await userEvent.click(await screen.findByRole('link', { name: 'Entenda seus índices acadêmicos' }))
-    expect(screen.getByRole('heading', { level: 1, name: 'Guia Acadêmico da UFCA' })).toBeTruthy()
+    expect(await screen.findByRole('heading', { level: 1, name: 'Guia Acadêmico da UFCA' })).toBeTruthy()
     for (const link of screen.getAllByRole('link').filter(a => a.getAttribute('href')?.startsWith('#'))) {
       expect(document.getElementById(link.getAttribute('href')!.slice(1))).toBeTruthy()
     }

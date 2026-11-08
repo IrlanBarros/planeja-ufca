@@ -12,7 +12,8 @@ import './App.css'
 import GradeSemanal from './components/GradeSemanal'
 import SalasTurma from './components/SalasTurma'
 import { exportarHorarioCsv } from './utils/exportarCsv'
-import { exportarHorarioPdf } from './utils/exportarPdf'
+import Apresentacao from './components/Apresentacao'
+import { carregarJsonPublico } from './data/publicJson'
 import SelecaoTurmas from './features/horarios/SelecaoTurmas'
 import { catalogarOferta, descreverProcedencia, pertenceAoCurso, rotuloCurso } from './features/horarios/catalogo'
 import { useReferenciaCurricular } from './features/horarios/useReferenciaCurricular'
@@ -25,6 +26,8 @@ function App() {
   const [cursoSelecionadoId, setCursoSelecionadoId] =
   useState<string | null>(null)
   const [erro, setErro] = useState<string | null>(null)
+  const [exportandoPdf, setExportandoPdf] = useState(false)
+  const [erroExportacao, setErroExportacao] = useState<string | null>(null)
   const [searchParams] = useSearchParams()
   const cursoSolicitado = searchParams.get('curso')
   const [erroSelecao, setErroSelecao] = useState<string | null>(null)
@@ -38,23 +41,14 @@ function App() {
   const catalogo = useMemo(() => dados ? catalogarOferta(dados) : [], [dados])
   const procedencias = useMemo(() => new Map(catalogo.map(item => [item.id, item.cursos])), [catalogo])
 
-  const { selecionadas, adicionar, remover } = useHorario(
-    dados?.periodo ?? '', cursoSelecionadoId ?? '', catalogo.map(item => item.turma),
-  )
+  const turmasCatalogo = useMemo(() => catalogo.map(item => item.turma), [catalogo])
+  const { selecionadas, adicionar, remover } = useHorario(dados?.periodo ?? '', cursoSelecionadoId ?? '', turmasCatalogo)
 
   useEffect(() => {
     const controller = new AbortController()
     async function carregarDados() {
       try {
-        const response = await fetch('/data/cursos-atual.json', { signal: controller.signal })
-
-        if (!response.ok) {
-          throw new Error(
-            `Erro ao carregar dados: ${response.status}`,
-          )
-        }
-
-        const json: DadosCursos = await response.json()
+        const json = await carregarJsonPublico<DadosCursos>('/data/cursos-atual.json')
         if (controller.signal.aborted) return
 
         setDados(json)
@@ -164,10 +158,20 @@ function App() {
     setTurmaComConflito(null)
   }
 
+  async function baixarPdf() {
+    if (!dados || !cursoSelecionado || exportandoPdf) return
+    setExportandoPdf(true); setErroExportacao(null)
+    try {
+      const { exportarHorarioPdf } = await import('./utils/exportarPdf')
+      exportarHorarioPdf(selecionadas, dados.periodo, cursoSelecionado.nome, procedencias)
+    } catch { setErroExportacao('Não foi possível gerar o PDF. Confira sua conexão e tente novamente.') }
+    finally { setExportandoPdf(false) }
+  }
+
   if (erro) {
     return (
       <main className="container">
-        <h1>Planeja UFCA</h1>
+        <Apresentacao />
 
         <p className="erro">
           {erro}
@@ -179,9 +183,9 @@ function App() {
   if (!dados) {
     return (
       <main className="container">
-        <h1>Planeja UFCA</h1>
+        <Apresentacao />
 
-        <p>
+        <p role="status">
           Carregando turmas...
         </p>
       </main>
@@ -197,6 +201,7 @@ function App() {
   if (!cursoSelecionado) {
     return (
       <main className="container">
+        <Apresentacao />
         <p>Nenhum curso selecionado.</p>
       </main>
     )
@@ -204,10 +209,8 @@ function App() {
 
   return (
     <main className="container">
-      <header>
-        <h1>
-          Planeja UFCA
-        </h1>
+      <section aria-label="Montar horário">
+        <Apresentacao />
 
           <div className="curso-selector">
             <label htmlFor="curso">
@@ -262,9 +265,10 @@ function App() {
         <strong>
           {cursoSelecionado.quantidade_turmas} turmas disponíveis
         </strong>
-      </header>
+      </section>
 
       {erroSelecao && <p role="alert" className="erro">{erroSelecao}</p>}
+      {erroExportacao && <p role="alert" className="erro">{erroExportacao}</p>}
       {turmaComConflito && conflitos.length > 0 && (
         <section className="aviso-conflito">
           <div className="aviso-conflito-cabecalho">
@@ -351,19 +355,14 @@ function App() {
             <button
               type="button"
               className="botao-exportar"
-              onClick={() =>
-                exportarHorarioPdf(
-                  selecionadas,
-                  dados.periodo,
-                  cursoSelecionado.nome,
-                  procedencias,
-                )
-              }
+              disabled={exportandoPdf}
+              onClick={baixarPdf}
             >
               Exportar PDF
             </button>
           </div>
         )}
+        {exportandoPdf && <p role="status">Preparando PDF neste navegador…</p>}
 
         {selecionadas.length > 0 && (
           <GradeSemanal turmas={selecionadas} />

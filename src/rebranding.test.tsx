@@ -10,11 +10,10 @@ import pacote from '../package.json'
 import lock from '../package-lock.json'
 
 describe('identidade pública Planeja UFCA', () => {
-  it('mantém título, idioma, favicon e metadados sem antecipar um deploy não verificado', () => {
-    expect(html).toContain('<title>Planeja UFCA</title>')
+  it('mantém idioma, favicon e identidade no template, reservando metadados por rota ao React', () => {
     expect(html).toContain('<html lang="pt-BR">')
     expect(html).toContain('name="application-name" content="Planeja UFCA"')
-    expect(html).toContain('property="og:title" content="Planeja UFCA"')
+    expect(html).not.toMatch(/<title>|name="description"|property="og:title"/)
     expect(html).toContain('href="/favicon.svg"')
     expect(html).not.toMatch(/rel="canonical"|property="og:url"/)
     expect(favicon).toContain('<title>Planeja UFCA')

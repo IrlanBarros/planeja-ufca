@@ -3,6 +3,7 @@ import 'fake-indexeddb/auto'
 import { IDBFactory } from 'fake-indexeddb'
 import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { limparCachePublico } from '../data/publicJson'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
 import AppRoutes from '../AppRoutes'
@@ -21,6 +22,7 @@ let dados = entrada([componente('ABC0001'), componente('ABC0002', { pre_requisit
 const curso = { id: 'curso', nome: 'CURSO SINTÉTICO', modalidade: 'Presencial', disponivel: true, arquivo: 'curso.json' }
 
 beforeEach(() => {
+  limparCachePublico()
   globalThis.indexedDB = new IDBFactory(); localStorage.clear()
   dados = entrada([componente('ABC0001'), componente('ABC0002', { pre_requisitos_regra: codigo('ABC0001') }), componente('ABC0003')], [turma('ABC0001'), turma('ABC0002', 3), turma('ABC0003', 4)])
   vi.mocked(importarPdf).mockResolvedValue(dados.perfil)
@@ -163,7 +165,7 @@ describe('interface de planejamento', () => {
     for (const [url, options] of vi.mocked(fetch).mock.calls) {
       expect(String(url).startsWith('/data/')).toBe(true); expect(options?.body).toBeUndefined(); expect(options?.method).toBeUndefined()
     }
-    cleanup(); vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('rede') })); montar()
+    cleanup(); limparCachePublico(); vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('rede') })); montar()
     expect((await screen.findByRole('alert')).textContent).toContain('Falha ao carregar')
   })
 })

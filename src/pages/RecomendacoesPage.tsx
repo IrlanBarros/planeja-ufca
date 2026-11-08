@@ -77,6 +77,10 @@ export default function RecomendacoesPage() {
   const { perfil, carregando } = useHistorico()
   return <main className="container planejador-page"><Link to="/">← Voltar aos horários</Link>
     <header><span className="planejador-ajuda">Planeja UFCA</span><h1>Recomendações para seu semestre</h1><p>Descubra quais disciplinas fazem mais sentido para sua trajetória acadêmica.</p></header>
+    <section className="planejador-painel" aria-labelledby="sobre-recomendacoes"><h2 id="sobre-recomendacoes">Como funciona o planejamento de disciplinas</h2>
+      <p>O Planeja UFCA cruza seu histórico conferido com a matriz curricular, os pré-requisitos e a oferta pública para sugerir disciplinas. Você pode ajustar preferências e conferir as justificativas antes de adicionar turmas ao horário.</p>
+      <p>Os resultados são personalizados e calculados neste navegador. Para começar, importe seu histórico; para explorar sem um perfil, <Link to="/curriculo">consulte as estruturas curriculares públicas</Link>.</p>
+    </section>
     {carregando ? <p role="status">Verificando o perfil acadêmico…</p> : perfil ? <Planejamento key={perfil.importadoEm} perfil={perfil} /> : <section className="planejador-painel"><h2>Comece pelo seu histórico</h2><p>As recomendações personalizadas dependem de um histórico acadêmico importado e conferido. O processamento acontece neste navegador.</p><Link to="/historico">Importar meu histórico acadêmico</Link><p><Link to="/">Continuar consultando horários e currículos públicos</Link></p></section>}
     <aside className="planejador-ajuda"><p>A oferta consultada não confirma vagas livres. As sugestões não garantem matrícula, aprovação ou prazo de formatura. Este projeto é independente da UFCA.</p>
       <p>Procedimentos de flexibilização de pré-requisitos dependem da análise institucional. A ferramenta não concede essas autorizações. <a href={fontes.regulamento.url} target="_blank" rel="noreferrer">Regulamento da graduação, arts. 72–75</a>.</p>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# O build adiciona a URL do sitemap a partir de src/seo/config.ts.

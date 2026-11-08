@@ -8,11 +8,11 @@ O projeto foi desenvolvido com uma arquitetura sem backend permanente, mantendo 
 
 ## Acesso
 
-Domínio desejado: [planejaufca.pages.dev](https://planejaufca.pages.dev). A criação e a publicação desse endereço ainda precisam ser confirmadas no painel Cloudflare.
+Endereço público: [planejaufca.pages.dev](https://planejaufca.pages.dev). Em 08/11/2026, a consulta HTTP confirmou resposta 200 e o HTML do Planeja UFCA. As configurações administrativas e eventuais domínios próprios devem ser conferidos no painel Cloudflare.
 
-Os endereços legados efetivamente utilizados devem permanecer acessíveis durante a transição para exportar os dados locais. A inspeção de 08/11/2026 encontrou HTTP 403 em `https://projetaufca.pages.dev` e `https://projeta-ufca.irlanbarros100.workers.dev`; o domínio original `https://seuhorarioufca.pages.dev` e o destino desejado não resolveram DNS nesta consulta. Isso não confirma disponibilidade do nome nem o estado administrativo das implantações. A transferência entre domínios exige uma ação explícita; consulte o [procedimento de migração](docs/rebranding-planeja-ufca.md).
+Os endereços legados efetivamente utilizados devem permanecer acessíveis durante a transição para exportar os dados locais. Uma nova consulta em 08/11/2026 não resolveu `projetaufca.pages.dev`; o estado administrativo dos projetos antigos não foi verificado. A transferência entre domínios exige uma ação explícita; consulte o [procedimento de migração](docs/rebranding-planeja-ufca.md).
 
-Repositório de destino após a renomeação: [IrlanBarros/planeja-ufca](https://github.com/IrlanBarros/planeja-ufca). A consulta ao GitHub em 08/11/2026 confirmou o nome atual `IrlanBarros/projeta-ufca`; a renomeação ainda é uma pendência. A operação administrativa está descrita no mesmo procedimento.
+Repositório configurado no remoto `origin`: [IrlanBarros/planeja-ufca](https://github.com/IrlanBarros/planeja-ufca).
 
 ## Funcionalidades
 
@@ -585,6 +585,23 @@ Os arquivos serão gerados no diretório:
 ```text
 dist/
 ```
+
+O build pré-renderiza as seis rotas públicas com React 19, gera `sitemap.xml`, `robots.txt`, os metadados por página e um `404.html`. O diretório `dist-ssr/` é usado somente durante o build; publique apenas `dist/`.
+
+O domínio é centralizado em `src/seo/config.ts`. Para um domínio próprio confirmado, defina `VITE_SITE_URL` com a origem HTTPS de produção antes do build; veja `.env.example`. Não use URLs de preview nessa variável.
+
+No Cloudflare Pages, use **Build command: `npm run build`**, **Build output directory: `dist`** e Node.js 22 ou superior. Confirme esses valores no painel. O cache e a compressão padrões do Pages são preservados.
+
+Para inspecionar o resultado localmente:
+
+```bash
+npm run preview -- --port 4173
+# Em outro terminal:
+npm run verify:http -- http://localhost:4173
+npm run analyze:build
+```
+
+Após publicar, verifique as rotas, o HTTP 404, o sitemap e a ausência de bloqueios na origem de produção. A verificação de propriedade e o envio do sitemap ao Google Search Console exigem ação manual. Consulte o [relatório de SEO e desempenho](docs/seo-desempenho.md) para diagnóstico, métricas, decisões e instruções.
 
 Para validar o código:
 

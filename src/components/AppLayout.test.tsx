@@ -29,7 +29,7 @@ describe('rodapé compartilhado', () => {
 
   it.each([
     ['/', 'Carregando turmas...'],
-    ['/curriculo', 'Nenhum curso foi informado.'],
+    ['/curriculo', 'Escolha seu curso'],
     ['/curriculo?curso=32652294', 'Carregando estrutura'],
   ])('mostra um único rodapé e seletor em %s, inclusive durante carregamento/erro', (route, content) => {
     const markup = renderToStaticMarkup(

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import type { CursoIndiceCurriculo, DadosCursos, DadosCurriculoCurso, EstruturaCurricular, IndiceCurriculos } from '../../../types'
 import type { HistoricoAcademico } from '../../historico/models/types'
 import { identificarCurso, identificarEstrutura } from '../../historico/integracaoCurricular'
+import { carregarJsonPublico } from '../../../data/publicJson'
 
 export { identificarCurso } from '../../historico/integracaoCurricular'
 
@@ -18,11 +19,7 @@ export function useRecomendacoes(perfil: HistoricoAcademico, cursoConfirmado: st
   const [estado, setEstado] = useState<{ chave: string; dados: DadosPlanejamento } | null>(null)
   useEffect(() => {
     const controller = new AbortController()
-    async function json<T>(url: string): Promise<T> {
-      const response = await fetch(url, { signal: controller.signal })
-      if (!response.ok) throw new Error('Não foi possível consultar os dados públicos. Tente recarregar a página.')
-      return response.json() as Promise<T>
-    }
+    const json = carregarJsonPublico
     async function carregar(): Promise<DadosPlanejamento> {
       const [indice, oferta] = await Promise.all([json<IndiceCurriculos>('/data/curriculos/index.json'), json<DadosCursos>('/data/cursos-atual.json')])
       const { curso, candidatos } = identificarCurso(perfil, indice.cursos, cursoConfirmado)

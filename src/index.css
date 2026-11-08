@@ -127,6 +127,12 @@ a {
   flex: 1;
 }
 
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
 .appearance-bar {
   width: min(1100px, 92%);
   margin: 0 auto;
@@ -182,6 +188,23 @@ a {
 
 .site-footer p {
   margin: 5px 0 0;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-block: 12px;
+}
+
+.route-loading {
+  min-height: 50vh;
+}
+
+.apresentacao p {
+  max-width: 80ch;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+import { limparCachePublico } from './data/publicJson'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -18,6 +19,7 @@ vi.mock('./utils/exportarPdf', () => ({ exportarHorarioPdf: vi.fn() }))
 let dados = ofertaSintetica()
 
 beforeEach(() => {
+  limparCachePublico()
   localStorage.clear()
   dados = ofertaSintetica()
   vi.stubGlobal('fetch', vi.fn(async (url: string) => ({ ok: true, json: async () => url.includes('cursos-atual') ? dados.oferta
@@ -47,6 +49,15 @@ async function carregar(perfil: HistoricoAcademico | null = null) {
 async function adicionar(codigo: string) { await userEvent.click(within(card(codigo)).getByRole('button', { name: 'Adicionar ao horário' })) }
 
 describe('abas integradas à seleção existente', () => {
+  it('informa falha da exportação em PDF e permite tentar novamente', async () => {
+    await carregar(); await adicionar('CC0001')
+    vi.mocked(exportarHorarioPdf).mockImplementationOnce(() => { throw new Error('Falha ao gerar PDF') })
+    await userEvent.click(screen.getByRole('button', { name: 'Exportar PDF' }))
+    expect(await screen.findByRole('alert')).toHaveProperty('textContent', 'Não foi possível gerar o PDF. Confira sua conexão e tente novamente.')
+    await userEvent.click(screen.getByRole('button', { name: 'Exportar PDF' }))
+    await waitFor(() => expect(screen.queryByRole('alert')).toBeNull())
+    expect(exportarHorarioPdf).toHaveBeenCalledTimes(2)
+  })
   it.each(['light', 'dark'] as const)('mantém Meu curso como padrão, cards e optativas no tema %s', async tema => {
     montar(null, tema)
     await screen.findByRole('tab', { name: 'Meu curso' })
@@ -105,7 +116,7 @@ describe('abas integradas à seleção existente', () => {
       expect(procedencias?.get(ids[1])).toEqual([{ id: 'materiais', nome: 'ENGENHARIA DE MATERIAIS' }])
     }
     await userEvent.click(screen.getByRole('link', { name: 'Entenda seus índices acadêmicos' }))
-    await userEvent.click(screen.getByRole('link', { name: '← Voltar aos horários' }))
+    await userEvent.click(await screen.findByRole('link', { name: '← Voltar aos horários' }))
     await screen.findByText('3 turma(s) selecionada(s).')
     view.unmount()
     montar()
@@ -229,7 +240,7 @@ describe('consulta curricular e catálogo externo', () => {
     if (motivo === 'indisponivel') dados.indice.cursos[0].disponivel = false
     else {
       const anterior = vi.mocked(fetch).getMockImplementation()!
-      vi.stubGlobal('fetch', vi.fn(async (url, options) => String(url).includes('curriculos') ? { ok: false } : anterior(url, options)))
+      limparCachePublico(); vi.stubGlobal('fetch', vi.fn(async (url, options) => String(url).includes('curriculos') ? { ok: false } : anterior(url, options)))
     }
     montar(); await screen.findByRole('tab', { name: 'Equivalentes' }); await aba('Equivalentes')
     await screen.findByText(motivo === 'erro' ? /Falha ao consultar/ : /estrutura curricular não está disponível/)

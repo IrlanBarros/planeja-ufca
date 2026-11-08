@@ -10,6 +10,7 @@ import ResumoHistorico from '../features/historico/components/ResumoHistorico'
 import AcessoProgressoCurricular from '../features/curriculo/components/AcessoProgressoCurricular'
 import '../App.css'
 import './HistoricoPage.css'
+import { carregarJsonPublico } from '../data/publicJson'
 
 export default function HistoricoPage() {
   const { perfil, salvo, carregando, erro: erroLocal, confirmar, apagar } = useHistorico()
@@ -31,7 +32,7 @@ export default function HistoricoPage() {
 
   useEffect(() => {
     const controller = new AbortController()
-    fetch('/data/curriculos/index.json', { signal: controller.signal }).then(r => { if (!r.ok) throw new Error(); return r.json() as Promise<IndiceCurriculos> }).then(i => setCursos(i.cursos)).catch(() => { if (!controller.signal.aborted) setIndiceDisponivel(false) })
+    carregarJsonPublico<IndiceCurriculos>('/data/curriculos/index.json').then(i => { if (!controller.signal.aborted) setCursos(i.cursos) }).catch(() => { if (!controller.signal.aborted) setIndiceDisponivel(false) })
     return () => { controller.abort(); controlador.current?.abort() }
   }, [])
 
@@ -67,6 +68,11 @@ export default function HistoricoPage() {
   return <main className="container historico-page">
     <Link to="/">← Voltar aos horários</Link>
     <header><h1>Meu Histórico Acadêmico</h1><p>Importe, confira e controle seus dados acadêmicos neste navegador.</p></header>
+    <section className="historico-card" aria-labelledby="sobre-historico"><h2 id="sobre-historico">Seu histórico acadêmico da UFCA, com privacidade</h2>
+      <p>Use o PDF digital emitido pelo SIGAA para consultar disciplinas, cargas horárias e índices oficiais. A leitura depende da sua autorização e acontece neste navegador, sem enviar o documento a servidores.</p>
+      <p>Confira o resultado e escolha entre usar o perfil somente na sessão ou salvar neste dispositivo. Depois, consulte seu progresso na estrutura curricular e as recomendações de disciplinas.</p>
+      <p><Link to="/guia-academico">Entender os índices acadêmicos da UFCA</Link> · <Link to="/privacidade">Como controlar seus dados locais</Link></p>
+    </section>
     {mensagem && <p role="status" className="historico-aviso">{mensagem}</p>}
     {erro && <p role="alert" className="historico-erro">{erro}</p>}
     {erroLocal && <p role="alert" className="historico-erro">{erroLocal} Uma importação temporária pode ser usada sem alterar dados locais inacessíveis.</p>}

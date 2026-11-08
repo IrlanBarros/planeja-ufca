@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import type { DadosCurriculoCurso, IndiceCurriculos } from '../../../types'
 import type { HistoricoAcademico } from '../../historico/models/types'
 import { identificarCurso, identificarEstrutura, urlProgressoCurricular } from '../../historico/integracaoCurricular'
+import { carregarJsonPublico } from '../../../data/publicJson'
 
 export default function AcessoProgressoCurricular({ perfil }: { perfil: HistoricoAcademico }) {
   const chave = JSON.stringify(perfil.curso)
@@ -10,11 +11,7 @@ export default function AcessoProgressoCurricular({ perfil }: { perfil: Historic
   useEffect(() => {
     const controller = new AbortController()
     async function carregar() {
-      async function json<T>(url: string): Promise<T> {
-        const r = await fetch(url, { signal: controller.signal })
-        if (!r.ok) throw new Error('Catálogo indisponível')
-        return r.json()
-      }
+      const json = carregarJsonPublico
       const indice = await json<IndiceCurriculos>('/data/curriculos/index.json')
       const { curso } = identificarCurso(perfil, indice.cursos)
       if (!curso?.disponivel || !curso.arquivo) throw new Error('Curso não identificado com segurança ou currículo indisponível.')

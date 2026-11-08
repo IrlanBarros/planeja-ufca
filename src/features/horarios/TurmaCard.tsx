@@ -30,7 +30,7 @@ export default function TurmaCard({ item, selecionadas, optativa, mostrarOrigem,
         {mostrarOrigem && <span className="badge-origem">Outro curso</span>}
       </div><span>Turma {turma.turma}</span>
     </div>
-    <h2>{turma.disciplina}</h2>
+    <h3>{turma.disciplina}</h3>
     {mostrarOrigem && <p><strong>{item.cursos.length > 1 ? 'Ofertada nos agrupamentos de:' : 'Curso de oferta:'}</strong>{' '}
       {item.cursos.map(c => `${c.nome} (${c.id})`).join(' / ')}</p>}
     {correspondencias.length > 0 && <div className="correspondencias-turma"><strong>{correspondencias.every(c => c.tipo === 'mesmo-componente') ? 'Componente da matriz:' : 'Equivalente a:'}</strong>
