@@ -712,12 +712,6 @@ Entre as possíveis evoluções futuras estão:
 
 Este projeto é distribuído sob a licença MIT. Consulte o arquivo `LICENSE` para mais informações.
 
-## Autor
-
-Desenvolvido por **Irlan Barros**.
-
-Transformando café em código e conflitos de horário em problema resolvido.
-
 ## Recomendações acadêmicas
 
 Abra **Planejar meu próximo semestre** na página principal ou no histórico, ou acesse `/recomendacoes`. É necessário importar e conferir um histórico acadêmico pelos controles existentes; o perfil pode ser temporário ou salvo neste dispositivo.
@@ -753,3 +747,9 @@ Use **Baixar PDF** ou **Baixar CSV** para exportar o modo selecionado. Ambos rec
 Tudo é calculado no navegador. Somente os catálogos públicos são consultados por GET; o histórico e os arquivos gerados não são enviados a APIs. Não há armazenamento adicional do perfil, nem gravação automática de PDFs/CSVs. Atualizar o perfil atualiza as situações; apagar o histórico remove os indicadores e impede a exportação personalizada. O modo original sempre permanece disponível.
 
 A plataforma **não substitui a validação curricular oficial realizada pela UFCA**. A carga horária integralizada não comprova sozinha todas as exigências institucionais. Regras e dados sem evidência suficiente dependem de confirmação. A referência temporal usa o período publicado na oferta e a atualidade semestral do documento, sem acesso a matrículas em tempo real. Veja [arquitetura, exportações, testes e limitações](docs/curriculo-interativo.md).
+
+## Autor
+
+Desenvolvido por **Irlan Barros**.
+
+Transformando café em código e conflitos de horário em problema resolvido.
