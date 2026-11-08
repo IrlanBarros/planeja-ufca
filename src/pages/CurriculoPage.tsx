@@ -88,7 +88,7 @@ export default function CurriculoPage() {
   }
 
   return <main className="container curriculo-page">
-    <header className="curriculo-page-header"><div><span className="curriculo-page-eyebrow">Seu Horário · UFCA</span><h1>Estrutura curricular</h1>
+    <header className="curriculo-page-header"><div><span className="curriculo-page-eyebrow">Projeta UFCA</span><h1>Estrutura curricular</h1>
       {atual?.curso && <p className="curriculo-curso-nome">{atual.curso.nome}</p>}
     </div><Link className="link-voltar" to="/">Voltar para Meu Horário</Link></header>
     {!cursoId && <p className="erro">Nenhum curso foi informado. Selecione um curso na página de horários.</p>}

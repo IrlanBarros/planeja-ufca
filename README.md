@@ -1,6 +1,6 @@
-# Seu Horário - UFCA
+# Projeta UFCA
 
-Aplicação web para auxiliar estudantes da Universidade Federal do Cariri (campus Juazeiro do Norte) na montagem do horário acadêmico e na consulta da estrutura curricular do curso.
+Projeta UFCA é uma plataforma independente de apoio ao planejamento acadêmico dos estudantes da Universidade Federal do Cariri. A ferramenta permite organizar horários, consultar disciplinas de diferentes cursos, acompanhar o progresso curricular e receber recomendações acadêmicas personalizadas. Não é uma plataforma oficial da universidade.
 
 O sistema utiliza dados disponibilizados publicamente pelo SIGAA da UFCA e permite selecionar disciplinas, visualizar a grade semanal, identificar conflitos de horário, consultar matrizes curriculares, visualizar pré-requisitos, identificar disciplinas optativas e exportar o planejamento em CSV ou PDF.
 
@@ -8,9 +8,11 @@ O projeto foi desenvolvido com uma arquitetura sem backend permanente, mantendo 
 
 ## Acesso
 
-A aplicação está disponível em:
+Domínio desejado: [projetaufca.pages.dev](https://projetaufca.pages.dev). A criação e a publicação desse endereço ainda precisam ser confirmadas no painel Cloudflare.
 
-https://seuhorarioufca.pages.dev/
+O endereço anterior, `https://seuhorarioufca.pages.dev`, deve permanecer acessível durante a transição para exportar os dados locais. A transferência entre domínios exige uma ação explícita; consulte o [procedimento de migração](docs/rebranding-projeta-ufca.md).
+
+Repositório de destino após a renomeação: [IrlanBarros/projeta-ufca](https://github.com/IrlanBarros/projeta-ufca). A operação administrativa está descrita no mesmo procedimento.
 
 ## Funcionalidades
 
@@ -47,7 +49,7 @@ Turmas externas reconhecidas ficam inicialmente em **Equivalentes**. Em **Outros
 
 O botão **Adicionar ao horário** usa a seleção existente: todas as origens aparecem juntas em **Meu horário**, na grade, na lista de salas e nas exportações. Sobreposições são verificadas entre todos os cursos; duas turmas do mesmo código são impedidas. Possíveis duplicações acadêmicas comprovadas pela matriz são advertidas na consulta manual. **Disponíveis** significa compatibilidade conhecida de horário, sem confirmar vagas.
 
-Trocar de aba limpa busca, filtros e avisos, preservando o curso principal, a matriz e as turmas selecionadas. O horário continua salvo localmente por **período e curso principal**, com os mesmos IDs e chaves anteriores, inclusive após recarregar ou navegar. Trocar o curso principal abre o horário daquele curso, preservando o anterior.
+Trocar de aba limpa busca, filtros e avisos, preservando o curso principal, a matriz e as turmas selecionadas. O horário continua salvo localmente por **período e curso principal**, com os mesmos IDs e migração compatível das chaves anteriores, inclusive após recarregar ou navegar. Trocar o curso principal abre o horário daquele curso, preservando o anterior.
 
 O PDF inclui grade e relação detalhada de todas as turmas, salas e cursos de oferta conhecidos. O CSV mantém BOM UTF-8, separador `;`, escapes e colunas anteriores, acrescentando **Curso de oferta** ao final. Uma disciplina externa sem carga curricular identificável permanece no horário; o planejador informa a limitação e suspende inclusões automáticas dependentes desse total.
 
@@ -152,7 +154,7 @@ As consultas detalhadas dos componentes utilizam cache local durante a execuçã
 ## Arquitetura
 
 ```text
-seu-horario-ufca/
+projeta-ufca/
 |
 |-- .github/
 |   `-- workflows/
@@ -396,7 +398,7 @@ Isso significa que o usuário pode atualizar ou fechar a página sem perder o ho
 
 As seleções são armazenadas separadamente por período acadêmico e por curso.
 
-A preferência visual usa a chave independente `seu-horario-ufca:theme`, com valores `light`, `dark` ou `system`. No modo Sistema, a interface acompanha as mudanças da preferência do sistema operacional. Se o armazenamento estiver bloqueado, o tema e a seleção de turmas continuam funcionando durante a sessão.
+A preferência visual usa a chave independente `projeta-ufca:theme`, com leitura e migração de `seu-horario-ufca:theme` apenas quando a nova chave não existe. Os valores aceitos são `light`, `dark` ou `system`. No modo Sistema, a interface acompanha as mudanças da preferência do sistema operacional. Se o armazenamento estiver bloqueado, o tema e a seleção de turmas continuam funcionando durante a sessão.
 
 Nenhuma informação do estudante é enviada ou armazenada em um servidor.
 
@@ -484,9 +486,11 @@ Git
 
 ### Clone o repositório
 
+Após a renomeação no GitHub:
+
 ```bash
-git clone <URL_DO_REPOSITORIO>
-cd seu-horario-ufca
+git clone git@github.com:IrlanBarros/projeta-ufca.git
+cd projeta-ufca
 ```
 
 ### Configure o ambiente Python
@@ -606,6 +610,8 @@ Código de horário do SIGAA
 Sala
 ```
 
+Os arquivos de horário usam o prefixo `projeta-ufca-horario-`; as estruturas curriculares usam `projeta-ufca-estrutura-curricular-` ou `projeta-ufca-meu-progresso-`. Os formatos acadêmicos permanecem iguais.
+
 O arquivo utiliza codificação UTF-8 e pode ser aberto em ferramentas como LibreOffice Calc e Microsoft Excel.
 
 ### PDF
@@ -621,6 +627,14 @@ O PDF é gerado diretamente no navegador e contém:
 - sala, com os locais completos na relação detalhada.
 
 A grade é desenhada diretamente no documento, evitando depender de capturas de tela da interface.
+
+## Backup e mudança de endereço
+
+No rodapé, abra **Exportar ou importar dados locais**. A exportação JSON inclui tema e horários por curso/período; o perfil acadêmico estruturado só entra se você marcar sua autorização. O arquivo não contém PDF, texto integral, identificadores civis ou matrícula. Ele pode conter informações acadêmicas pessoais: guarde-o com cuidado e apague-o após a migração se não quiser mantê-lo.
+
+Exporte no domínio antigo e importe no novo. Confira o resumo e confirme a substituição dos dados indicados; horários de outros períodos/cursos e o perfil salvo ausente do arquivo são preservados. Após a restauração, a página recarrega. Perfis temporários e outras preferências somente da sessão são descartados nessa recarga. Tudo ocorre no navegador, sem upload. Feche outras abas durante a restauração e mantenha o backup até conferir o resultado.
+
+As novas chaves são `projeta-ufca:<periodo>:<cursoId>:turmas` e `projeta-ufca:theme`; o banco é `projeta-ufca-perfil-academico`. O [relatório de rebranding](docs/rebranding-projeta-ufca.md) descreve a migração na mesma origem, os limites de recuperação e a publicação em fases.
 
 ## Privacidade
 
@@ -710,7 +724,7 @@ Abra **Planejar meu próximo semestre** na página principal ou no histórico, o
 
 O planejador identifica a matriz pelo código do documento e combina disciplinas cumpridas, equivalências direcionais, pré-requisitos E/OU, correquisitos, dependências curriculares e a oferta do período consultado. A priorização é determinística e explicável: considera obrigatoriedade, desbloqueios efetivos, nível curricular, retomadas, oferta e preferências. Não usa notas ou índices para julgar capacidade acadêmica.
 
-Configure carga pretendida, dias, turnos e as estratégias **Equilibrado**, **Priorizar avanço** ou **Concentrar horários**, depois gere as sugestões. Cada card permite consultar motivos, tentativas, fontes e turmas alternativas. Adicione uma turma elegível ou o conjunto sugerido ao horário atual, preservando escolhas anteriores. Correquisitos pendentes precisam de inclusão conjunta compatível. As turmas continuam removíveis e exportáveis na página principal, com as mesmas chaves de armazenamento por curso e período.
+Configure carga pretendida, dias, turnos e as estratégias **Equilibrado**, **Priorizar avanço** ou **Concentrar horários**, depois gere as sugestões. Cada card permite consultar motivos, tentativas, fontes e turmas alternativas. Adicione uma turma elegível ou o conjunto sugerido ao horário atual, preservando escolhas anteriores. Correquisitos pendentes precisam de inclusão conjunta compatível. As turmas continuam removíveis e exportáveis na página principal, com armazenamento por curso e período e migração compatível das chaves anteriores.
 
 Dados incompletos, matrículas antigas e regras ambíguas são sinalizados para confirmação. A ferramenta não confirma vagas livres, autorizações de matrícula, limites oficiais de carga, aprovação ou prazo de formatura. É um projeto independente da UFCA e não substitui a análise oficial de matrícula.
 

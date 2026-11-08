@@ -88,7 +88,7 @@ Cumprimentos são obtidos pela análise acadêmica existente (`analisarSituacao`
 `useHorario`, `HorariosProvider`, `gerarIdTurma`, `gerarStorageKey` e `lerIdsHorario` permanecem com o contrato existente:
 
 ```text
-seu-horario-ufca:<periodo>:<cursoIdPrincipal>:turmas
+projeta-ufca:<periodo>:<cursoIdPrincipal>:turmas
 ```
 
 Todas as origens escrevem a mesma lista de IDs. Nenhuma chave é criada por aba, curso de origem ou matriz. O catálogo completo recupera turmas externas após recarregar. Navegar pelas páginas mantém o provedor compartilhado; recarregar recupera localStorage. Trocar curso principal consulta sua própria chave sem apagar a anterior. IDs antigos ou ausentes da oferta não são apagados por abrir ou filtrar a página.
@@ -170,3 +170,7 @@ src/utils/exportarPdf.test.ts
 Catálogos públicos podem ter matrizes ausentes, códigos ambíguos, horários/locais desconhecidos e dados desatualizados. Ausência de conflito identificado não confirma matrícula, vagas ou aproveitamento. A grade semanal e seu intervalo de dias/horas permanecem os existentes; encontros fora desse intervalo continuam no detalhamento e exportação.
 
 Ficam para trabalhos futuros: interpretação estruturada de ramos compostos com comprovação de vigência, detalhamento das diferenças entre registros públicos divergentes e manutenção explícita da referência de consulta entre sessões. Nenhuma dessas evoluções foi implementada.
+
+## Compatibilidade após o rebranding
+
+A marca pública é Projeta UFCA. As antigas chaves `seu-horario-ufca:<periodo>:<cursoId>:turmas` são lidas quando a nova chave não existe e copiadas sem apagar o original. Os IDs de turmas permanecem estáveis. Consulte [a migração](rebranding-projeta-ufca.md).

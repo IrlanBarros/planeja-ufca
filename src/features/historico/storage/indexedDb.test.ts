@@ -1,14 +1,14 @@
 import 'fake-indexeddb/auto'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { IDBFactory } from 'fake-indexeddb'
-import { apagarPerfil, lerPerfil, NOME_BANCO, salvarPerfil } from './indexedDb'
+import { apagarPerfil, lerPerfil, NOME_BANCO, NOME_BANCO_LEGADO, salvarPerfil } from './indexedDb'
 import { decodificarPerfil } from './schema'
 import { novoHistorico } from '../models/types'
 
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); globalThis.indexedDB = new IDBFactory() })
 
-async function gravarBruto(value: unknown) {
-  const req = indexedDB.open(NOME_BANCO, 1)
+async function gravarBruto(value: unknown, banco = NOME_BANCO) {
+  const req = indexedDB.open(banco, 1)
   await new Promise<void>((resolve, reject) => { req.onupgradeneeded = () => req.result.createObjectStore('perfil'); req.onsuccess = () => resolve(); req.onerror = () => reject() })
   const db = req.result
   await new Promise<void>((resolve, reject) => { const tx = db.transaction('perfil', 'readwrite'); tx.objectStore('perfil').put(value, 'ativo'); tx.oncomplete = () => resolve(); tx.onabort = () => reject() })
@@ -16,6 +16,42 @@ async function gravarBruto(value: unknown) {
 }
 
 describe('IndexedDB exclusivo do perfil acadêmico', () => {
+  it('migra o legado de forma idempotente e confirma o conteúdo sem apagar o original', async () => {
+    const p = novoHistorico(); p.curso.nome = 'LEGADO SINTÉTICO'
+    await gravarBruto(p, NOME_BANCO_LEGADO)
+    expect(await lerPerfil()).toEqual(p)
+    expect(await lerPerfil()).toEqual(p)
+    const req = indexedDB.open(NOME_BANCO_LEGADO, 1)
+    await new Promise<void>(resolve => { req.onsuccess = () => resolve() })
+    const get = req.result.transaction('perfil').objectStore('perfil').get('ativo')
+    await new Promise<void>(resolve => { get.onsuccess = () => resolve() })
+    expect(get.result).toEqual(p); req.result.close()
+  })
+  it('mantém o novo perfil e não ressuscita o legado depois de exclusão explícita', async () => {
+    const p = novoHistorico(); p.curso.nome = 'ANTIGO'
+    await gravarBruto(p, NOME_BANCO_LEGADO)
+    const novo = { ...p, curso: { ...p.curso, nome: 'NOVO' } }
+    await salvarPerfil(novo)
+    expect(await lerPerfil()).toEqual(novo)
+    await apagarPerfil()
+    await gravarBruto(p, NOME_BANCO_LEGADO)
+    expect(await lerPerfil()).toBeNull()
+  })
+  it('preserva o legado se a migração falha e permite uma nova tentativa', async () => {
+    const p = novoHistorico()
+    await gravarBruto(p, NOME_BANCO_LEGADO)
+    const put = vi.spyOn(IDBObjectStore.prototype, 'put').mockImplementation(() => { throw new Error('quota') })
+    await expect(lerPerfil()).rejects.toThrow()
+    put.mockRestore()
+    expect(await lerPerfil()).toEqual(p)
+  })
+  it('recusa legado inválido sem marcar a migração como concluída', async () => {
+    await gravarBruto({ schemaVersion: 8 }, NOME_BANCO_LEGADO)
+    await expect(lerPerfil()).rejects.toThrow('incompatível')
+    const p = novoHistorico()
+    await gravarBruto(p, NOME_BANCO_LEGADO)
+    expect(await lerPerfil()).toEqual(p)
+  })
   it('salva, recupera, substitui e exclui um único perfil', async () => {
     expect(await lerPerfil()).toBeNull()
     const p = novoHistorico(); p.curso.nome = 'EXEMPLO'

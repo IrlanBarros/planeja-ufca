@@ -76,7 +76,7 @@ function Planejamento({ perfil }: { perfil: HistoricoAcademico }) {
 export default function RecomendacoesPage() {
   const { perfil, carregando } = useHistorico()
   return <main className="container planejador-page"><Link to="/">← Voltar aos horários</Link>
-    <header><span className="planejador-ajuda">Seu Horário · UFCA</span><h1>Recomendações para seu semestre</h1><p>Descubra quais disciplinas fazem mais sentido para sua trajetória acadêmica.</p></header>
+    <header><span className="planejador-ajuda">Projeta UFCA</span><h1>Recomendações para seu semestre</h1><p>Descubra quais disciplinas fazem mais sentido para sua trajetória acadêmica.</p></header>
     {carregando ? <p role="status">Verificando o perfil acadêmico…</p> : perfil ? <Planejamento key={perfil.importadoEm} perfil={perfil} /> : <section className="planejador-painel"><h2>Comece pelo seu histórico</h2><p>As recomendações personalizadas dependem de um histórico acadêmico importado e conferido. O processamento acontece neste navegador.</p><Link to="/historico">Importar meu histórico acadêmico</Link><p><Link to="/">Continuar consultando horários e currículos públicos</Link></p></section>}
     <aside className="planejador-ajuda"><p>A oferta consultada não confirma vagas livres. As sugestões não garantem matrícula, aprovação ou prazo de formatura. Este projeto é independente da UFCA.</p>
       <p>Procedimentos de flexibilização de pré-requisitos dependem da análise institucional. A ferramenta não concede essas autorizações. <a href={fontes.regulamento.url} target="_blank" rel="noreferrer">Regulamento da graduação, arts. 72–75</a>.</p>

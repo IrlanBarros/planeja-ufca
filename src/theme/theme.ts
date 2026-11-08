@@ -3,13 +3,17 @@ import { createContext, useContext } from 'react'
 export type ThemePreference = 'light' | 'dark' | 'system'
 export type ResolvedTheme = 'light' | 'dark'
 
-export const THEME_STORAGE_KEY = 'seu-horario-ufca:theme'
+export const THEME_STORAGE_KEY = 'projeta-ufca:theme'
+export const LEGACY_THEME_STORAGE_KEY = 'seu-horario-ufca:theme'
 const SYSTEM_QUERY = '(prefers-color-scheme: dark)'
 
 export function readThemePreference(): ThemePreference {
   try {
-    const value = localStorage.getItem(THEME_STORAGE_KEY)
+    const atual = localStorage.getItem(THEME_STORAGE_KEY)
+    const value = atual ?? localStorage.getItem(LEGACY_THEME_STORAGE_KEY)
     if (value === 'light' || value === 'dark' || value === 'system') {
+      // Mesmo com a escrita bloqueada, a preferência legada vale nesta sessão.
+      if (atual === null) saveThemePreference(value)
       return value
     }
   } catch {
