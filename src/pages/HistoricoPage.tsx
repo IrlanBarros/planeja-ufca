@@ -73,6 +73,7 @@ export default function HistoricoPage() {
       {perfil && !importando && <section className="historico-card"><h2>Seu perfil acadêmico</h2><p>{salvo ? 'Salvo neste dispositivo (IndexedDB).' : 'Somente nesta sessão. Recarregar ou fechar a página apaga o perfil temporário.'}</p>
         {documentoDesatualizado(perfil.emitidoEm) && <p className="historico-aviso">Este histórico foi emitido em um período anterior. Algumas disciplinas podem ter mudado de situação desde então.</p>}
         <ResumoHistorico perfil={perfil} />
+        <p><Link to="/recomendacoes">Planejar meu próximo semestre</Link></p>
       </section>}
       {!importando && <section className="historico-card">
         <h2>{perfil ? 'Atualizar histórico' : 'Nenhum histórico importado'}</h2><p>Use um histórico escolar digital emitido pelo SIGAA da UFCA. As outras ferramentas do site continuam disponíveis sem importar um histórico.</p>

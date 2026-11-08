@@ -16,7 +16,9 @@ import SalasTurma from './components/SalasTurma'
 import { exportarHorarioCsv } from './utils/exportarCsv'
 import { exportarHorarioPdf } from './utils/exportarPdf'
 import { possuiSalasPorEncontro } from './utils/salas'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
+import { useHorario } from './features/horarios/context'
+import { gerarIdTurma } from './features/horarios/selecao'
 
 type FiltroTurmas =
   | 'todas'
@@ -24,31 +26,12 @@ type FiltroTurmas =
   | 'conflito'
   | 'selecionadas'
 
-function gerarIdTurma(turma: Turma) {
-  return [
-    turma.codigo,
-    turma.turma,
-    turma.docente,
-    turma.horario_sigaa,
-  ].join('|')
-}
-
 function normalizarTexto(texto: string) {
   return texto
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .trim()
-}
-
-function gerarStorageKey(
-  periodo: string,
-  cursoId: string,
-) {
-  return (
-    `seu-horario-ufca:` +
-    `${periodo}:${cursoId}:turmas`
-  )
 }
 
 function gerarRotuloCurso(
@@ -74,7 +57,12 @@ function App() {
   const [cursoSelecionadoId, setCursoSelecionadoId] =
   useState<string | null>(null)
   const [erro, setErro] = useState<string | null>(null)
-  const [selecionadas, setSelecionadas] = useState<Turma[]>([])
+  const [searchParams] = useSearchParams()
+  const cursoSolicitado = searchParams.get('curso')
+  const { selecionadas, adicionar, remover } = useHorario(
+    dados?.periodo ?? '', cursoSelecionadoId ?? '', dados?.cursos.flatMap(c => c.turmas) ?? [],
+  )
+  const [erroSelecao, setErroSelecao] = useState<string | null>(null)
   const [busca, setBusca] = useState('')
   const [conflitos, setConflitos] =
   useState<ConflitoHorario[]>([])
@@ -93,9 +81,10 @@ function App() {
   )
 
   useEffect(() => {
+    const controller = new AbortController()
     async function carregarDados() {
       try {
-        const response = await fetch('/data/cursos-atual.json')
+        const response = await fetch('/data/cursos-atual.json', { signal: controller.signal })
 
         if (!response.ok) {
           throw new Error(
@@ -104,11 +93,12 @@ function App() {
         }
 
         const json: DadosCursos = await response.json()
+        if (controller.signal.aborted) return
 
         setDados(json)
 
         const cursoPadrao =
-          json.cursos.find(
+          json.cursos.find(curso => curso.id === cursoSolicitado) ?? json.cursos.find(
             (curso) =>
               curso.nome
                 .normalize('NFD')
@@ -121,37 +111,8 @@ function App() {
           cursoPadrao?.id ?? null,
         )
 
-        try {
-          const storageKey =
-            gerarStorageKey(
-              json.periodo,
-              cursoPadrao.id,
-            )
-
-          const idsSalvos = JSON.parse(
-            localStorage.getItem(
-              storageKey,
-            ) ?? '[]',
-          ) as string[]
-
-          const turmasSalvas =
-            cursoPadrao.turmas.filter((turma) =>
-              idsSalvos.includes(
-                gerarIdTurma(turma),
-              ),
-            )
-
-          setSelecionadas(
-            turmasSalvas,
-          )
-        } catch {
-          try {
-            localStorage.removeItem(
-              gerarStorageKey(json.periodo, cursoPadrao.id),
-            )
-          } catch { /* O navegador pode bloquear o armazenamento. */ }
-        }
       } catch (error) {
+        if (controller.signal.aborted) return
         console.error(error)
         setErro(
           'Não foi possível carregar as turmas.',
@@ -160,7 +121,8 @@ function App() {
     }
 
     carregarDados()
-  }, [])
+    return () => controller.abort()
+  }, [cursoSolicitado])
 
   useEffect(() => {
     if (!cursoSelecionadoId) {
@@ -269,34 +231,6 @@ function App() {
     cursoSelecionadoId,
   ])
 
-  useEffect(() => {
-    if (!dados || !cursoSelecionadoId) {
-      return
-    }
-
-    const ids =
-      selecionadas.map(
-        gerarIdTurma,
-      )
-
-    const storageKey =
-      gerarStorageKey(
-        dados.periodo,
-        cursoSelecionadoId,
-      )
-
-    try {
-      localStorage.setItem(
-        storageKey,
-        JSON.stringify(ids),
-      )
-    } catch { /* A seleção continua disponível em memória. */ }
-  }, [
-    selecionadas,
-    dados,
-    cursoSelecionadoId,
-  ])
-
   function turmaEstaSelecionada(turma: Turma) {
     const id = gerarIdTurma(turma)
 
@@ -307,15 +241,9 @@ function App() {
   }
 
   function alternarTurma(turma: Turma) {
-    const id = gerarIdTurma(turma)
-
     if (turmaEstaSelecionada(turma)) {
-      setSelecionadas((atuais) =>
-        atuais.filter(
-          (selecionada) =>
-            gerarIdTurma(selecionada) !== id,
-        ),
-      )
+      remover(turma)
+      setErroSelecao(null)
 
       setConflitos([])
       setTurmaComConflito(null)
@@ -339,10 +267,7 @@ function App() {
     setConflitos([])
     setTurmaComConflito(null)
 
-    setSelecionadas((atuais) => [
-      ...atuais,
-      turma,
-    ])
+    setErroSelecao(adicionar([turma]))
   }
 
   function tentarAdicionarTurma(
@@ -377,32 +302,8 @@ function App() {
       return
     }
 
-    const storageKey = gerarStorageKey(
-      dados.periodo,
-      novoCurso.id,
-    )
-
-    try {
-      const idsSalvos = JSON.parse(
-        localStorage.getItem(storageKey) ?? '[]',
-      ) as string[]
-
-      const turmasSalvas =
-        novoCurso.turmas.filter((turma) =>
-          idsSalvos.includes(
-            gerarIdTurma(turma),
-          ),
-        )
-
-      setSelecionadas(turmasSalvas)
-    } catch {
-      try {
-        localStorage.removeItem(storageKey)
-      } catch { /* O navegador pode bloquear o armazenamento. */ }
-      setSelecionadas([])
-    }
-
     setCursoSelecionadoId(novoCursoId)
+    setErroSelecao(null)
 
     setConflitos([])
     setTurmaComConflito(null)
@@ -450,7 +351,8 @@ function App() {
 
   const termoBusca = normalizarTexto(busca)
 
-  const turmasFiltradas = cursoSelecionado.turmas.filter((turma) => {
+  const turmasVisiveis = [...new Map([...cursoSelecionado.turmas, ...selecionadas].map(t => [gerarIdTurma(t), t])).values()]
+  const turmasFiltradas = turmasVisiveis.filter((turma) => {
     const selecionada =
       turmaEstaSelecionada(turma)
 
@@ -533,6 +435,9 @@ function App() {
             Ver estrutura curricular
           </Link>
 
+          <Link className="link-curriculo" to="/recomendacoes">
+            Planejar meu próximo semestre
+          </Link>
           <Link className="link-curriculo" to="/historico">
             Meu Histórico Acadêmico
           </Link>
@@ -549,6 +454,7 @@ function App() {
         </strong>
       </header>
 
+      {erroSelecao && <p role="alert" className="erro">{erroSelecao}</p>}
       {turmaComConflito && conflitos.length > 0 && (
         <section className="aviso-conflito">
           <div className="aviso-conflito-cabecalho">
