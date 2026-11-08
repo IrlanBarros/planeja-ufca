@@ -7,6 +7,7 @@ import { associarCurso } from '../features/historico/integracaoCurricular'
 import { importarPdf, LIMITES_PDF } from '../features/historico/parser/importarPdf'
 import { documentoDesatualizado } from '../features/historico/validation/profile'
 import ResumoHistorico from '../features/historico/components/ResumoHistorico'
+import AcessoProgressoCurricular from '../features/curriculo/components/AcessoProgressoCurricular'
 import '../App.css'
 import './HistoricoPage.css'
 
@@ -73,6 +74,7 @@ export default function HistoricoPage() {
       {perfil && !importando && <section className="historico-card"><h2>Seu perfil acadêmico</h2><p>{salvo ? 'Salvo neste dispositivo (IndexedDB).' : 'Somente nesta sessão. Recarregar ou fechar a página apaga o perfil temporário.'}</p>
         {documentoDesatualizado(perfil.emitidoEm) && <p className="historico-aviso">Este histórico foi emitido em um período anterior. Algumas disciplinas podem ter mudado de situação desde então.</p>}
         <ResumoHistorico perfil={perfil} />
+        <AcessoProgressoCurricular perfil={perfil} />
         <p><Link to="/recomendacoes">Planejar meu próximo semestre</Link></p>
       </section>}
       {!importando && <section className="historico-card">

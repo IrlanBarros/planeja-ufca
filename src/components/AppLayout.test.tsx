@@ -7,6 +7,7 @@ import { ThemeContext } from '../theme/theme'
 import type { ThemePreference } from '../theme/theme'
 import AppLayout from './AppLayout'
 import Footer from './Footer'
+import HistoricoProvider from '../features/historico/hooks/HistoricoProvider'
 
 afterEach(() => vi.useRealTimers())
 
@@ -33,14 +34,14 @@ describe('rodapé compartilhado', () => {
   ])('mostra um único rodapé e seletor em %s, inclusive durante carregamento/erro', (route, content) => {
     const markup = renderToStaticMarkup(
       <ThemeContext value={{ preference: 'system', resolvedTheme: 'light', setPreference: vi.fn() }}>
-        <MemoryRouter initialEntries={[route]}>
+        <HistoricoProvider><MemoryRouter initialEntries={[route]}>
           <Routes>
             <Route element={<AppLayout />}>
               <Route path="/" element={<App />} />
               <Route path="/curriculo" element={<CurriculoPage />} />
             </Route>
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter></HistoricoProvider>
       </ThemeContext>,
     )
     expect(markup).toContain(content)

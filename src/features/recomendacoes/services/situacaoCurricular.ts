@@ -2,9 +2,10 @@ import type { ComponenteCurricular } from '../../../types'
 import type { HistoricoAcademico } from '../../historico/models/types'
 import type { SituacaoCurricular } from '../models/types'
 import { CONCLUSOES, cumprimentos, equivalentesPermitidos } from './equivalencias'
+import { documentoDesatualizado } from '../../historico/validation/profile'
 
 const REPROVACOES = new Set(['REP', 'REPF', 'REPMF', 'REPN', 'REPNF'])
-export function analisarSituacao(perfil: HistoricoAcademico, componentes: ComponenteCurricular[], periodo: string): Map<string, SituacaoCurricular> {
+export function analisarSituacao(perfil: HistoricoAcademico, componentes: ComponenteCurricular[], periodo: string, agora = new Date()): Map<string, SituacaoCurricular> {
   const conclusoes = cumprimentos(perfil, componentes)
   const resultado = new Map<string, SituacaoCurricular>()
   const codigos = new Set([...componentes.map(c => c.codigo), ...perfil.componentesCursados.map(t => t.codigo), ...conclusoes.keys()])
@@ -26,8 +27,13 @@ export function analisarSituacao(perfil: HistoricoAcademico, componentes: Compon
         estado = 'indeterminado'
         advertencias.push('Situação ou equivalência insuficiente para comprovar o cumprimento; confirme os registros acadêmicos.')
       } else if (matriculas.length) {
-        estado = matriculas.every(t => t.periodo === periodo) ? 'matriculado' : 'indeterminado'
-        advertencias.push(estado === 'matriculado' ? 'Matrícula no período consultado; não comprova aprovação.' : 'Matrícula de outro período ou sem período: confirme o resultado em um histórico atualizado. Não foi presumida aprovação.')
+        const emissao = perfil.emitidoEm ? new Date(`${perfil.emitidoEm}T12:00:00`) : null
+        const referenciaValida = /^\d{4}\.[12]$/.test(periodo)
+        const fimDoDia = new Date(agora.getFullYear(), agora.getMonth(), agora.getDate(), 23, 59, 59)
+        const documentoAtual = emissao && Number.isFinite(emissao.getTime()) && emissao <= fimDoDia && !documentoDesatualizado(perfil.emitidoEm, agora)
+        const periodoEmissao = emissao ? `${emissao.getFullYear()}.${emissao.getMonth() >= 6 ? 2 : 1}` : null
+        estado = referenciaValida && documentoAtual && periodo === periodoEmissao && matriculas.every(t => t.periodo === periodo) ? 'matriculado' : 'indeterminado'
+        advertencias.push(estado === 'matriculado' ? 'Matrícula no período consultado; não comprova aprovação.' : 'Matrícula antiga, sem referência temporal ou em documento sem atualidade confirmada: confirme o resultado em um histórico atualizado. Não foi presumida aprovação.')
       } else if (pendente?.observacao?.toLowerCase().includes('matriculad')) {
         estado = 'indeterminado'
         advertencias.push('O histórico indica matrícula nesta exigência, mas o resultado não está confirmado.')

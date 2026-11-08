@@ -697,3 +697,25 @@ Dados incompletos, matrículas antigas e regras ambíguas são sinalizados para 
 Histórico, preferências e recomendações são analisados no navegador. Só os catálogos públicos são buscados por GET. Os resultados e as preferências do planejador não são persistidos; apagar o perfil invalida a personalização. Os horários possuem armazenamento independente.
 
 Veja [arquitetura, critérios, pesos, fontes normativas, testes e limitações](docs/recomendacoes-academicas.md).
+
+## Currículo interativo e progresso acadêmico
+
+Na página de estrutura curricular, alterne entre **Estrutura original** e **Meu progresso**, sem recarregar a aplicação. A consulta pública e suas exportações continuam disponíveis sem histórico. O modo personalizado usa o mesmo perfil temporário ou salvo pelo fluxo de `/historico`; há atalhos para a matriz vinculada tanto no histórico quanto nas recomendações.
+
+A identificação compartilha as regras do recomendador: ID do curso, associação exata e única do catálogo quando o ID estiver ausente, e código da matriz do documento. Nomes parecidos não criam associações. A matriz do histórico tem preferência sobre a mais recente; selecionar outra mantém somente a consulta pública. Matrizes com código repetido precisam de confirmação explícita do ID.
+
+Os cards podem ser abertos com mouse, toque ou teclado e mostram carga horária, tipo, período recomendado, pré-requisitos, correquisitos e equivalências. No modo personalizado, acrescentam justificativa, requisitos avaliados, origem do cumprimento e tentativas registradas. As situações são:
+
+- **Verde — Concluída:** aprovação, dispensa ou outro cumprimento reconhecido pela lógica existente, inclusive equivalência direcional comprovada. Equivalências usam o mesmo verde.
+- **Azul — Cursando:** matrícula no período de referência da oferta pública, em histórico com emissão atual confirmável. Matrículas antigas ou sem referência ficam a verificar.
+- **Amarelo — Disponível:** requisitos acadêmicos conhecidos satisfeitos. Não confirma oferta de turma nem vaga.
+- **Vermelho — Bloqueada:** rótulo e contorno vermelhos indicam requisitos conhecidos pendentes, inclusive necessidade de matrícula conjunta em correquisito, na interface e no PDF.
+- **Apresentação neutra — Situação a verificar:** registros incompletos, contraditórios, antigos ou regras sem interpretação segura. Não há uma quinta cor. Reprovações e trancamentos anteriores usam os requisitos atuais, sem estado visual próprio.
+
+As quatro barras (geral, obrigatórias, optativas e complementares) usam a tabela **oficial de horas exigidas, integralizadas e pendentes do histórico**. Dados ausentes, negativos ou inconsistentes não geram porcentagens. Os totais de componentes são separados entre obrigatórias e catálogo de optativas, sem duplicar tentativas. Não é necessário concluir todas as optativas: o indicador usa a carga optativa oficialmente exigida. Obrigatórias sem período aparecem em **Outros componentes obrigatórios**.
+
+Use **Baixar PDF** ou **Baixar CSV** para exportar o modo selecionado. Ambos recebem o mesmo modelo estruturado. O PDF agrupa períodos, componentes sem nível e optativas, trata textos longos e repete cabeçalhos e numeração nas páginas; o personalizado inclui legenda, situações e resumo oficial. O CSV mantém uma tabela única, com identificação da matriz em cada linha, UTF-8 com BOM, separador `;`, campos entre aspas, escape de aspas/quebras e proteção de textos contra fórmulas de planilha. No modo personalizado acrescenta situação, justificativa, emissão e período de referência. As barras e advertências gerais ficam na interface e no PDF, preservando o formato tabular do CSV.
+
+Tudo é calculado no navegador. Somente os catálogos públicos são consultados por GET; o histórico e os arquivos gerados não são enviados a APIs. Não há armazenamento adicional do perfil, nem gravação automática de PDFs/CSVs. Atualizar o perfil atualiza as situações; apagar o histórico remove os indicadores e impede a exportação personalizada. O modo original sempre permanece disponível.
+
+A plataforma **não substitui a validação curricular oficial realizada pela UFCA**. A carga horária integralizada não comprova sozinha todas as exigências institucionais. Regras e dados sem evidência suficiente dependem de confirmação. A referência temporal usa o período publicado na oferta e a atualidade semestral do documento, sem acesso a matrículas em tempo real. Veja [arquitetura, exportações, testes e limitações](docs/curriculo-interativo.md).

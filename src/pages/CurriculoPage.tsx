@@ -1,545 +1,126 @@
-import {
-  useEffect,
-  useState,
-} from 'react'
-import {
-  Link,
-  useSearchParams,
-} from 'react-router-dom'
-import type {
-  ComponenteCurricular,
-  DadosCurriculoCurso,
-  EstruturaCurricular,
-  IndiceCurriculos,
-} from '../types'
+import { useEffect, useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
+import type { CursoIndiceCurriculo, DadosCursos, DadosCurriculoCurso, IndiceCurriculos } from '../types'
+import { useHistorico } from '../features/historico/hooks/context'
+import { identificarCurso, identificarEstrutura } from '../features/historico/integracaoCurricular'
+import { calcularProgresso } from '../features/curriculo/services/progressoCurricular'
+import { agruparComponentes, prepararExportacao } from '../features/curriculo/services/prepararExportacao'
+import type { ModoCurriculo } from '../features/curriculo/models/types'
+import SeletorModoCurriculo from '../features/curriculo/components/SeletorModoCurriculo'
+import ResumoProgresso from '../features/curriculo/components/ResumoProgresso'
+import LegendaProgresso from '../features/curriculo/components/LegendaProgresso'
+import ComponenteCurriculoCard from '../features/curriculo/components/ComponenteCurriculoCard'
+import ExportacaoCurriculo from '../features/curriculo/components/ExportacaoCurriculo'
 import '../App.css'
 import './CurriculoPage.css'
 
-function ordenarEstruturas(
-  estruturas: EstruturaCurricular[],
-) {
-  return [...estruturas].sort(
-    (a, b) =>
-      b.ano_criacao - a.ano_criacao,
-  )
+interface Catalogo {
+  cursoId: string
+  curso?: CursoIndiceCurriculo
+  cursos?: CursoIndiceCurriculo[]
+  dados?: DadosCurriculoCurso
+  periodo?: string | null
+  erro?: string
 }
 
-
-function gerarRotuloEstrutura(
-  estrutura: EstruturaCurricular,
-  indice: number,
-  estruturas: EstruturaCurricular[],
-) {
-  if (indice === 0) {
-    return 'Mais recente'
-  }
-
-  const estruturasMesmoAno =
-    estruturas.filter(
-      (item) =>
-        item.ano_criacao ===
-        estrutura.ano_criacao,
-    )
-
-  if (estruturasMesmoAno.length > 1) {
-    return (
-      `${estrutura.ano_criacao} — ` +
-      `${estrutura.codigo}`
-    )
-  }
-
-  return String(
-    estrutura.ano_criacao,
-  )
-}
-
-
-function CurriculoPage() {
-  const [searchParams] =
-    useSearchParams()
-
-  const cursoId =
-    searchParams.get('curso')
-
-  const [
-    nomeCurso,
-    setNomeCurso,
-  ] = useState<string | null>(
-    null,
-  )
-
-  const [
-    dadosCurriculo,
-    setDadosCurriculo,
-  ] = useState<DadosCurriculoCurso | null>(
-    null,
-  )
-
-  const [
-    estruturaSelecionadaId,
-    setEstruturaSelecionadaId,
-  ] = useState<string | null>(
-    null,
-  )
-
-  const [
-    carregando,
-    setCarregando,
-  ] = useState(true)
-
-  const [
-    erro,
-    setErro,
-  ] = useState<string | null>(
-    null,
-  )
+export default function CurriculoPage() {
+  const [params, setParams] = useSearchParams()
+  const cursoId = params.get('curso')
+  const { perfil, carregando: lendoPerfil } = useHistorico()
+  const [catalogo, setCatalogo] = useState<Catalogo | null>(null)
+  const [confirmacao, setConfirmacao] = useState<{ chavePerfil: string; estrutura: string } | null>(null)
+  const [agora] = useState(() => new Date())
 
   useEffect(() => {
-    if (!cursoId) {
-        return
+    if (!cursoId) return
+    const controller = new AbortController()
+    const id = cursoId
+    async function json<T>(url: string): Promise<T> {
+      const r = await fetch(url, { signal: controller.signal })
+      if (!r.ok) throw new Error('Não foi possível carregar os dados públicos. Tente novamente.')
+      return r.json()
     }
-
-    const cursoIdAtual = cursoId
-    let cancelado = false
-
-    async function carregarCurriculo() {
-      setCarregando(true)
-      setErro(null)
-
-      try {
-        const responseIndice =
-          await fetch(
-            '/data/curriculos/index.json',
-          )
-
-        if (!responseIndice.ok) {
-          throw new Error(
-            'Não foi possível carregar ' +
-            'o índice de currículos.',
-          )
-        }
-
-        const indice: IndiceCurriculos =
-          await responseIndice.json()
-
-        const curso =
-          indice.cursos.find(
-            (item) =>
-              item.id === cursoIdAtual,
-          )
-
-        if (!curso) {
-          throw new Error(
-            'Curso não encontrado.',
-          )
-        }
-
-        if (cancelado) {
-          return
-        }
-
-        setNomeCurso(
-          curso.nome,
-        )
-
-        if (
-          !curso.disponivel ||
-          !curso.arquivo
-        ) {
-          setErro(
-            'Estrutura curricular ainda ' +
-            'não disponível para este curso.',
-          )
-
-          return
-        }
-
-        const responseCurriculo =
-          await fetch(
-            `/data/curriculos/` +
-            `${curso.arquivo}`,
-          )
-
-        if (!responseCurriculo.ok) {
-          throw new Error(
-            'Não foi possível carregar ' +
-            'a estrutura curricular.',
-          )
-        }
-
-        const dados:
-          DadosCurriculoCurso =
-          await responseCurriculo.json()
-
-        if (cancelado) {
-          return
-        }
-
-        const estruturas =
-          ordenarEstruturas(
-            dados.estruturas,
-          )
-
-        setDadosCurriculo(
-          dados,
-        )
-
-        setEstruturaSelecionadaId(
-          estruturas[0]?.id ??
-          null,
-        )
-      } catch (error) {
-        console.error(error)
-
-        if (!cancelado) {
-          setErro(
-            error instanceof Error
-              ? error.message
-              : 'Não foi possível carregar ' +
-                'a estrutura curricular.',
-          )
-        }
-      } finally {
-        if (!cancelado) {
-          setCarregando(false)
-        }
-      }
+    async function carregar(): Promise<Catalogo> {
+      // A falha da oferta afeta somente a referência temporal, sem bloquear a matriz.
+      const [indice, oferta] = await Promise.allSettled([
+        json<IndiceCurriculos>('/data/curriculos/index.json'), json<DadosCursos>('/data/cursos-atual.json'),
+      ])
+      if (indice.status === 'rejected') throw indice.reason
+      const curso = indice.value.cursos.find(c => c.id === id)
+      if (!curso) throw new Error('Curso não encontrado.')
+      if (!curso.disponivel || !curso.arquivo) return { cursoId: id, curso, erro: 'Estrutura curricular ainda não disponível para este curso.' }
+      const dados = await json<DadosCurriculoCurso>(`/data/curriculos/${curso.arquivo}`)
+      if (dados.curso_id !== id) throw new Error('O arquivo curricular não corresponde ao ID do curso. Confira o catálogo público.')
+      return { cursoId: id, curso, cursos: indice.value.cursos, dados, periodo: oferta.status === 'fulfilled' && /^\d{4}\.[12]$/.test(oferta.value.periodo) ? oferta.value.periodo : null }
     }
+    carregar().then(dados => { if (!controller.signal.aborted) setCatalogo(dados) }).catch(e => {
+      if (!controller.signal.aborted) setCatalogo({ cursoId: id, erro: e instanceof Error ? e.message : 'Não foi possível carregar a estrutura curricular.' })
+    })
+    return () => controller.abort()
+  }, [cursoId])
 
-    carregarCurriculo()
+  const carregando = !!cursoId && catalogo?.cursoId !== cursoId
+  const atual = cursoId && !carregando ? catalogo : null
+  const estruturas = [...(atual?.dados?.estruturas ?? [])].sort((a, b) => b.ano_criacao - a.ano_criacao)
+  const cursoPerfil = perfil ? identificarCurso(perfil, atual?.cursos ?? []).curso : undefined
+  const chavePerfil = perfil ? JSON.stringify([perfil.importadoEm, perfil.curso.idCurso, perfil.curso.estruturaCurricular]) : null
+  const estruturaConfirmada = confirmacao?.chavePerfil === chavePerfil ? confirmacao?.estrutura ?? null : null
+  const vinculo = perfil ? identificarEstrutura(perfil, estruturas, estruturaConfirmada) : null
+  const proprioCurso = cursoPerfil?.id === cursoId
+  const solicitada = params.get('estrutura')
+  const estrutura = solicitada ? estruturas.find(e => e.id === solicitada) : (proprioCurso ? vinculo?.estrutura : undefined) ?? estruturas[0]
+  const compativel = !!perfil && proprioCurso && !!vinculo?.estrutura && estrutura?.id === vinculo.estrutura.id
+  const modo: ModoCurriculo = params.get('modo') === 'progresso' && compativel && !lendoPerfil ? 'progresso' : 'original'
+  const perfilAssociado = perfil && cursoPerfil ? { ...perfil, curso: { ...perfil.curso, idCurso: cursoPerfil.id } } : null
+  const progresso = modo === 'progresso' && perfilAssociado && estrutura ? calcularProgresso(perfilAssociado, estrutura, cursoId!, atual?.periodo ?? null, agora) : null
+  const exportacao = estrutura && atual?.curso ? prepararExportacao({ modo, curso: atual.curso, cursos: atual.cursos ?? [], estrutura, estruturas, perfil, periodoReferencia: atual.periodo, estruturaConfirmada, agora }) : null
 
-    return () => {
-      cancelado = true
-    }
-  }, [
-    cursoId,
-  ])
-
-  const estruturasOrdenadas =
-    dadosCurriculo
-      ? ordenarEstruturas(
-          dadosCurriculo.estruturas,
-        )
-      : []
-
-  const estruturaSelecionada =
-    estruturasOrdenadas.find(
-      (estrutura) =>
-        estrutura.id ===
-        estruturaSelecionadaId,
-    )
-
-  const obrigatoriasPorNivel =
-    estruturaSelecionada
-      ? estruturaSelecionada.componentes
-          .filter(
-            (componente) =>
-              componente.tipo ===
-              'obrigatoria',
-          )
-          .reduce<
-            Record<
-              number,
-              ComponenteCurricular[]
-            >
-          >(
-            (grupos, componente) => {
-              if (
-                componente.nivel === null
-              ) {
-                return grupos
-              }
-
-              if (
-                !grupos[
-                  componente.nivel
-                ]
-              ) {
-                grupos[
-                  componente.nivel
-                ] = []
-              }
-
-              grupos[
-                componente.nivel
-              ].push(
-                componente,
-              )
-
-              return grupos
-            },
-            {},
-          )
-      : {}
-
-  const optativas =
-    estruturaSelecionada
-      ? estruturaSelecionada.componentes
-          .filter(
-            (componente) =>
-              componente.tipo ===
-              'optativa',
-          )
-      : []
-
-if (!cursoId) {
-    return (
-      <main className="container curriculo-page">
-        <header className="curriculo-page-header">
-          <h1>
-            Estrutura curricular
-          </h1>
-
-          <p>
-            Seu Horário - UFCA
-          </p>
-
-          <Link to="/">
-            Voltar para Meu Horário
-          </Link>
-        </header>
-
-        <p className="erro">
-          Nenhum curso foi informado.
-        </p>
-      </main>
-    )
+  function alterarModo(novo: ModoCurriculo) {
+    const proximo = new URLSearchParams(params)
+    proximo.set('modo', novo)
+    if (estrutura) proximo.set('estrutura', estrutura.id)
+    setParams(proximo, { replace: true })
+  }
+  function selecionarEstrutura(id: string) {
+    const proximo = new URLSearchParams(params)
+    proximo.set('estrutura', id); proximo.set('modo', 'original')
+    setParams(proximo, { replace: true })
   }
 
-  return (
-    <main className="container curriculo-page">
-      <header className="curriculo-page-header">
-        <div>
-          <span className="curriculo-page-eyebrow">
-            Seu Horário - UFCA
-          </span>
-
-          <h1>
-            Estrutura curricular
-          </h1>
-
-          {nomeCurso && (
-            <p className="curriculo-curso-nome">
-              {nomeCurso}
-            </p>
-          )}
+  return <main className="container curriculo-page">
+    <header className="curriculo-page-header"><div><span className="curriculo-page-eyebrow">Seu Horário · UFCA</span><h1>Estrutura curricular</h1>
+      {atual?.curso && <p className="curriculo-curso-nome">{atual.curso.nome}</p>}
+    </div><Link className="link-voltar" to="/">Voltar para Meu Horário</Link></header>
+    {!cursoId && <p className="erro">Nenhum curso foi informado. Selecione um curso na página de horários.</p>}
+    {carregando && <p role="status">Carregando estrutura curricular…</p>}
+    {atual?.erro && <p className="erro" role="alert">{atual.erro}</p>}
+    {atual?.dados && !estrutura && <p role="alert">{solicitada ? 'A estrutura solicitada não foi encontrada neste curso.' : 'Nenhuma estrutura curricular disponível.'}</p>}
+    {estrutura && atual?.curso && exportacao && <section className="estrutura-curricular">
+      <div className="estrutura-curricular-cabecalho">
+        <h2>Matriz curricular</h2>
+        <div className="curriculo-controles">
+          <div className="estrutura-selector"><label htmlFor="estrutura">Estrutura</label><select id="estrutura" value={estrutura.id} onChange={e => selecionarEstrutura(e.target.value)}>
+            {estruturas.map((e, i) => <option key={e.id} value={e.id}>{e.codigo} · {e.ano_criacao} · ID {e.id}{i === 0 ? ' (mais recente)' : ''}</option>)}
+          </select></div>
+          <SeletorModoCurriculo modo={modo} personalizadoDisponivel={compativel && !lendoPerfil} alterar={alterarModo} />
         </div>
-
-        <Link
-          className="link-voltar"
-          to="/"
-        >
-          Voltar para Meu Horário
-        </Link>
-      </header>
-
-      {carregando && (
-        <p>
-          Carregando estrutura
-          curricular...
-        </p>
-      )}
-
-      {!carregando && erro && (
-        <p className="erro">
-          {erro}
-        </p>
-      )}
-
-      {!carregando &&
-        !erro &&
-        estruturaSelecionada && (
-        <section className="estrutura-curricular">
-          <div className="estrutura-curricular-cabecalho">
-            <h2>
-              Estrutura curricular
-            </h2>
-
-            <div className="estrutura-selector">
-              <label htmlFor="estrutura">
-                Estrutura
-              </label>
-
-              <select
-                id="estrutura"
-                value={
-                  estruturaSelecionadaId ??
-                  ''
-                }
-                onChange={(event) =>
-                  setEstruturaSelecionadaId(
-                    event.target.value,
-                  )
-                }
-              >
-                {estruturasOrdenadas.map(
-                  (estrutura, indice) => (
-                    <option
-                      key={estrutura.id}
-                      value={estrutura.id}
-                    >
-                      {gerarRotuloEstrutura(
-                        estrutura,
-                        indice,
-                        estruturasOrdenadas,
-                      )}
-                    </option>
-                  ),
-                )}
-              </select>
-            </div>
-
-            <p>
-              Matriz{' '}
-              {estruturaSelecionada.codigo}
-              {' • '}
-              criada em{' '}
-              {
-                estruturaSelecionada
-                  .ano_criacao
-              }
-            </p>
-
-            <p>
-              {
-                estruturaSelecionada
-                  .quantidade_obrigatorias
-              }{' '}
-              obrigatórias
-              {' • '}
-              {
-                estruturaSelecionada
-                  .quantidade_optativas
-              }{' '}
-              optativas
-            </p>
-          </div>
-
-          <div className="niveis-curriculo">
-            {Object.entries(
-              obrigatoriasPorNivel,
-            )
-              .sort(
-                ([nivelA], [nivelB]) =>
-                  Number(nivelA) -
-                  Number(nivelB),
-              )
-              .map(
-                ([
-                  nivel,
-                  componentes,
-                ]) => (
-                  <div
-                    className="nivel-curriculo"
-                    key={nivel}
-                  >
-                    <h3>
-                      {nivel}º período
-                    </h3>
-
-                    <div className="componentes-curriculo">
-                      {componentes.map(
-                        (componente) => (
-                          <div
-                            className="componente-curricular"
-                            key={[
-                              componente.codigo,
-                              nivel,
-                            ].join('-')}
-                          >
-                            <div>
-                              <strong>
-                                {
-                                  componente
-                                    .codigo
-                                }
-                                {' — '}
-                                {
-                                  componente
-                                    .nome
-                                }
-                              </strong>
-
-                              <span>
-                                {
-                                  componente
-                                    .carga_horaria
-                                }
-                                h
-                              </span>
-                            </div>
-
-                            {componente
-                              .pre_requisitos_expressao && (
-                              <p>
-                                Pré-requisito:{' '}
-                                {
-                                  componente
-                                    .pre_requisitos_expressao
-                                }
-                              </p>
-                            )}
-                          </div>
-                        ),
-                      )}
-                    </div>
-                  </div>
-                ),
-              )}
-          </div>
-
-          {optativas.length > 0 && (
-            <div className="nivel-curriculo">
-              <h3>
-                Optativas
-              </h3>
-
-              <div className="componentes-curriculo">
-                {optativas.map(
-                  (componente) => (
-                    <div
-                      className="componente-curricular componente-curricular-optativa"
-                      key={[
-                        componente.codigo,
-                        'optativa',
-                      ].join('-')}
-                    >
-                      <div>
-                        <strong>
-                          {componente.codigo}
-                          {' — '}
-                          {componente.nome}
-                        </strong>
-
-                        <span>
-                          {
-                            componente
-                              .carga_horaria
-                          }
-                          h
-                        </span>
-                      </div>
-
-                      {componente
-                        .pre_requisitos_expressao && (
-                        <p>
-                          Pré-requisito:{' '}
-                          {
-                            componente
-                              .pre_requisitos_expressao
-                          }
-                        </p>
-                      )}
-                    </div>
-                  ),
-                )}
-              </div>
-            </div>
-          )}
-        </section>
-      )}
-    </main>
-  )
+        <p>Matriz {estrutura.codigo} · criada em {estrutura.ano_criacao} · {estrutura.quantidade_obrigatorias} obrigatórias · {estrutura.quantidade_optativas} optativas</p>
+        <ExportacaoCurriculo key={`${modo}-${estrutura.id}-${perfil?.importadoEm ?? 'publico'}`} dados={exportacao} />
+      </div>
+      {lendoPerfil ? <p role="status">Verificando perfil acadêmico neste navegador…</p> : !perfil ? <aside className="curriculo-aviso" id="curriculo-vinculo-aviso">
+        <p>Importe seu histórico acadêmico para visualizar quais disciplinas você já concluiu e acompanhar seu progresso na graduação.</p><Link to="/historico">Importar meu histórico</Link>
+      </aside> : !compativel && <aside className="curriculo-aviso" id="curriculo-vinculo-aviso">
+        <p>{!proprioCurso ? 'O perfil não corresponde com segurança a este curso.' : vinculo?.candidatas.length === 0 ? 'A matriz registrada no histórico não foi encontrada neste catálogo.' : vinculo && vinculo.candidatas.length > 1 && !vinculo.estrutura ? 'Há mais de uma matriz com o código do histórico. Confirme explicitamente a estrutura vinculada ao documento.' : 'Esta estrutura é diferente da vinculada ao seu histórico.'} A consulta e a exportação originais continuam disponíveis.</p>
+        {proprioCurso && vinculo && vinculo.candidatas.length > 1 && !vinculo.estrutura && vinculo.candidatas.map(e => <button key={e.id} type="button" onClick={() => { setConfirmacao({ chavePerfil: chavePerfil!, estrutura: e.id }); selecionarEstrutura(e.id) }}>Confirmar matriz {e.codigo} · ID {e.id} · {e.ano_criacao}</button>)}
+        <Link to="/historico">Conferir meu histórico</Link>
+      </aside>}
+      {progresso && <><ResumoProgresso progresso={progresso} componentes={estrutura.componentes} emitidoEm={perfil!.emitidoEm} periodoReferencia={atual.periodo ?? null} /><LegendaProgresso /></>}
+      <div className="niveis-curriculo">{agruparComponentes(exportacao.linhas).map(grupo => <section className="nivel-curriculo" key={grupo.titulo} aria-label={grupo.titulo}>
+        <h3>{grupo.titulo}</h3>
+        {grupo.titulo === 'Optativas' && <p>Alternativas de escolha. A carga horária optativa exigida é a registrada oficialmente no histórico; não é necessário cursar todas as opções.</p>}
+        <div className="componentes-curriculo">{grupo.linhas.map(({ componente }) => <ComponenteCurriculoCard key={componente.codigo} componente={componente} situacao={progresso?.situacoes.get(componente.codigo)} />)}</div>
+      </section>)}</div>
+    </section>}
+    <p className="curriculo-nota">Projeto independente. A plataforma não substitui a validação curricular oficial da UFCA. <Link to="/privacidade">Privacidade e controle dos dados</Link>.</p>
+  </main>
 }
-
-export default CurriculoPage
