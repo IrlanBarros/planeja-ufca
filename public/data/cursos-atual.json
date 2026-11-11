@@ -3304,11 +3304,11 @@
               "dia_nome": "quinta-feira",
               "inicio": "10:00",
               "fim": "12:00",
-              "sala": "LAB K07S"
+              "sala": "sala A24-s"
             }
           ],
           "periodo": "2026.2",
-          "sala": "TER SALA A22 S E QUIN LAB K07S"
+          "sala": "TER SALA A22 S E QUIN sala A24-s"
         },
         {
           "codigo": "CC0007",
