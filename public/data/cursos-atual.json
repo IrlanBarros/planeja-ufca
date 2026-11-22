@@ -1,7 +1,7 @@
 {
   "periodo": "2027.1",
   "quantidade_cursos": 22,
-  "quantidade_turmas": 2,
+  "quantidade_turmas": 7,
   "cursos": [
     {
       "id": "628400",
@@ -96,8 +96,129 @@
       "nome": "INTELIGÊNCIA ARTIFICIAL",
       "sede": "Juazeiro do Norte",
       "modalidade": "Presencial",
-      "quantidade_turmas": 0,
-      "turmas": []
+      "quantidade_turmas": 5,
+      "turmas": [
+        {
+          "codigo": "IA0002",
+          "disciplina": "CÁLCULO DIFERENCIAL E INTEGRAL I",
+          "turma": "01",
+          "docente": "FELIPE ALVES REIS",
+          "vagas_reservadas": 40,
+          "horario_sigaa": "246T46",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": 6,
+              "dia_nome": "sexta-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "IA0005",
+          "disciplina": "ÉTICA EM INTELIGÊNCIA ARTIFICIAL",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "6T8  6N0",
+          "horarios": [
+            {
+              "dia": 6,
+              "dia_nome": "sexta-feira",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "IA0003",
+          "disciplina": "INTRODUÇÃO À INTELIGÊNCIA ARTIFICIAL",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "24T8  24N0",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "16:00",
+              "fim": "18:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "IA0001",
+          "disciplina": "INTRODUÇÃO À PROGRAMAÇÃO",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "35T8  35N0",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "16:00",
+              "fim": "18:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "IA0004",
+          "disciplina": "MATEMÁTICA DISCRETA",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 40,
+          "horario_sigaa": "35T46",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        }
+      ]
     },
     {
       "id": "32650450",
