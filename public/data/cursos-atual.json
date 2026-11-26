@@ -1,7 +1,7 @@
 {
   "periodo": "2027.1",
   "quantidade_cursos": 22,
-  "quantidade_turmas": 7,
+  "quantidade_turmas": 65,
   "cursos": [
     {
       "id": "628400",
@@ -80,8 +80,1203 @@
       "nome": "ENGENHARIA DE MATERIAIS",
       "sede": "Juazeiro do Norte",
       "modalidade": "Presencial",
-      "quantidade_turmas": 0,
-      "turmas": []
+      "quantidade_turmas": 53,
+      "turmas": [
+        {
+          "codigo": "EM0114",
+          "disciplina": "ADITIVAÇÃO DE POLÍMEROS",
+          "turma": "01",
+          "docente": "ANDRE WESLEY BARBOSA RODRIGUES",
+          "vagas_reservadas": 20,
+          "horario_sigaa": "46M68",
+          "horarios": [
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            },
+            {
+              "dia": 6,
+              "dia_nome": "sexta-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": "laboratório de polímeros - Bloco L"
+        },
+        {
+          "codigo": "EM0010",
+          "disciplina": "ALGEBRA LINEAR",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 50,
+          "horario_sigaa": "24T8  24N0 (08/03/2027 - 10/07/2027)",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "16:00",
+              "fim": "18:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0004",
+          "disciplina": "ALGEBRA VETORIAL E GEOMETRIA ANALITICA",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 55,
+          "horario_sigaa": "35M68",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0046",
+          "disciplina": "ARGILAS: PROPRIEDADES E USOS",
+          "turma": "01",
+          "docente": "ANA CANDIDA DE ALMEIDA PRADO",
+          "vagas_reservadas": 20,
+          "horario_sigaa": "35T46",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "CAR0001",
+          "disciplina": "CALCULO FUNDAMENTAL I",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 50,
+          "horario_sigaa": "24M24",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "CAR0004",
+          "disciplina": "CALCULO FUNDAMENTAL II",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 50,
+          "horario_sigaa": "24T46",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0014",
+          "disciplina": "CALCULO NUMERICO",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "23M68",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            },
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "CAR0005",
+          "disciplina": "CALCULO VETORIAL APLICADO",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 40,
+          "horario_sigaa": "35M24",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0033",
+          "disciplina": "CARACTERIZAÇÃO DE MATERIAIS",
+          "turma": "01A",
+          "docente": "MARIA ISABEL BRASILEIRO RODRIGUES",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "35M68",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": "SALA N03 - Bloco N"
+        },
+        {
+          "codigo": "EM0045",
+          "disciplina": "CERAMICAS REFRATARIAS",
+          "turma": "01",
+          "docente": "FRANCISCA MARIA MARTINS PEREIRA",
+          "vagas_reservadas": 20,
+          "horario_sigaa": "35M68",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0080",
+          "disciplina": "CIÊNCIA DOS MATERIAIS I",
+          "turma": "01",
+          "docente": "LAEDNA SOUTO NEIVA",
+          "vagas_reservadas": 40,
+          "horario_sigaa": "35M24",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0024",
+          "disciplina": "CIENCIA DOS MATERIAIS II",
+          "turma": "01",
+          "docente": "EDVANIA TRAJANO TEOFILO",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "24T8  24N0",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "16:00",
+              "fim": "18:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0093",
+          "disciplina": "COMPORTAMENTO MECÂNICO DE MATERIAIS",
+          "turma": "01",
+          "docente": "HILLANE MIRELLE LOPES FERREIRA DE LIMA OLIVEIRA",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "35M24",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0051",
+          "disciplina": "CORROSÃO DE MATERIAIS",
+          "turma": "01",
+          "docente": "MARCELO OLIVEIRA SANTIAGO",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "24T46",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0002",
+          "disciplina": "DESENHO TECNICO PARA ENGENHARIA DE MATERIAIS",
+          "turma": "01",
+          "docente": "LUCIMAR DA SILVA SANTIAGO",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "35T46",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0020",
+          "disciplina": "ELETROMAGNETISMO",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "35M24",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0100",
+          "disciplina": "ELETROTÉCNICA",
+          "turma": "01",
+          "docente": "CICERO MARCOS TAVARES CRUZ",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "2M24",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0092",
+          "disciplina": "ENGENHARIA AMBIENTAL",
+          "turma": "01",
+          "docente": "FRANCISCO JOSE DE PAULA FILHO",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "6M24",
+          "horarios": [
+            {
+              "dia": 6,
+              "dia_nome": "sexta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0096",
+          "disciplina": "ENSAIOS DE MATERIAIS",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "24T46",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0102",
+          "disciplina": "ERGONOMIA E SEGURANÇA NO TRABALHO",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "4M68",
+          "horarios": [
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0042",
+          "disciplina": "ESTRUTURA E PROPRIEDADE DE POLIMEROS",
+          "turma": "01",
+          "docente": "WENDELL BRUNO ALMEIDA BEZERRA",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "24M68",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0038",
+          "disciplina": "ETICA E LEGISLAÇÃO",
+          "turma": "01",
+          "docente": "JOAO ADOLFO RIBEIRO BANDEIRA",
+          "vagas_reservadas": 20,
+          "horario_sigaa": "3T8  3N0",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0030",
+          "disciplina": "FENÔMENOS DE TRANSFERÊNCIA",
+          "turma": "01",
+          "docente": "CAROLINE VIEIRA GONCALVES",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "35M68",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0083",
+          "disciplina": "FÍSICA EXPERIMENTAL I",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "5T46",
+          "horarios": [
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0078",
+          "disciplina": "FÍSICA FUNDAMENTAL I",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 40,
+          "horario_sigaa": "46M24",
+          "horarios": [
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": 6,
+              "dia_nome": "sexta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0015",
+          "disciplina": "FISICA FUNDAMENTAL II",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "24T46",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0060",
+          "disciplina": "FORMAÇÃO DE EMPREENDEDORES",
+          "turma": "01",
+          "docente": "MARCUS VINICIUS DE OLIVEIRA BRASIL",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "2M24",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0101",
+          "disciplina": "FUNDAMENTOS DA ECONOMIA",
+          "turma": "01",
+          "docente": "MARCUS VINICIUS DE OLIVEIRA BRASIL",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "2M68",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0099",
+          "disciplina": "FUNDAMENTOS DE ADMINISTRAÇÃO",
+          "turma": "01",
+          "docente": "MARCUS VINICIUS DE OLIVEIRA BRASIL",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "4M68",
+          "horarios": [
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0079",
+          "disciplina": "INTRODUÇÃO À ENGENHARIA DE MATERIAIS",
+          "turma": "01",
+          "docente": "ANDRE WESLEY BARBOSA RODRIGUES",
+          "vagas_reservadas": 40,
+          "horario_sigaa": "6M24",
+          "horarios": [
+            {
+              "dia": 6,
+              "dia_nome": "sexta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0019",
+          "disciplina": "MATEMATICA APLICADA",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 40,
+          "horario_sigaa": "35T46",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0086",
+          "disciplina": "MATERIAIS CERÂMICOS",
+          "turma": "01",
+          "docente": "ANA CANDIDA DE ALMEIDA PRADO",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "24T46",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0097",
+          "disciplina": "MATERIAIS COMPÓSITOS",
+          "turma": "01",
+          "docente": "WENDELL BRUNO ALMEIDA BEZERRA",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "35M24",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0088",
+          "disciplina": "MATERIAIS METÁLICOS",
+          "turma": "01",
+          "docente": "CARLOS MARLEY DE SOUZA JUNIOR",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "35M24",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0087",
+          "disciplina": "MATERIAIS POLIMÉRICOS",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "35M68",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0017",
+          "disciplina": "MECANICA GERAL",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "46M68",
+          "horarios": [
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            },
+            {
+              "dia": 6,
+              "dia_nome": "sexta-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0098",
+          "disciplina": "MÉTODOS E TÉCNICAS DE PESQUISA",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "2M68",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "CAR0003",
+          "disciplina": "PROBABILIDADE E ESTATÍSTICA",
+          "turma": "01",
+          "docente": "FRANCISCO ALIXANDRE AVILA RODRIGUES",
+          "vagas_reservadas": 50,
+          "horario_sigaa": "35T46",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0090",
+          "disciplina": "PROCESSAMENTO DE MATERIAIS CERÂMICOS",
+          "turma": "01",
+          "docente": "MARIA ISABEL BRASILEIRO RODRIGUES",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "24M24",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": "SALA N03 - Bloco N e laboratorio de ceramica"
+        },
+        {
+          "codigo": "EM0095",
+          "disciplina": "PROCESSAMENTO DE MATERIAIS METÁLICOS",
+          "turma": "01",
+          "docente": "HILLANE MIRELLE LOPES FERREIRA DE LIMA OLIVEIRA",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "24M24",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0050",
+          "disciplina": "PROCESSAMENTO DE MATERIAIS POLIMÉRICOS",
+          "turma": "01",
+          "docente": "ANDRE WESLEY BARBOSA RODRIGUES",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "35T46",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": "laboratório de polímeros - Bloco L"
+        },
+        {
+          "codigo": "EM0084",
+          "disciplina": "PROGRAMAÇÃO COMPUTACIONAL",
+          "turma": "01",
+          "docente": "LASZLON RODRIGUES DA COSTA",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "24M68",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0052",
+          "disciplina": "PROPRIEDADES DOS MATERIAIS CERÂMICOS",
+          "turma": "01",
+          "docente": "FRANCISCA MARIA MARTINS PEREIRA",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "24M68",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0009",
+          "disciplina": "QUIMICA DOS MATERIAIS",
+          "turma": "01",
+          "docente": "LEDJANE LIMA SOBRINHO",
+          "vagas_reservadas": 20,
+          "horario_sigaa": "35M24",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0077",
+          "disciplina": "QUÍMICA EXPERIMENTAL",
+          "turma": "01",
+          "docente": "ROSIANE MARIA DA COSTA FARIAS",
+          "vagas_reservadas": 20,
+          "horario_sigaa": "2T46",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": "LABORATÓRIO DE QUÍMICA - BLOCO B"
+        },
+        {
+          "codigo": "EM0077",
+          "disciplina": "QUÍMICA EXPERIMENTAL",
+          "turma": "02",
+          "docente": "ROSIANE MARIA DA COSTA FARIAS",
+          "vagas_reservadas": 20,
+          "horario_sigaa": "2T8  2N0",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": "LABORATÓRIO DE QUÍMICA - BLOCO B"
+        },
+        {
+          "codigo": "EM0076",
+          "disciplina": "QUÍMICA GERAL PARA ENGENHARIA",
+          "turma": "01",
+          "docente": "ROSIANE MARIA DA COSTA FARIAS",
+          "vagas_reservadas": 40,
+          "horario_sigaa": "35M24",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0085",
+          "disciplina": "QUÍMICA INSTRUMENTAL",
+          "turma": "01",
+          "docente": "FRANCISCO JOSE DE PAULA FILHO",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "6T468  6N0",
+          "horarios": [
+            {
+              "dia": 6,
+              "dia_nome": "sexta-feira",
+              "inicio": "14:00",
+              "fim": "18:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0089",
+          "disciplina": "RESISTÊNCIA DOS MATERIAIS",
+          "turma": "01",
+          "docente": "FRANCISCO ALEX CORREIA MONTEIRO",
+          "vagas_reservadas": 25,
+          "horario_sigaa": "35T8  35N0",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "16:00",
+              "fim": "18:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "16:00",
+              "fim": "18:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0022",
+          "disciplina": "TERMODINÂMICA DE SÓLIDOS",
+          "turma": "01",
+          "docente": "CAROLINE VIEIRA GONCALVES",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "24M24",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0105",
+          "disciplina": "TÓPICOS ESPECIAIS EM: SÍNTESE DE CERÂMICAS AVANÇADAS",
+          "turma": "01",
+          "docente": "LAEDNA SOUTO NEIVA",
+          "vagas_reservadas": 20,
+          "horario_sigaa": "24M24",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            },
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "08:00",
+              "fim": "10:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0091",
+          "disciplina": "TRANSFORMAÇÕES DE FASES EM METAIS",
+          "turma": "01",
+          "docente": "EDVANIA TRAJANO TEOFILO",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "35T46",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "14:00",
+              "fim": "16:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "EM0043",
+          "disciplina": "TRATAMENTOS TERMICOS E TERMOQUIMICOS",
+          "turma": "01",
+          "docente": "CARLOS MARLEY DE SOUZA JUNIOR",
+          "vagas_reservadas": 30,
+          "horario_sigaa": "35M68",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            },
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "10:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        }
+      ]
     },
     {
       "id": "35137411",
@@ -233,8 +1428,99 @@
       "nome": "CINEMA E AUDIOVISUAL",
       "sede": "Juazeiro do Norte",
       "modalidade": "Presencial",
-      "quantidade_turmas": 0,
-      "turmas": []
+      "quantidade_turmas": 5,
+      "turmas": [
+        {
+          "codigo": "CINE0001",
+          "disciplina": "CINEMA E EDUCAÇÃO",
+          "turma": "01",
+          "docente": "RODRIGO CAPISTRANO CAMURCA",
+          "vagas_reservadas": 35,
+          "horario_sigaa": "6M2468",
+          "horarios": [
+            {
+              "dia": 6,
+              "dia_nome": "sexta-feira",
+              "inicio": "08:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": "UFCA"
+        },
+        {
+          "codigo": "CINE0002",
+          "disciplina": "CULTURA VISUAL",
+          "turma": "01",
+          "docente": "RICARDO RIGAUD SALMITO",
+          "vagas_reservadas": 35,
+          "horario_sigaa": "4M2468",
+          "horarios": [
+            {
+              "dia": 4,
+              "dia_nome": "quarta-feira",
+              "inicio": "08:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": "UFCA"
+        },
+        {
+          "codigo": "CINE0005",
+          "disciplina": "EDUCAÇÃO, PODER E SOCIEDADE",
+          "turma": "01",
+          "docente": "",
+          "vagas_reservadas": 35,
+          "horario_sigaa": "3M2468",
+          "horarios": [
+            {
+              "dia": 3,
+              "dia_nome": "terça-feira",
+              "inicio": "08:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": null
+        },
+        {
+          "codigo": "CINE0003",
+          "disciplina": "LINGUAGEM E HISTÓRIA DO CINEMA E DO AUDIOVISUAL",
+          "turma": "01",
+          "docente": "RODRIGO CAPISTRANO CAMURCA",
+          "vagas_reservadas": 35,
+          "horario_sigaa": "2M2468",
+          "horarios": [
+            {
+              "dia": 2,
+              "dia_nome": "segunda-feira",
+              "inicio": "08:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": "UFCA"
+        },
+        {
+          "codigo": "CINE0004",
+          "disciplina": "OFICINA DE CRIAÇÃO: ESCRITAS AUDIOVISUAIS",
+          "turma": "01",
+          "docente": "ISADORA MENESES RODRIGUES",
+          "vagas_reservadas": 35,
+          "horario_sigaa": "5M2468",
+          "horarios": [
+            {
+              "dia": 5,
+              "dia_nome": "quinta-feira",
+              "inicio": "08:00",
+              "fim": "12:00"
+            }
+          ],
+          "periodo": "2027.1",
+          "sala": "UFCA"
+        }
+      ]
     },
     {
       "id": "628406",
